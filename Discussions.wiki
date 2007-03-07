@@ -1,0 +1,5 @@
+#summary Tesseract Discussions
+
+= Introduction =
+
+Google code hosting doesn't have a "forum" in the same sense SourceForge had, but please feel free to create pages under this one for discussing issues related to Tesseract.
