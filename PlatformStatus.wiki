@@ -4,6 +4,8 @@
 
 == Ubuntu 6.10 ==
 
+== RedHat 9 ==
+
 == Fedora ==
 
 == Cygwin ==
@@ -17,4 +19,3 @@
 == OS X 10.4 ==
 
 == BSD ==
-
