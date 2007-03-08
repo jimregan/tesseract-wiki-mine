@@ -1,0 +1,20 @@
+#summary status of Tesseract on various platforms, and interested people
+
+== Ubuntu 6.06 ==
+
+== Ubuntu 6.10 ==
+
+== Fedora ==
+
+== Cygwin ==
+
+== Windows Vista ==
+
+== Windows XP ==
+
+== Sun Solaris 10 ==
+
+== OS X 10.4 ==
+
+== BSD ==
+
