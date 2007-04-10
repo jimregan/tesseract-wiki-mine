@@ -1,0 +1,33 @@
+#summary Installing Tesseract from SVN
+
+= Installing Without Autoconf Tools =
+
+You may be able to simply install the SVN version of Tesseract by using:
+
+{{{
+    svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
+    ./configure
+    make
+    make install
+}}}
+
+= Installing With Autoconf Tools =
+
+In order to do this, you must have aclocal, autoheader, autoconf, and automake installed.  
+
+On Debian or Ubuntu, you can probably do that with:
+
+{{{
+    apt-get install autoconf automake
+}}}
+
+Afterwards, the steps for installing the SVN version of Tesseract, do this:
+
+{{{
+    svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
+    cd tesseract-ocr
+    ./runautoconf
+    ./configure
+    make
+    make install
+}}}
