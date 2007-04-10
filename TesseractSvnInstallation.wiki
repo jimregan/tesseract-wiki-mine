@@ -1,4 +1,6 @@
-#summary Installing Tesseract from SVN
+#summary Installing Tesseract from Subversion
+
+These are instructions for installing Tesseract from the Subversion repository.  You need to do that right now if you want to build OCRopus.  For other purposes, you may simply want to download a tar ball.
 
 = Installing Without Autoconf Tools =
 
@@ -10,6 +12,10 @@ You may be able to simply install the SVN version of Tesseract by using:
     make
     make install
 }}}
+
+However, this may also fail (we're occasionally generating the ./configure script and checking it in, but we're not testing it very much).  
+
+If it fails, you should generate your own configure script from autoconf tools, as described in the next section.
 
 = Installing With Autoconf Tools =
 
