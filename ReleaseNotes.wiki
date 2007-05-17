@@ -12,7 +12,7 @@ Added a dll interface for windows. Thanks to Glen at Jetsoft for contributing
 this. To use the dll, include tessdll.h, import tessdll.lib and put tessdll.dll
 somewhere where the system can find it. There is also a small dlltest program
 to test the dll. Run with:
-=dlltest phototest.tif phototest.txt=
+dlltest phototest.tif phototest.txt
 It will output the text from phototest.tif with bounding box information.
 *New for Windows* the distribution now includes tesseract.exe and tessdll.dll
 which *might* work out of the box! There are no guarantees as you need
