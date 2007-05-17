@@ -8,6 +8,7 @@ This page keeps the most up-to-date release notes.
 = Tesseract release notes May 15, 2007 - V1.04. =
 
 *Windows users only*
+
 Added a dll interface for windows. Thanks to Glen at Jetsoft for contributing
 this. To use the dll, include tessdll.h, import tessdll.lib and put tessdll.dll
 somewhere where the system can find it. There is also a small dlltest program
@@ -17,13 +18,16 @@ dlltest phototest.tif phototest.txt
 }}}
 It will output the text from phototest.tif with bounding box information.
 
-*New for Windows* the distribution now includes tesseract.exe and tessdll.dll
+*New for Windows*
+
+The distribution now includes tesseract.exe and tessdll.dll
 which *might* work out of the box! There are no guarantees as you need
 VC++6 versions of mfc and crt (at least) for it to work. (Batteries not
 included, and certainly no installshield.)
 
 *Important note for anyone building with make: i.e. anyone except devstudio
 users*
+
 This release includes new standardization for the data directory. To enable
 Tesseract to find its data files, you must either:
 {{{
@@ -37,9 +41,11 @@ export TESSDATA_PREFIX="directory in which your tessdata resides/"
 }}}
 (or equivalent) in your .profile or whatever or setenv to set the environment
 variable. Note that the directory must end in a /
+
 *HAVING tesseract and tessdata IN THE SAME DIRECTORY DOES NOT WORK ANY MORE.*
 
 *All users*
+
 Fixed a bunch of name collisions - mostly with stl.
 Made some preliminary changes for unicode compatibility. Includes a new data
 file (unicharset) and renaming of the other data files to eng.* to support
