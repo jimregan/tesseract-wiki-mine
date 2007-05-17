@@ -21,9 +21,9 @@ limitations under the License.
 
 = Other Dependencies and Licenses =
 
-Add your content here.  Format your content with:
   * The Aspirin/MIGRAINES system is no longer required.
   * Tesseract can also make use of the libtiff library. (www.libtiff.org)
+
 Without libtiff, Tesseract can only read uncompressed and G3 compressed
 TIFF files.
 
@@ -100,7 +100,6 @@ to move the data files to the standard place, or:
 {{{
 export TESSDATA_PREFIX="directory in which your tessdata resides/"
 }}}
-
 
 
 
