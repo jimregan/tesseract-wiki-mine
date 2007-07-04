@@ -1,0 +1,144 @@
+#summary How to use the tools provided to train Tesseract for a new language.
+
+= Introduction =
+
+*Note* This page is under construction! Tesseract 2.0 is not out yet, but it will be soon. Watch this space!
+
+Tesseract 2.0 is fully trainable. This page describes the training process, provides some guidelines on applicability to various languages, and what to expect from the results.
+
+
+= Background and Limitations =
+
+Tesseract was originally designed to recognize English text only. Efforts have been made to modify the engine and its training system to make them able to deal with other languages and UTF-8 characters. Tesseract 2.0 can handle any Unicode characters (coded with UTF-8), but there are limits as to the range of languages that it will be successful with, so please take this section into account before building up your hopes that it will work well on your particular language!
+
+Tesseract can only handle left-to-right languages. While you can get something out with a right-to-left language, the output file will be ordered as if the text were left-to-right. Top-to-bottom languages will currently be hopeless.
+
+Tesseract is unlikely to be able to handle connected scripts like Arabic. It will take some specialized algorithms to handle this case, and right now it doesn't have them.
+
+Tesseract is likely to be so slow with large character set languages (like Chinese) that it is probably not going to be useful. There also still need to be some code changes to accommodate languages with more than 256 characters.
+
+Any language that has different punctuation and numbers is going to be disadvantaged by some of the hard-coded algorithms that assume ASCII punctuation and digits.
+
+= Data files required =
+
+To train for another language, you have to create 8 data files in the `tessdata` subdirectory. The naming convention is `languagecode.file_name` Language codes follow the ISO 639-2 standard. The 8 files used for English are:
+  * `tessdata/eng.freq-dawg`
+  * `tessdata/eng.word-dawg`
+  * `tessdata/eng.user-words`
+  * `tessdata/eng.inttemp`
+  * `tessdata/eng.normproto`
+  * `tessdata/eng.pffmtable`
+  * `tessdata/eng.unicharset`
+  * `tessdata/eng.DangAmbigs`
+
+= Training Procedure =
+
+Some of the procedure is inevitably manual. As much automated help as possible is provided. More automated tools may appear in the future. The tools referenced below are all built in the training subdirectory.
+
+== Generate Training Images ==
+
+The first step is to determine the full character set to be used, and prepare a text or word processor file containing a set of examples. The most important points to bear in mind when creating a training file are:
+  * Make sure there are a minimum number of samples of each character. 10 is good, but 5 is OK for rare characters.
+  * There should be more samples of the more frequent characters - at least 20.
+  * Don't make the mistake of grouping all the non-letters together. For example, *The quick brown fox jumps over the lazy dog. 0123456789 !@#$%^&(),.[]{}<>/?* is terrible. Much better is *The (quick) [brown] {fox} jumps! over the $3,456.78 <lazy> #90 dog & duck/goose, as 12.5% of E-mail from aspammer@website.com is spam?* This gives the textline finding code a much better chance of getting sensible baseline metrics for the special characters.
+  * It is a good idea to space out the text a bit when printing, so up the inter-character and inter-line spacing in your word processor.
+  * The training data currently needs to fit on a single page.
+  * There is no need to train with multiple sizes. 10 point will do.
+
+Next print and scan (or use some electronic rendering method) to create an image of your training page. Upto 32 training pages can be used. It is best to create pages in a mix of fonts and styles, including italic and bold.
+
+You will also need to save your training page as a UTF-8 text file for use in the next step where you have to insert the codes into another file.
+
+== Make Box Files ==
+
+Run Tesseract on each of your training images using this command line:
+{{{
+tesseract fontfile.tif fontfile batch.nochop makebox
+}}}
+
+You then have to rename `fontfile.txt` to `fontfile.box`.
+Now the hard part. You have to edit the file fontfile.box and put the UTF-8 codes for each character in the file at the start of each line, in place of the incorrect character put there by Tesseract. In theory, each line in the box file should represent one of the characters from your training file, but if you have a horizontally broken character, such as the lower double quote ,, it will probably have 2 boxes that need to be merged! If you didn't sucessfully space out the characters on the training image, some may have been joined into a single box. In this case, you can put both characters on the single line, or remake the images and start again with better spacing.
+
+*Note* that the coordinate system used in the box file has (0,0) at the bottom-left.
+
+If you have an editor that understands UTF-8, this process will be a lot easier than if it doesn't, as each UTF-8 character has upto 4 bytes to code it, and dumb editors will show you all the bytes separately.
+
+*Example needed!*
+
+== Run Tesseract for Training ==
+
+For each of your training image, boxfile pairs, run Tesseract in training mode:
+{{{
+tesseract fontfile.tif fontfile nobatch box.train
+}}}
+
+Note that the box filename must match the tif filename, or Tesseract won't find it. The output of this step is `fontfile.tr` which contains the features of each character of the training page.
+
+== Clustering ==
+
+When the character features of all the training pages have been extracted, we need to cluster them to create the prototypes. The character shape features can be clustered using the `mftraining` and `cntraining` programs:
+
+{{{
+mftraining fontfile_1.tr fontfile_2.tr ...
+}}}
+
+This will output two data files: `inttemp` (the shape prototypes) and `pffmtable` (the number of expected features for each character).
+
+{{{
+cntraining fontfile_1.tr fontfile_2.tr ...
+}}}
+
+This will output the `normproto` data file (the character normalization sensitivity prototypes).
+
+== Compute the Character Set =
+
+Tesseract needs to know the set of possible characters it can output. To generate the `unicharset` data file, use the `unicharset_extractor` program on the training pages bounding box files:
+
+{{{
+unicharset_extractor fontfile_1.box fontfile_2.box ...
+}}}
+
+Tesseract needs to have access to character properties isalpha, isdigit, isupper, islower. This data must be encoded in the `unicharset` data file. Each line of this file corresponds to one character. The character in UTF-8 is followed by a hexadecimal number representing a binary mask that encodes the properties. Each bit corresponds to a property. If the bit is set to 1, it means that the property is satisfied. The bit ordering is (from least significant bit to most significant bit): isalpha, islower, isupper, isdigit.
+
+Example:
+
+  * ';' is not an alphabetic character, a lower case character, an upper case character nor a digit. Its properties are thus represented by the binary number 0000 (0 in hexadecimal).
+  * 'b' is an alphabetic character and a lower case character. Its properties are thus represented by the binary number 0011 (3 in hexadecimal).
+  * 'W' is an alphabetic character and an upper case character. Its properties are thus represented by the binary number 0101 (5 in hexadecimal).
+  * '7' is just a digit. Its properties are thus represented by the binary number 1000 (8 in hexadecimal).
+
+{{{
+; 0
+b 3
+W 5
+7 8
+}}}
+
+The unicharset file must be edited by hand to add these property description codes.
+
+== Dictionary Data ==
+
+Tesseract uses 3 dictionary files for each language. Two of the files are coded as a Directed Acyclic Word Graph (DAWG), and the other is a plain UTF-8 text file. To make the DAWG dictionary files, you first need a wordlist for your language. The wordlist is formatted as a UTF-8 text file with one word per line. Split the wordlist into two sets: the frequent words, and the rest of the words, and then use `wordlist2dawg` to make the DAWG files:
+
+{{{
+wordlist2dawg frequent_words_dictionary_file freq-dawg
+wordlist2dawg words_dictionary_file word-dawg
+}}}
+
+The third dictionary file is called user-words and is usually empty.
+
+== The last file ==
+
+The final data file that Tesseract uses is called DangAmbigs. It represents the intrinsic ambiguity between characters or sets of characters, and is currently entirely manually generated. To understand the file format, look at the following example:
+
+{{{
+1       m       2       r n
+3       i i i   1       m
+}}}
+
+The first field is the number of characters in the second field. The 3rd field is the number of characters in the 4th field. As with the other files, this is a UTF-8 format file, and therefore each character may be represented by multiple bytes. The first line shows that the pair 'rn' may sometimes be recognized incorrectly as 'm'. The second line shows that the character 'm' may sometimes be recognized incorrectly as the sequence 'iii'
+
+
+
+
+
