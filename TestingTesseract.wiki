@@ -7,6 +7,10 @@ See http://www.isri.unlv.edu/downloads/AT-1995.pdf. The main purpose of providin
 
 Note that *some* architecture-specific variation is bound to occur. Most of these should be caused by varying treatment and optimization of floating-point arithmetic between compilers. It is also possible of course that there are memory initialization errors that show up as differences between architectures, but we claim to have found most of these already in the unicodeization process.
 
+= Caveat =
+
+You *must* include libtiff in your build to be able to run these tests, as the UNLV images are G4 compressed. Another alternative would be to hack the reorgdata.sh script to convert all the images to uncompressed as it copies them, but that will take significantly more disk space.
+
 = Downloading the images from UNLV =
 
 The current scripts only cover tests of the 3b, Bb, Mb and Nb test sets. The adaptive thresholding in the open-source Tesseract is not the same as in the original as the original adaptive thresholding was not included in the open source release, so the 8 bit grey image tests would not compare correctly, and the other resolutions, while interesting, do not really serve a useful regression testing purpose.
@@ -40,5 +44,4 @@ testing/runalltests.sh /users/me/ISRI-OCRtk tess2.0
 and go to the gym, have lunch etc.
 
 When complete, there should be a file `testing/reports/tess2.0.summary` that contains the final summarized accuracy report and comparison with the 1995 results.
-
 
