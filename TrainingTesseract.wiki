@@ -140,10 +140,10 @@ If you have an editor that understands UTF-8 (like a web browser), this process 
 
 For each of your training image, boxfile pairs, run Tesseract in training mode:
 {{{
-tesseract fontfile.tif fontfile nobatch box.train
+tesseract fontfile.tif junk nobatch box.train
 }}}
 
-Note that the box filename must match the tif filename, or Tesseract won't find it. The output of this step is `fontfile.tr` which contains the features of each character of the training page.
+Note that the box filename must match the tif filename, including the path, or Tesseract won't find it. The output of this step is `fontfile.tr` which contains the features of each character of the training page. Note also that the output name is derived from the input image name, not the normal output name, shown here as `junk`. junk.txt will also be written with a single newline and no text.
 
 == Clustering ==
 
@@ -153,7 +153,7 @@ When the character features of all the training pages have been extracted, we ne
 mftraining fontfile_1.tr fontfile_2.tr ...
 }}}
 
-This will output two data files: `inttemp` (the shape prototypes) and `pffmtable` (the number of expected features for each character).
+This will output two data files: `inttemp` (the shape prototypes) and `pffmtable` (the number of expected features for each character). (A third file called `Microfeat` is also written by this program, but it is not used.)
 
 {{{
 cntraining fontfile_1.tr fontfile_2.tr ...
@@ -169,7 +169,7 @@ Tesseract needs to know the set of possible characters it can output. To generat
 unicharset_extractor fontfile_1.box fontfile_2.box ...
 }}}
 
-Tesseract needs to have access to character properties isalpha, isdigit, isupper, islower. This data must be encoded in the `unicharset` data file. Each line of this file corresponds to one character. The character in UTF-8 is followed by a hexadecimal number representing a binary mask that encodes the properties. Each bit corresponds to a property. If the bit is set to 1, it means that the property is satisfied. The bit ordering is (from least significant bit to most significant bit): isalpha, islower, isupper, isdigit.
+Tesseract needs to have access to character properties isalpha, isdigit, isupper, islower. This data must be encoded in the `unicharset` data file. Each line of this file corresponds to one character. The character in UTF-8 is followed by a hexadecimal number representing a binary mask that encodes the properties. Each bit corresponds to a property. If the bit is set to 1, it means that the property is true. The bit ordering is (from least significant bit to most significant bit): isalpha, islower, isupper, isdigit.
 
 Example:
 
@@ -192,8 +192,8 @@ The unicharset file must be edited by hand to add these property description cod
 Tesseract uses 3 dictionary files for each language. Two of the files are coded as a Directed Acyclic Word Graph (DAWG), and the other is a plain UTF-8 text file. To make the DAWG dictionary files, you first need a wordlist for your language. The wordlist is formatted as a UTF-8 text file with one word per line. Split the wordlist into two sets: the frequent words, and the rest of the words, and then use `wordlist2dawg` to make the DAWG files:
 
 {{{
-wordlist2dawg frequent_words_dictionary_file freq-dawg
-wordlist2dawg words_dictionary_file word-dawg
+wordlist2dawg frequent_words_list freq-dawg
+wordlist2dawg words_list word-dawg
 }}}
 
 The third dictionary file is called user-words and is usually empty.
@@ -211,7 +211,11 @@ The first field is the number of characters in the second field. The 3rd field i
 
 The DangAmbigs file may also be empty.
 
+= Putting it all together =
 
-
+That is all there is to it! All you need to do now is collect together all 8 files and rename them with a `lang.` prefix, where lang is the 3-letter code for your language taken from http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes and put them in your tessdata directory. Tesseract can then recognize text in your language (in theory) with the following:
+{{{
+tesseract image.tif output -l lang
+}}}
 
 
