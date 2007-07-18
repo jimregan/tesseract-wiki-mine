@@ -34,18 +34,24 @@ at Hewlett Packard Co, Greeley Colorado between 1985 and 1994, with some
 more changes made in 1996 to port to Windows, and some C++izing in 1998.
 A lot of the code was written in C, and then some more was written in C++.
 Since then all the code has been converted to at least compile with a C++
-compiler. Currently it builds under Linux with gcc2.95 and under Windows
-with VC++6. The C++ code makes heavy use of a list system using macros.
-This predates stl, was portable before stl, and is more efficent than stl
+compiler. Currently it builds under Linux with gcc4.0, gcc4.1 and under Windows
+with VC++6 and VC++Express. The C++ code makes heavy use of a list system using macros.
+This predates stl, was portable before stl, and is more efficient than stl
 lists, but has the big negative that if you do get a segmentation violation,
 it is hard to debug. Another "feature" of the C/C++ split is that the C++
 data structures get converted to C data structures to call the low-level C
 code. This is ugly, and the C++izing of the C code is a step towards
 eliminating the conversion, but it has not happened yet.
 
+The most recent change is that Tesseract can now recognize 6 languages, is fully UTF8 capable, and is fully trainable. See TrainingTesseract for more information on training.
+
+Tesseract was included in UNLV's Fourth Annual Test of OCR Accuracy. See http://www.isri.unlv.edu/downloads/AT-1995.pdf. With Tesseract 2.00, scripts are now included to allow anyone to reproduce some of these tests. See TestingTesseract for more details.
+
 = Directory Structure (ordered by dependency): =
 {{{
 ccmain     Top-level code. The main program resides in tesseractmain.cpp.
+training   Top-level code for training tools.
+testing    Set of testing scripts and root of hierarchy of results and error reports.
 display    An "editor" to view and operate on the internal structures.
            (Requires a working viewer - batteries not included.)
 wordrec    The word-level recognizer.
@@ -67,27 +73,56 @@ This code is a raw OCR engine. It has *NO PAGE LAYOUT ANALYSIS, NO OUTPUT
 FORMATTING, and NO UI.* It can only process an image of a single column
 and create text from it. It can detect fixed pitch vs proportional text.
 Having said that, in 1995, this engine was in the top 3 in terms of character
-accuracy, and it compiles and runs on both Linux and Windows. Another current
-limitation is that it only recognizes English and its character set is only
-US-ASCII. Training code IS included in the open source release however, and
-will be included in a future release. Internationalization is an active project
-and a multilingual Tesseract will be available before long.
+accuracy, and it compiles and runs on both Linux and Windows. Training code IS included in the open source release however, and is now included for those willing to try. 
 
 = Using the Engine =
 
-*Windows:*
+== All Users ==
 
-The executable must reside in the same directory as the tessdata directory
+The tarballs are split into pieces.
+
+`tesseract-2.00.tar.gz` contains all the source code.
+
+`tesseract-2.00.<lang>.tar.gz` contains the data files for <lang>. You need at least one of these or tesseract will not work.
+
+Note that `tesseract-2.00.tar.gz` unpacks to the `tesseract-2.00` directory. `tesseract-2.00.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your `tesseract-2.00` directory. It is therefore best to download them into your `tesseract-2.00` directory, so you can use unpack here or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files.
+
+`tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express (and the platform sdk) and build from the source.
+
+Instructions for using the training tools are documented separately at TrainingTesseract and for testing at TestingTesseract.
+
+==Windows:==
+
+The executable must reside in the same directory as the tessdata directory. (*NEW!* the Visual Studio projects build the release executable directly to the correct place!)
+
 The command line is:
 {{{
-tesseract <image.tif> <output>
+tesseract <image.tif> <output> [-l <langid>]
 }}}
 A windows executable (tesseract.exe) is included in the distribution, but
 may not work for you unless you also have the correct mfc and crt dlls.
 There is also a tessdll.dll, which you can use to run tesseract from your
 own program, but you may be better off building it yourself.
 
-*Non-Windows:*
+If you are building from the sources, there are still `.dsw` and `.dsp` files for vc++6 and
+also `.sln` and `.vcproj` files for VC++ Express.
+
+The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
+
+Libtiff support can be added in either VC++6 or VC++Express with the following:
+{{{
+Goto http://gnuwin32.sourceforge.net/packages/tiff.htm
+Download and run the setup program.
+Add the paths for include and library files in tools/options/directories
+Add HAVE_LIBTIFF to the preprocessor definitions.
+Add libtiff.lib to the list of libraries.
+Rebuild.
+Make libtiff3.dll be in your path somewhere.
+This is done by control panel/system/advanced/environment variables and adding c:/program files/gnuwin32/bin to PATH.
+Keep your fingers crossed...
+}}}
+
+==Non-Windows:==
 
 You have to tell Tesseract through a standard unix mechanism where to find
 its data directory. You must either:
@@ -99,6 +134,11 @@ make install
 to move the data files to the standard place, or:
 {{{
 export TESSDATA_PREFIX="directory in which your tessdata resides/"
+}}}
+
+In either case the command line is:
+{{{
+tesseract <image.tif> <output> [-l <langid>]
 }}}
 
 
