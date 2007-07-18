@@ -9,7 +9,9 @@ Note that *some* architecture-specific variation is bound to occur. Most of thes
 
 = Caveat =
 
-You *must* include libtiff in your build to be able to run these tests, as the UNLV images are G4 compressed. Another alternative would be to hack the reorgdata.sh script to convert all the images to uncompressed as it copies them, but that will take significantly more disk space.
+You *must* include libtiff in your build to be able to run these tests, as the UNLV images are G4 compressed. Linux users have libtiff included automatically in the build if it is installed. (sudo apt-get install libtiff4-dev is a possible incantation to install it.) On windows, follow the instructions in the ReleaseNotes wiki. Another alternative would be to hack the reorgdata.sh script to convert all the images to uncompressed as it copies them, but that will take significantly more disk space.
+
+Windows users also have to have some unix shell script capability, perhaps via cygwin or equivalent.
 
 = Downloading the images from UNLV =
 
