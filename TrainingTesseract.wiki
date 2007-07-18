@@ -2,8 +2,6 @@
 
 = Introduction =
 
-*Note* This page is under construction! Tesseract 2.0 is not out yet, but it will be soon. Watch this space!
-
 Tesseract 2.0 is fully trainable. This page describes the training process, provides some guidelines on applicability to various languages, and what to expect from the results.
 
 
@@ -217,5 +215,4 @@ That is all there is to it! All you need to do now is collect together all 8 fil
 {{{
 tesseract image.tif output -l lang
 }}}
-
 
