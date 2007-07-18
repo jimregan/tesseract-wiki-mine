@@ -4,6 +4,78 @@
 
 This page keeps the most up-to-date release notes.
 
+= Tesseract release notes Jul 17, 2007 - V2.00. =
+(See also release notes for 1.04 for additional usage information)
+
+First release of the International version.
+This version recognizes the following languages:
+  * English - eng
+  * French  - fra
+  * Italian - ita
+  * German  - deu
+  * Spanish - spa
+  * Dutch   - nld
+The language codes follow ISO 639-2. The default language is English.
+To recognize another language:
+{{{
+tesseract inputimage outputbase -l langcode
+}}}
+
+To train on a new language, see separate documentation.
+More languages will be appearing over time.
+
+List of changes in this release:
+  * Converted internal character handling to UTF8.
+  * Trained with 6 languages.
+  * Added unicharset_extractor, wordlist2dawg.
+  * Added boxfile creation mode.
+  * Added UNLV regression test capability.
+  * Fixed problems with copyright and registered symbols.
+  * Fixed extern "C" declarations problem.
+  * Made some improvements to consistency of accuracy across platforms.
+  * Added vc++ express support.
+
+==Instructions for downloading and building version 2.00.==
+Things have changed quite a bit since the previous versions so please read carefully.
+
+*All users*
+The tarballs are split into pieces.
+
+`tesseract-2.00.tar.gz` contains all the source code.
+
+`tesseract-2.00.<lang>.tar.gt` contains the data files for <lang>. You need at least one
+of these or tesseract will not work.
+
+`tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise get visual C++ express (and the platform sdk) and build from the source.
+
+*Non-windows users*
+As with 1.04, this version works with make install. <br>
+*New* there is a tesseract.spec for making rpms. (Thanks to Andrew Ziem for the help.)
+It might work with your OS if you know how to do that sort of thing.
+
+If you are linking to the libraries, as Ocropus does, there is now a single master
+library called libtesseract_full.a.
+
+Libtiff support should now be properly working via configure.
+
+*Windows users*
+If you are building from the sources, there are still dsw and dsp files for vc++6 and
+also sln and vcproj files for vc++ express.
+
+The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
+
+Libtiff support can be added in either VC++6 or VC++express with the following:
+{{{
+Goto http://gnuwin32.sourceforge.net/packages/tiff.htm
+Download and run the setup program.
+Add the paths for include and library files in tools/options/directories
+Add HAVE_LIBTIFF to the preprocessor definitions.
+Add libtiff.lib to the list of libraries.
+Rebuild.
+Make libtiff3.dll be in your path somewhere.
+This is done by control panel/system/advanced/environment variables and adding c:/program files/gnuwin32/bin to PATH.
+Keep your fingers crossed...
+}}}
 
 = Tesseract release notes May 15, 2007 - V1.04. =
 
@@ -58,3 +130,5 @@ NOTE: This is likely to be the last English-only release!
 Apologies in advance to non-windows users for bloating the distribution with
 windows executables. This will probably get fixed in the next release with
 the multi-language capability, since that will also bloat the distribution.
+
+
