@@ -46,7 +46,7 @@ The tarballs are split into pieces.
 `tesseract-2.00.<lang>.tar.gz` contains the data files for <lang>. *You need at least one
 of these or tesseract will not work.*
 
-Note that `tesseract-2.00.tar.gz` unpacks to the `tesseract-2.00` directory. `tesseract-2.00.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your tesseract-2.00 directory. It is therefore best to download them into your `tesseract-2.00 directory,` so you can use `unpack here` or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files.
+Note that `tesseract-2.00.tar.gz` unpacks to the `tesseract-2.00` directory. `tesseract-2.00.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your tesseract-2.00 directory. It is therefore best to download them into your `tesseract-2.00` directory, so you can use `unpack here` or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files.
 
 `tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express (and the platform sdk) and build from the source.
 
@@ -138,6 +138,5 @@ NOTE: This is likely to be the last English-only release!
 Apologies in advance to non-windows users for bloating the distribution with
 windows executables. This will probably get fixed in the next release with
 the multi-language capability, since that will also bloat the distribution.
-
 
 
