@@ -48,7 +48,6 @@ of these or tesseract will not work.*
 
 Note that `tesseract-2.00.tar.gz` unpacks to the `tesseract-2.00` directory. `tesseract-2.00.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your tesseract-2.00 directory. It is therefore best to download them into your `tesseract-2.00` directory, so you can use `unpack here` or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files.
 
-`tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express (and the platform sdk) and build from the source.
 
 ===Non-windows users===
 As with 1.04, this version works with make install.
@@ -62,8 +61,10 @@ library called libtesseract_full.a.
 Libtiff support should now be properly working via configure.
 
 ===Windows users===
-If you are building from the sources, there are still `.dsw` and `.dsp` files for vc++6 and
-also `.sln` and `.vcproj` files for VC++ Express.
+
+`tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise you probably don't have the necessary dlls to go with them. To solve this you can get Visual C++ Express (and the platform sdk) from Microsoft and build from the source. Alternatively, non-techies might prefer to try `tesseract-2.00.exe6.tar.gz` which was built with Visual C++6. Most Windows machines will have all the necessary dlls for these exes to work, but note that the executables built with the newer compiler are smaller, faster, and, believe it or not, _more accurate._ (See TestingTesseract.)
+
+If you are building from the sources, there are still `.dsw` and `.dsp` files for vc++6 and also `.sln` and `.vcproj` files for VC++ Express.
 
 The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
 
@@ -138,5 +139,4 @@ NOTE: This is likely to be the last English-only release!
 Apologies in advance to non-windows users for bloating the distribution with
 windows executables. This will probably get fixed in the next release with
 the multi-language capability, since that will also bloat the distribution.
-
 
