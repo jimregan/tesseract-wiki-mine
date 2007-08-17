@@ -151,6 +151,8 @@ tesseract fontfile.tif junk nobatch box.train
 
 Note that the box filename must match the tif filename, including the path, or Tesseract won't find it. The output of this step is `fontfile.tr` which contains the features of each character of the training page. Note also that the output name is derived from the input image name, not the normal output name, shown here as `junk`. junk.txt will also be written with a single newline and no text.
 
+*Important* Check (linux:stderr, windows:tesseract.log) for the output from apply_box. If there are FATALITIES reported, then there is no point continuing with the training process until you fix the box file. A FATALITY usually indicates that this step failed to find any training samples of one of the characters listed in your box file. Either the coordinates are wrong, or there is something wrong with the image of the character concerned. If there is no workable sample of a character, it can't be recognized, and the generated inttemp file won't match the unicharset file later and Tesseract will abort.
+
 There is no need to edit the content of the fontfile.tr file. The font name inside it need not be set. For the curious, here is some information on the format:
 {{{
 Every character in the box file has a corresponding set of entries in
