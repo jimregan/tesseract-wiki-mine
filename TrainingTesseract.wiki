@@ -134,6 +134,14 @@ If you didn't sucessfully space out the characters on the training image, some m
 
 If you have an editor that understands UTF-8 (like a web browser), this process will be a lot easier than if it doesn't, as each UTF-8 character has upto 4 bytes to code it, and dumb editors will show you all the bytes separately.
 
+=== Bootstrapping a new character set ===
+
+If you are trying to train a new character set, it is a good idea to put in the effort on a single font to get one good box file, run the rest of the training process, and then use Tesseract in your new language to make the rest of the box files as follows:
+{{{
+tesseract fontfile.tif fontfile -l yournewlanguage batch.nochop makebox
+}}}
+
+
 == Run Tesseract for Training ==
 
 For each of your training image, boxfile pairs, run Tesseract in training mode:
@@ -142,6 +150,29 @@ tesseract fontfile.tif junk nobatch box.train
 }}}
 
 Note that the box filename must match the tif filename, including the path, or Tesseract won't find it. The output of this step is `fontfile.tr` which contains the features of each character of the training page. Note also that the output name is derived from the input image name, not the normal output name, shown here as `junk`. junk.txt will also be written with a single newline and no text.
+
+There is no need to edit the content of the fontfile.tr file. The font name inside it need not be set. For the curious, here is some information on the format:
+{{{
+Every character in the box file has a corresponding set of entries in
+the .tr file (in order) like this
+UnknownFont <utf8 code(s)> 2
+mf <number of features>
+x y length dir 0 0
+... (there are a set of these determined by <number of features>
+above)
+cn 1
+ypos length x2ndmoment y2ndmoment
+
+The mf features are polygon segments of the outline normalized to the
+1st and 2nd moments.
+x= x position [-0.5.0.5]
+y = y position [-0.25, 0.75]
+length is the length of the polygon segment [0,1.0]
+dir is the direction of the segment [0,1.0]
+
+The cn feature is to correct for the moment normalization to
+distinguish position and size (eg c vs C and , vs ')
+}}}
 
 == Clustering ==
 
@@ -215,4 +246,5 @@ That is all there is to it! All you need to do now is collect together all 8 fil
 {{{
 tesseract image.tif output -l lang
 }}}
+
 
