@@ -239,6 +239,7 @@ The final data file that Tesseract uses is called DangAmbigs. It represents the 
 }}}
 
 The first field is the number of characters in the second field. The 3rd field is the number of characters in the 4th field. As with the other files, this is a UTF-8 format file, and therefore each character may be represented by multiple bytes. The first line shows that the pair 'rn' may sometimes be recognized incorrectly as 'm'. The second line shows that the character 'm' may sometimes be recognized incorrectly as the sequence 'iii'
+Note that the characters on both sides should occur in unicharset. This file cannot be used to translate characters from one set to another.
 
 The DangAmbigs file may also be empty.
 
@@ -248,5 +249,4 @@ That is all there is to it! All you need to do now is collect together all 8 fil
 {{{
 tesseract image.tif output -l lang
 }}}
-
 
