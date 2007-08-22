@@ -218,6 +218,8 @@ W 5
 
 The unicharset file must be edited by hand to add these property description codes.
 
+*NOTE* The unicharset file must be regenerated whenever inttemp, normproto and pffmtable are generated (i.e. they must *all* be recreated when the box file is changed) as they have to be in sync. The lines in unicharset must be in the correct order, as inttemp stores an index into unicharset and the actual characters returned by the classifier come from unicharset at the given index.
+
 == Dictionary Data ==
 
 Tesseract uses 3 dictionary files for each language. Two of the files are coded as a Directed Acyclic Word Graph (DAWG), and the other is a plain UTF-8 text file. To make the DAWG dictionary files, you first need a wordlist for your language. The wordlist is formatted as a UTF-8 text file with one word per line. Split the wordlist into two sets: the frequent words, and the rest of the words, and then use `wordlist2dawg` to make the DAWG files:
@@ -249,4 +251,6 @@ That is all there is to it! All you need to do now is collect together all 8 fil
 {{{
 tesseract image.tif output -l lang
 }}}
+
+(Actually, you can use any string you like for the language code, but if you want anybody else to be able to use it easily, ISO 639 is the way to go.)
 
