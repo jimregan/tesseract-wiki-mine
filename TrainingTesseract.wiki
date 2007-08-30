@@ -45,7 +45,7 @@ The first step is to determine the full character set to be used, and prepare a 
   * Don't make the mistake of grouping all the non-letters together. Make the text more realistic. For example, *The quick brown fox jumps over the lazy dog. 0123456789 !@#$%^&(),.[]{}<>/?* is terrible. Much better is *The (quick) [brown] {fox} jumps! over the $3,456.78 <lazy> #90 dog & duck/goose, as 12.5% of E-mail from aspammer@website.com is spam?* This gives the textline finding code a much better chance of getting sensible baseline metrics for the special characters.
   * It is a good idea to space out the text a bit when printing, so up the inter-character and inter-line spacing in your word processor.
   * The training data currently needs to fit on a single page.
-  * There is no need to train with multiple sizes. 10 point will do.
+  * There is no need to train with multiple sizes. 10 point will do. (An exception to this is very small text. If you want to recognize text with an x-height smaller than about 15 pixels, you should either train it specifically or scale your images before trying to recognize them.)
 
 Next print and scan (or use some electronic rendering method) to create an image of your training page. Upto 32 training pages can be used. It is best to create pages in a mix of fonts and styles, including italic and bold.
 
@@ -81,7 +81,7 @@ e 236 450 255 474
 n 259 451 281 474
 }}}
 
-Since Tesseract was run in English mode, it does not correctly recognize the umlaut. This character needs to be corrected using a suitable editor. An editor that understands UTF-8 should be used for this purpose. Web browsers are usually a good choice. Linux and Windows both have a character map that can be used for copying characters that cannot be typed. In this case the u needs to be changed to ü.
+Since Tesseract was run in English mode, it does not correctly recognize the umlaut. This character needs to be corrected using a suitable editor. An editor that understands UTF-8 should be used for this purpose. HTML editors are usually a good choice. (Mozilla on linux allows you to edit utf8 text files directly from the browser. Firefox and IE do not let you do this. MS Word is very good at handling different text encodings, and Notepad++ is another editor that understands UTF-8.) Linux and Windows both have a character map that can be used for copying characters that cannot be typed. In this case the u needs to be changed to ü.
 
 In theory, each line in the box file should represent one of the characters from your training file, but if you have a horizontally broken character, such as the lower double quote „ it will probably have 2 boxes that need to be merged!
 
@@ -128,11 +128,13 @@ e 367 499 386 524
 " 389 520 407 532
 }}}
 
-If you didn't sucessfully space out the characters on the training image, some may have been joined into a single box. In this case, you can either remake the images with better spacing and start again, or if the pair is common, put both characters at the start of the line, leaving the bounding box to represent them both.
+If you didn't sucessfully space out the characters on the training image, some may have been joined into a single box. In this case, you can either remake the images with better spacing and start again, or if the pair is common, put both characters at the start of the line, leaving the bounding box to represent them both. (As of 2.01, there is a limit of 8 bytes for the description of a "character". This will allow you between 2 and 8 unicodes to describe the character, depending on where your codes sit in the unicode set. If anyone hits this limit, please file an issue describing your situation.)
 
 *Note* that the coordinate system used in the box file has (0,0) at the bottom-left.
 
-If you have an editor that understands UTF-8 (like a web browser), this process will be a lot easier than if it doesn't, as each UTF-8 character has upto 4 bytes to code it, and dumb editors will show you all the bytes separately.
+If you have an editor that understands UTF-8, this process will be a lot easier than if it doesn't, as each UTF-8 character has upto 4 bytes to code it, and dumb editors will show you all the bytes separately.
+
+There is a visual basic tool that you can use (windows only) to make box file creation *much* easier. See http://groups.google.com/group/tesseract-ocr/files and look for bbtesseract. You can also check out this thread: http://groups.google.com/group/tesseract-ocr/browse_thread/thread/2321deb561450e76/554c7a8cec11c073#554c7a8cec11c073 in the forum for more information. Thanks to unkowner for contributing this.
 
 === Bootstrapping a new character set ===
 
@@ -140,6 +142,7 @@ If you are trying to train a new character set, it is a good idea to put in the 
 {{{
 tesseract fontfile.tif fontfile -l yournewlanguage batch.nochop makebox
 }}}
+This should make the 2nd box file easier to make, as there is a good chance that Tesseract will recognize most of the text correctly. You can always iterate this sequence adding more fonts to he training set (i.e. to the command line of mfTraining and cnTraining below) as you make them, but note that there is no incremental training mode that allows you to add new training data to existing sets. This means that each time you run mfTraining and cnTraining you are making new data files from scratch from the tr files you give on the command line, and these programs cannot take an existing intproto/pffmtable/normproto and add to them directly.
 
 
 == Run Tesseract for Training ==
@@ -152,6 +155,8 @@ tesseract fontfile.tif junk nobatch box.train
 Note that the box filename must match the tif filename, including the path, or Tesseract won't find it. The output of this step is `fontfile.tr` which contains the features of each character of the training page. Note also that the output name is derived from the input image name, not the normal output name, shown here as `junk`. junk.txt will also be written with a single newline and no text.
 
 *Important* Check (linux:stderr, windows:tesseract.log) for the output from apply_box. If there are FATALITIES reported, then there is no point continuing with the training process until you fix the box file. A FATALITY usually indicates that this step failed to find any training samples of one of the characters listed in your box file. Either the coordinates are wrong, or there is something wrong with the image of the character concerned. If there is no workable sample of a character, it can't be recognized, and the generated inttemp file won't match the unicharset file later and Tesseract will abort.
+
+Another error that can occur *that is also fatal and needs attention* is an error about "Box file format error on line n". If preceded by "Bad utf-8 char..." then the utf-8 codes are incorrect and need to be fixed. The error "utf-8 string too long..." indicates that you have exceeded the 8 (v2.01) byte limit on a character description. If you need a description longer than 8 bytes, please file an issue. Box file format errors without either of the above errors indicate either something wrong with the bounding box integers, or possibly a blank line in the box file. Blank lines are actually harmless, and the error can be ignored in this case. They could be ignored by the code, but it doesn't ignore them in case there is something unintentional wrong with the box file.
 
 There is no need to edit the content of the fontfile.tr file. The font name inside it need not be set. For the curious, here is some information on the format:
 {{{
@@ -194,7 +199,7 @@ This will output the `normproto` data file (the character normalization sensitiv
 
 == Compute the Character Set =
 
-Tesseract needs to know the set of possible characters it can output. To generate the `unicharset` data file, use the `unicharset_extractor` program on the training pages bounding box files:
+Tesseract needs to know the set of possible characters it can output. To generate the `unicharset` data file, use the `unicharset_extractor` program on the same training pages bounding box files as used for clustering:
 
 {{{
 unicharset_extractor fontfile_1.box fontfile_2.box ...
@@ -216,7 +221,7 @@ W 5
 7 8
 }}}
 
-The unicharset file must be edited by hand to add these property description codes.
+If your system supports the wctype functions, these values will be set automatically by unicharset_extractor *and there is no need to edit the unicharset file.* On some older systems (eg Windows 95), the unicharset file must be edited by hand to add these property description codes.
 
 *NOTE* The unicharset file must be regenerated whenever inttemp, normproto and pffmtable are generated (i.e. they must *all* be recreated when the box file is changed) as they have to be in sync. The lines in unicharset must be in the correct order, as inttemp stores an index into unicharset and the actual characters returned by the classifier come from unicharset at the given index.
 
