@@ -81,13 +81,13 @@ accuracy, and it compiles and runs on both Linux and Windows. Training code IS i
 
 The tarballs are split into pieces.
 
-`tesseract-2.00.tar.gz` contains all the source code.
+`tesseract-2.01.tar.gz` contains all the source code.
 
 `tesseract-2.00.<lang>.tar.gz` contains the data files for <lang>. You need at least one of these or tesseract will not work.
 
-Note that `tesseract-2.00.tar.gz` unpacks to the `tesseract-2.00` directory. `tesseract-2.00.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your `tesseract-2.00` directory. It is therefore best to download them into your `tesseract-2.00` directory, so you can use unpack here or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files.
+Note that `tesseract-2.01.tar.gz` unpacks to the `tesseract-2.01` directory. `tesseract-2.00.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your `tesseract-2.01` directory. It is therefore best to download them into your `tesseract-2.01` directory, so you can use unpack here or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files. Note that if you are using make install you should unpack your language data to your *source* tree before you run make install. If you unpack them as root to the destination directory of make install, then the user ids and access permissions might be messed up.
 
-`tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express (and the platform sdk) and build from the source.
+`tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express (and the platform sdk) and build from the source. tesseract-2.01.exe.tar.gz is build with VC++6, as more users that don't build for themselves seem to prefer this version.
 
 Instructions for using the training tools are documented separately at TrainingTesseract and for testing at TestingTesseract.
 
@@ -104,8 +104,7 @@ may not work for you unless you also have the correct mfc and crt dlls.
 There is also a tessdll.dll, which you can use to run tesseract from your
 own program, but you may be better off building it yourself.
 
-If you are building from the sources, there are still `.dsw` and `.dsp` files for vc++6 and
-also `.sln` and `.vcproj` files for VC++ Express.
+If you are building from the sources, there are still `.dsw` and `.dsp` files for vc++6 and also `.sln` and `.vcproj` files for VC++ Express.
 
 The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
 
@@ -140,6 +139,5 @@ In either case the command line is:
 {{{
 tesseract <image.tif> <output> [-l <langid>]
 }}}
-
 
 
