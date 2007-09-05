@@ -18,7 +18,8 @@ No major functionality change. Just a bunch of bug fixes.
   * Increased maximum utf8 string in a classification result to 8.
   * Added new functionality to TessBaseAPI for Ocropus.
 
-No new data files this time. Use the files from v2.00.
+No new data files for the original 6 languages. Use the files from v2.00.
+There are new data files for German Fraktur (deu-f) and Brazillian Portuguese (por).
 
 *STOP PRESS* There is a minor bug in unicharset_extractor. Since this is only applicable to training, the main tarball is fine unless you need to run training, in which case, overwrite your unicharset_extractor.cpp and unicharset_extractor.exe with the ones in tesseract-2.01.patch1.tar.gz.
 
