@@ -19,7 +19,7 @@ Any language that has different punctuation and numbers is going to be disadvant
 
 = Data files required =
 
-To train for another language, you have to create 8 data files in the `tessdata` subdirectory. The naming convention is `languagecode.file_name` Language codes follow the ISO 639-2 standard. The 8 files used for English are:
+To train for another language, you have to create 8 data files in the `tessdata` subdirectory. The naming convention is `languagecode.file_name` Language codes follow the ISO 639-3 standard. The 8 files used for English are:
   * `tessdata/eng.freq-dawg`
   * `tessdata/eng.word-dawg`
   * `tessdata/eng.user-words`
@@ -144,6 +144,28 @@ tesseract fontfile.tif fontfile -l yournewlanguage batch.nochop makebox
 }}}
 This should make the 2nd box file easier to make, as there is a good chance that Tesseract will recognize most of the text correctly. You can always iterate this sequence adding more fonts to he training set (i.e. to the command line of mfTraining and cnTraining below) as you make them, but note that there is no incremental training mode that allows you to add new training data to existing sets. This means that each time you run mfTraining and cnTraining you are making new data files from scratch from the tr files you give on the command line, and these programs cannot take an existing intproto/pffmtable/normproto and add to them directly.
 
+=== *New!* Tif/Box pairs provided! ===
+
+The Tif/Box file pairs are on the downloads page. (Note the tiff files are G4 compressed
+to save space, so you will have to have libtiff or uncompress them first). You could
+follow the following process to make better training data for your own language or
+subset of an existing language:
+  # Filter the box files, keeping lines for only the characters you want.
+  # Run tesseract for training (below).
+  # Cat the .tr files from multiple languages for each font to get the character set that you want.
+  # Cat the filtered box files in an identical way to the .tr files for handing off to unicharset_extractor.
+  # Run the rest of the training process.
+Caution! This is not quite as simple as it sounds! cntraining and mftraining can only
+take upto 32 .tr files, so you must cat all the files from multiple languages for the
+same font together to make 32 language-combined, but font-individual files.
+The characters found in the tr files *must* match the sequence
+of characters found in the box files when given to unicharset_extractor, so you have to
+cat the box files togther in the *same order* as the tr files.
+The command lines for cn/mftraining and unicharset_extractor must be given the .tr
+and .box files (respectively) in the *same order* just in case you have different
+filterings for the different fonts.
+There may be a program available to do all this and pick out the characters in
+the style of character map. This might make the whole thing easier.
 
 == Run Tesseract for Training ==
 
@@ -258,4 +280,3 @@ tesseract image.tif output -l lang
 }}}
 
 (Actually, you can use any string you like for the language code, but if you want anybody else to be able to use it easily, ISO 639 is the way to go.)
-
