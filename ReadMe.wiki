@@ -89,6 +89,9 @@ Note that `tesseract-2.01.tar.gz` unpacks to the `tesseract-2.01` directory. `te
 
 `tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express (and the platform sdk) and build from the source. tesseract-2.01.exe.tar.gz is build with VC++6, as more users that don't build for themselves seem to prefer this version.
 
+boxtiff-2.01.<lang>.tar.gz contains data that was used in training for those that want to
+do their own training. Most users should *NOT* download these files.
+
 Instructions for using the training tools are documented separately at TrainingTesseract and for testing at TestingTesseract.
 
 ==Windows:==
@@ -139,5 +142,3 @@ In either case the command line is:
 {{{
 tesseract <image.tif> <output> [-l <langid>]
 }}}
-
-
