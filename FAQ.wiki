@@ -3,6 +3,7 @@
 A collection of frequently asked questions and the answers, or pointers to them.
 
 
+#compression
 = Can't read compressed Tiff files =
 
 I get this error message:
