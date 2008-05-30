@@ -1,0 +1,32 @@
+= Tesseract FAQs =
+
+A collection of frequently asked questions and the answers, or pointers to them.
+
+
+= Can't read compressed Tiff files =
+
+I get this error message:
+{{{
+read_tif_image:Error:Illegal image format:Compression
+}}}
+
+Windows:
+Libtiff support can be added in either VC++6 or VC++Express with the following:
+
+{{{
+Goto http://gnuwin32.sourceforge.net/packages/tiff.htm
+Download and run the setup program.
+Add the paths for include and library files in tools/options/directories
+Add HAVE_LIBTIFF to the preprocessor definitions.
+Add libtiff.lib to the list of libraries.
+Rebuild.
+Make libtiff3.dll be in your path somewhere.
+This is done by control panel/system/advanced/environment variables and adding c:/program files/gnuwin32/bin to PATH.
+Keep your fingers crossed...
+}}}
+
+Non-Windows: Install libtiff. Procedure differs from OS to OS, but on many something like
+{{{
+sudo apt-get install libtiff-dev
+}}}
+or some variant thereof should do the trick, before running configure.
