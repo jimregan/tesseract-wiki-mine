@@ -31,3 +31,7 @@ Non-Windows: Install libtiff. Procedure differs from OS to OS, but on many somet
 sudo apt-get install libtiff-dev
 }}}
 or some variant thereof should do the trick, before running configure.
+
+= How do I Edit Box files used in training? =
+
+Use bbtesseract. See http://code.google.com/p/bbtesseract/ and http://groups.google.com/group/bbtesseract
