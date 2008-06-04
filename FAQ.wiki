@@ -1,9 +1,10 @@
+#summary Frequently Asked Questions
+
 = Tesseract FAQs =
 
 A collection of frequently asked questions and the answers, or pointers to them.
 
 
-#compression
 = Can't read compressed Tiff files =
 
 I get this error message:
@@ -35,3 +36,17 @@ or some variant thereof should do the trick, before running configure.
 = How do I Edit Box files used in training? =
 
 Use bbtesseract. See http://code.google.com/p/bbtesseract/ and http://groups.google.com/group/bbtesseract
+
+= How do I recognize only digits? =
+
+Use
+{{{
+TessBaseAPI::SetVariable("tessedit_char_whitelist", "0123456789");
+}}}
+BEFORE calling an Init function.
+
+= How do I provide my own dictionary? =
+
+Easy: Replace `tessdata/eng.user-words` with your own word list, in the same format - UTF8 text, one word per line.
+
+More difficult, but better for a large dictionary: Replace `tessdata/eng.word-dawg` with one created from your own word list, using wordlist2dawg. See the TesseractTraining wiki page for details.
