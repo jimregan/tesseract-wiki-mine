@@ -49,4 +49,4 @@ BEFORE calling an Init function.
 
 Easy: Replace `tessdata/eng.user-words` with your own word list, in the same format - UTF8 text, one word per line.
 
-More difficult, but better for a large dictionary: Replace `tessdata/eng.word-dawg` with one created from your own word list, using wordlist2dawg. See the TesseractTraining wiki page for details.
+More difficult, but better for a large dictionary: Replace `tessdata/eng.word-dawg` with one created from your own word list, using wordlist2dawg. See the TrainingTesseract wiki page for details.
