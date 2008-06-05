@@ -43,7 +43,14 @@ Use
 {{{
 TessBaseAPI::SetVariable("tessedit_char_whitelist", "0123456789");
 }}}
-BEFORE calling an Init function.
+BEFORE calling an Init function or put this in a text file called `tessdata/configs/digits`:
+{{{
+tessedit_char_whitelist 0123456789
+}}}
+and then your command line becomes:
+{{{
+tesseract image.tif outputbase nobatch digits
+}}}
 
 = How do I provide my own dictionary? =
 
