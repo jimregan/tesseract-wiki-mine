@@ -51,6 +51,7 @@ and then your command line becomes:
 {{{
 tesseract image.tif outputbase nobatch digits
 }}}
+*Warning:* Until the old and new config variables get merged, you *must* have the `nobatch` parameter too.
 
 = How do I provide my own dictionary? =
 
