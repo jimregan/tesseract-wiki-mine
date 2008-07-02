@@ -59,6 +59,15 @@ Easy: Replace `tessdata/eng.user-words` with your own word list, in the same for
 
 More difficult, but better for a large dictionary: Replace `tessdata/eng.word-dawg` with one created from your own word list, using wordlist2dawg. See the TrainingTesseract wiki page for details.
 
+= Is there a Minimum Text Size? (It won't read screen text!) =
+
+There is a minimum text size for reasonable accuracy. You have to consider resolution as well as point size. Accuracy drops off below 10pt x 300dpi, rapidly below 8pt x 300dpi. A quick check is to count the pixels of the x-height of your characters. (X-height is the height of the lower case x.) At 10pt x 300dpi x-heights are typically about 20 pixels, although this can vary dramatically from font to font. Below an x-height of 10 pixels, you have very little chance of accurate results, and below about 8 pixels, most of the text will be "noise removed".
+
+= How do I generate the language data files? =
+
+Read the TrainingTesseract wiki.
+
+
 = My question isn't in here! =
 
 Try searching the forum: http://groups.google.com/group/tesseract-ocr as your question may have come up before even if it is not listed here.
