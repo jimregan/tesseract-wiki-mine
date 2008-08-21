@@ -33,6 +33,10 @@ sudo apt-get install libtiff-dev
 }}}
 or some variant thereof should do the trick, before running configure.
 
+= Does it support multi-page tiff files? =
+
+Only with 2.03 and later, and only if you have libtiff installed. See Compressed Tiff above.
+
 = How do I Edit Box files used in training? =
 
 Use bbtesseract. See http://code.google.com/p/bbtesseract/ and http://groups.google.com/group/bbtesseract
