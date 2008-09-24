@@ -51,6 +51,8 @@ Only with 2.03 and later, and only if you have libtiff installed. See Compressed
 
 Use bbtesseract. See http://code.google.com/p/bbtesseract/ and http://groups.google.com/group/bbtesseract
 
+Alternatively,  http://code.google.com/p/wx-tetra/ has another application for editing box files.
+
 = How do I recognize only digits? =
 
 Use
