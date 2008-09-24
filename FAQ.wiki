@@ -33,6 +33,16 @@ sudo apt-get install libtiff-dev
 }}}
 or some variant thereof should do the trick, before running configure.
 
+= No output with color images =
+
+There have been several bug reports of blank or garbage output with color images, both with and without libtiff. Here is the most up-to-date information (last update 23 Sep 2008):
+
+Without libtiff, Tesseract only reads uncompressed tiff files. Even then it won't read 32 bit tiff files correctly. Will be fixed in 2.04.
+
+With libtiff, Tesseract reads compressed tiff files, but can't handle *any* color: 24 or 32 bit. It can only read 1 bit binary images or 8 bit greyscale. (No color maps!) Will be fixed in 2.04.
+
+The API (TessBaseAPI) should be OK with 1, 8, 24 or 32 bit images.
+
 = Does it support multi-page tiff files? =
 
 Only with 2.03 and later, and only if you have libtiff installed. See Compressed Tiff above.
