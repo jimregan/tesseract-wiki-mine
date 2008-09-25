@@ -83,6 +83,21 @@ There is a minimum text size for reasonable accuracy. You have to consider resol
 
 Read the TrainingTesseract wiki.
 
+= What are configs and how can I have more? =
+
+Config is an overloaded word in tesseract. One meaning is a file of control parameters used for debugging or modifying its behaviour, such as tessdata/configs/segdemo.
+
+The other meaning is used in training and in the classifier:
+
+A config represents a (potentially) different shape of a character from a different font. The MAX_NUM_CONFIGS limit applies to the number of different files on the command line of mftraiing containing samples of any one character, as each file is assumed to represent a different font. There is currently (2.03) a limit of 32 configs. You can get away with more than 32 files on the mftraining command line if not all the files contain all the characters.
+
+Other ways to fix the problem:
+
+If files contain very similar looking samples, then you can cat them together to make a single file to reduce the total number of files. DON'T do this if the characters in two files look very different.
+
+Increase MAX_NUM_CONFIGS (in classify/intproto.h) There are consequences. You will make inttemp files generated with a different value of MAX_NUM_CONFIGS unreadable. We are working towards overcoming this weakness for version 3.0. Will not be in 2.04 though. Also, classification will be slower and use more memory.
+
+
 
 = My question isn't in here! =
 
