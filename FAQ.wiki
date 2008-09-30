@@ -69,12 +69,6 @@ tesseract image.tif outputbase nobatch digits
 }}}
 *Warning:* Until the old and new config variables get merged, you *must* have the `nobatch` parameter too.
 
-= How do I provide my own dictionary? =
-
-Easy: Replace `tessdata/eng.user-words` with your own word list, in the same format - UTF8 text, one word per line.
-
-More difficult, but better for a large dictionary: Replace `tessdata/eng.word-dawg` with one created from your own word list, using wordlist2dawg. See the TrainingTesseract wiki page for details.
-
 = Is there a Minimum Text Size? (It won't read screen text!) =
 
 There is a minimum text size for reasonable accuracy. You have to consider resolution as well as point size. Accuracy drops off below 10pt x 300dpi, rapidly below 8pt x 300dpi. A quick check is to count the pixels of the x-height of your characters. (X-height is the height of the lower case x.) At 10pt x 300dpi x-heights are typically about 20 pixels, although this can vary dramatically from font to font. Below an x-height of 10 pixels, you have very little chance of accurate results, and below about 8 pixels, most of the text will be "noise removed".
@@ -82,6 +76,18 @@ There is a minimum text size for reasonable accuracy. You have to consider resol
 = How do I generate the language data files? =
 
 Read the TrainingTesseract wiki.
+
+= How do I provide my own dictionary? =
+
+Easy: Replace `tessdata/eng.user-words` with your own word list, in the same format - UTF8 text, one word per line.
+
+More difficult, but better for a large dictionary: Replace `tessdata/eng.word-dawg` with one created from your own word list, using wordlist2dawg. See the TrainingTesseract wiki page for details.
+
+= wordlist2dawg doesn't work! =
+
+There is a memory problem with the 2.03 wordlist2dawg. If you don't have something more than 1GB of memory, then your system grinds to a halt and it runs very slowly.
+Reduce both max_num_edges and reserved_edges by a factor of 10 at line 39-40 of training/wordlist2dawg.cpp and rebuild.
+
 
 = What are configs and how can I have more? =
 
