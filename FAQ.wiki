@@ -88,6 +88,13 @@ More difficult, but better for a large dictionary: Replace `tessdata/eng.word-da
 There is a memory problem with the 2.03 wordlist2dawg. If you don't have something more than 1GB of memory, then your system grinds to a halt and it runs very slowly.
 Reduce both max_num_edges and reserved_edges by a factor of 10 at line 39-40 of training/wordlist2dawg.cpp and rebuild.
 
+= How to increase the trust in/strength of the dictionary? =
+
+Try upping NON_WERD and GARBAGE_STRING in dict/permute.cpp to maybe 3 or even 5.
+
+If the text fonts you are recognizing are significantly different from your training data, and you don't mind a slow-down, you could also try lowering ClassPrunerThreshold in classify/intmatcher.cpp to about 200 from 229. These measures should all improve the power of the dictionary to resolve words from non-words.
+
+Of course any changes that up the power of the dictionary also up the ability to hallucinate dictionary words. If this is a problem, keep short words out of your dictionary, and don't add a vast list of words that are rarely used if they increase the number of ambiguities with more frequent words.
 
 = What are configs and how can I have more? =
 
