@@ -1,4 +1,4 @@
-#Add-ons
+#summary External Add-ons for Tesseract
 
 = External Add-ons for Tesseract =
 
