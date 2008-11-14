@@ -1,3 +1,5 @@
+#Add-ons
+
 = External Add-ons for Tesseract =
 
 Add your content here.
