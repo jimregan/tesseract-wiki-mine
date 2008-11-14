@@ -136,6 +136,21 @@ If you have an editor that understands UTF-8, this process will be a lot easier 
 
 There is a visual basic tool that you can use (windows only) to make box file creation *much* easier. See http://groups.google.com/group/tesseract-ocr/files and look for bbtesseract. You can also check out this thread: http://groups.google.com/group/tesseract-ocr/browse_thread/thread/2321deb561450e76/554c7a8cec11c073#554c7a8cec11c073 in the forum for more information. Thanks to unkowner for contributing this.
 
+For Linux and other systems featuring Python and needed modules,
+one can use the excellent GUI tool tesseractTrainer.py contributed in
+November 2007 by Catalin Francu, available in the files section of the
+tesseract-ocr Google group:
+
+http://groups.google.com/group/tesseract-ocr/files
+
+and also on the downloads page:
+
+http://code.google.com/p/tesseract-ocr/downloads/list
+
+There's even a screenshot available:
+
+http://tesseract-ocr.googlegroups.com/web/tesseractTrainer.png
+
 === Bootstrapping a new character set ===
 
 If you are trying to train a new character set, it is a good idea to put in the effort on a single font to get one good box file, run the rest of the training process, and then use Tesseract in your new language to make the rest of the box files as follows:
