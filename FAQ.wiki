@@ -88,6 +88,10 @@ More difficult, but better for a large dictionary: Replace `tessdata/eng.word-da
 There is a memory problem with the 2.03 wordlist2dawg. If you don't have something more than 1GB of memory, then your system grinds to a halt and it runs very slowly.
 Reduce both max_num_edges and reserved_edges by a factor of 10 at line 39-40 of training/wordlist2dawg.cpp and rebuild.
 
+If you successfully create a new dawg, and then it doesn't load, due to the error:<br>
+Error: trying to read a DAWG '%s' that contains %d edges while the maximum is %d.<br>
+Then try changing the value of MAX_NUM_EDGES_IN_SQUISHED_DAWG_FILE in dawg.h.
+
 = How to increase the trust in/strength of the dictionary? =
 
 Try upping NON_WERD and GARBAGE_STRING in dict/permute.cpp to maybe 3 or even 5.
