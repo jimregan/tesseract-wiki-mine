@@ -114,6 +114,11 @@ If files contain very similar looking samples, then you can cat them together to
 
 Increase MAX_NUM_CONFIGS (in classify/intproto.h) There are consequences. You will make inttemp files generated with a different value of MAX_NUM_CONFIGS unreadable. We are working towards overcoming this weakness for version 3.0. Will not be in 2.04 though. Also, classification will be slower and use more memory.
 
+= Where is the documentation? =
+
+There isn't much. We are concentrating on features at the moment. There is some documentation at http://tesseract-ocr.repairfaq.org/ and more at this forum thread:
+http://groups.google.com/group/tesseract-ocr/browse_thread/thread/3ef5dd674cef3746/68b5f07bff0b54b2?lnk=gst&q=icdar#68b5f07bff0b54b2
+
 
 
 = My question isn't in here! =
