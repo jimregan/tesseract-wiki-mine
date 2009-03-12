@@ -136,6 +136,8 @@ If you have an editor that understands UTF-8, this process will be a lot easier 
 
 There is a visual basic tool that you can use (windows only) to make box file creation *much* easier. See http://groups.google.com/group/tesseract-ocr/files and look for bbtesseract. You can also check out this thread: http://groups.google.com/group/tesseract-ocr/browse_thread/thread/2321deb561450e76/554c7a8cec11c073#554c7a8cec11c073 in the forum for more information. Thanks to unkowner for contributing this.
 
+There is also a .net boxer here:  http://www.ospilka.com/dl/tessboxer.zip 
+
 For Linux and other systems featuring Python and needed modules,
 one can use the excellent GUI tool tesseractTrainer.py contributed in
 November 2007 by Catalin Francu, available in the files section of the
