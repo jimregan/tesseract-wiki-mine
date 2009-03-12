@@ -55,6 +55,8 @@ Alternatively,  http://code.google.com/p/wx-tetra/ has another application for e
 
 = How do I recognize only digits? =
 
+*In 2.03 and above:*
+
 Use
 {{{
 TessBaseAPI::SetVariable("tessedit_char_whitelist", "0123456789");
