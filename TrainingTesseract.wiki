@@ -138,6 +138,9 @@ There is a visual basic tool that you can use (windows only) to make box file cr
 
 There is also a .net boxer here:  http://www.ospilka.com/dl/tessboxer.zip 
 
+If you have php, there is a php box viewer and editor on the downloads page:
+http://tesseract-ocr.googlecode.com/files/boxfilereader.php
+
 For Linux and other systems featuring Python and needed modules,
 one can use the excellent GUI tool tesseractTrainer.py contributed in
 November 2007 by Catalin Francu, available in the files section of the
