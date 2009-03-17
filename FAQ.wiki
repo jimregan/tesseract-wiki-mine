@@ -121,6 +121,10 @@ Increase MAX_NUM_CONFIGS (in classify/intproto.h) There are consequences. You wi
 There isn't much. We are concentrating on features at the moment. There is some documentation at http://tesseract-ocr.repairfaq.org/ and more at this forum thread:
 http://groups.google.com/group/tesseract-ocr/browse_thread/thread/3ef5dd674cef3746/68b5f07bff0b54b2?lnk=gst&q=icdar#68b5f07bff0b54b2
 
+= How can I try the next version? =
+
+Periodically stable versions go to the downloads page. Between releases, and in particular, just before a new release, the latest code is available from svn. You can find the source here: http://code.google.com/p/tesseract-ocr/source/checkout where you can check it out either by command line, or by following the link to the howto on using various client programs and plugins.
+
 
 
 = My question isn't in here! =
