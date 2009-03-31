@@ -1,0 +1,29 @@
+#summary How to use the Viewer to debug recognition.
+
+= Introduction =
+
+Tesseract has a built-in capability to display its internal state, so that you can view its segmentation and recognition.
+
+
+= Building and installing =
+
+The following components are required to run the viewer:
+   * Java runtime
+   * piccolo-1.2.jar
+   * piccolox-1.2.jar
+   * luajava-1.1.jar (version 2.03 and lower)
+   * luajava-1.1.dll (windows only, version 2.03 and lower)
+   * luajava-1.1.so  (linux only, version 2.03 and lower)
+   * ScrollView.jar, built from the source in ocr-tesseract/java
+
+The piccolo libraries are available from: http://www.cs.umd.edu/hcil/jazz/download/index.shtml
+
+Version 2.03 and below also requires luajava:
+http://www.keplerproject.org/luajava/
+Unfortunately, it is horribly slow, so it has been removed for 3.00. To make life easier, 2.04 will also not require it, but this change is not yet in svn.
+
+All these jar files need to go in a single directory. Tesseract learns the location either through the environment variable SCROLLVIEW_PATH or a compiler define of the same name.
+
+= Using the Viewer =
+
+TBA
