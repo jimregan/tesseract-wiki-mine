@@ -2,5 +2,22 @@
 
 = External Add-ons for Tesseract =
 
-Add your content here.
+== Tessboxes ==
 
+*Description: editor for boxfiles*
+
+*System requirements: linux or unix, C compiler, X11, S-Lang.*
+
+*Homepage: http://www.lbreyer.com/tessboxes.html*
+
+tessboxes is an editor for boxfiles that runs in an xterm and shows part of the training page in a separate window. It is keyboard oriented, and aims to minimize the tedium of proofreading a generated boxfile, but does not try to be a full training GUI.
+
+== DangAmbigs ==
+
+*Description: automatic DangAmbigs generator*
+
+*System requirements: Python*
+
+*Homepage: http://www.cs.toronto.edu/~mreimer/tesseract.html*
+
+Creates a DangAmbigs file automatically given a set of OCR text output and correct text.
