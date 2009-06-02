@@ -47,9 +47,12 @@ The first step is to determine the full character set to be used, and prepare a 
   * The training data currently needs to fit on a single page.
   * There is no need to train with multiple sizes. 10 point will do. (An exception to this is very small text. If you want to recognize text with an x-height smaller than about 15 pixels, you should either train it specifically or scale your images before trying to recognize them.)
 
-Next print and scan (or use some electronic rendering method) to create an image of your training page. Upto 32 training pages can be used. It is best to create pages in a mix of fonts and styles, including italic and bold.
+Next print and scan (or use some electronic rendering method) to create an image of your training page. Upto 32 training images can be used. It is best to create pages in a mix of fonts and styles, including italic and bold.
 
-You will also need to save your training page as a UTF-8 text file for use in the next step where you have to insert the codes into another file.
+You will also need to save your training image as a UTF-8 text file for use in the next step where you have to insert the codes into another file.
+
+*Clarification for large amounts of training data*
+The 32 images limit is for the number of *FONTS.* Each font may be put in a single multi-page tiff *(only if you are using libtiff!)* and the box file can be modified to specify the page number for each character after the coordinates. Thus an arbitrarily large amount of training data may be created for any given font, allowing training for large character-set languages. An alternative to multi-page tiffs is to create many single-page tiffs for a single font, and then you must cat together the tr files for each font into several single-font tr files. In any case, the input tr files to mftraining must each contain a single font, and the order files are given to mftraining must match the order they are given to unicharset_extractor.
 
 == Make Box Files ==
 
