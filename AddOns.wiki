@@ -18,6 +18,6 @@ tessboxes is an editor for boxfiles that runs in an xterm and shows part of the 
 
 *System requirements: Python*
 
-*Homepage: http://www.cs.toronto.edu/~mreimer/tesseract.html*
+Homepage: http://www.cs.toronto.edu/~mreimer/tesseract.html
 
 Creates a DangAmbigs file automatically given a set of OCR text output and correct text.
