@@ -4,6 +4,9 @@
 
 A collection of frequently asked questions and the answers, or pointers to them.
 
+= Can't open eng.unicharset? =
+
+Read the [[ReadMe]] wiki page.
 
 = Can't read compressed Tiff files =
 
