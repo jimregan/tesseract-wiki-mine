@@ -24,8 +24,8 @@ limitations under the License.
   * The Aspirin/MIGRAINES system is no longer required.
   * Tesseract can also make use of the libtiff library. (www.libtiff.org)
 
-Without libtiff, Tesseract can only read uncompressed and G3 compressed
-TIFF files.
+*Without libtiff, Tesseract can only read uncompressed and G3 compressed
+TIFF files.*
 
 = Installing and Running Tesseract =
 
@@ -33,20 +33,20 @@ TIFF files.
 
 *The tarballs are split into pieces.*
 
-`tesseract-2.03.tar.gz` contains all the source code.
+`tesseract-2.04.tar.gz` contains all the source code.
 
 `tesseract-2.00.<lang>.tar.gz` contains the language data files for {{{<lang>}}}. *You need at least one of these or tesseract will not work.*
 
-Note that `tesseract-2.013.tar.gz` unpacks to the `tesseract-2.03` directory. `tesseract-2.00.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your `tesseract-2.03` directory. It is therefore best to download them into your `tesseract-2.03` directory, so you can use unpack here or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files. Note that if you are using make install you should unpack your language data to your *source* tree *before* you run make install. If you unpack them as root to the destination directory of make install, then the user ids and access permissions might be messed up.
+Note that `tesseract-2.04.tar.gz` unpacks to the `tesseract-2.04` directory. `tesseract-2.00.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your `tesseract-2.04` directory. It is therefore best to download them into your `tesseract-2.04` directory, so you can use unpack here or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files. Note that if you are using make install you should unpack your language data to your *source* tree *before* you run make install. If you unpack them as root to the destination directory of make install, then the user ids and access permissions might be messed up.
 
-`tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express (and the platform sdk) and build from the source. tesseract-2.01.exe.tar.gz is build with VC++6, as more users that don't build for themselves seem to prefer this version.
-
-boxtiff-2.01.<lang>.tar.gz contains data that was used in training for those that want to
+`boxtiff-2.01.<lang>.tar.gz` contains data that was used in training for those that want to
 do their own training. Most users should *NOT* download these files.
 
 Instructions for using the training tools are documented separately at TrainingTesseract and for testing at TestingTesseract.
 
 ==Windows:==
+
+*There is no windows installer!* (Still looking for volunteers to create one.) There are windows executables: `tesseract-2.04.exe.tar.gz` (It is not for the 'exe' language.) They are built with VC++ express 2008 and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express 2008 with service pack 1 and build from the source.  You can also try tesseract-2.01.exe.tar.gz, which  is build with VC++6, and may work better if your windows is old. *New with 2.04* the executables are built with static linking, so they stand more chance of working out of the box on more windows systems.
 
 The executable must reside in the same directory as the tessdata directory. (*NEW!* the Visual Studio projects build the release executable directly to the correct place!)
 
@@ -54,12 +54,12 @@ The command line is:
 {{{
 tesseract <image.tif> <output> [-l <langid>]
 }}}
-A windows executable (tesseract.exe) is included in the distribution, but
-may not work for you unless you also have the correct mfc and crt dlls.
+
+A windows executable (tesseract.exe) is included in the distribution, (in `tesseract-2.04.exe.tar.gz`).
 There is also a tessdll.dll, which you can use to run tesseract from your
 own program, but you may be better off building it yourself.
 
-If you are building from the sources, there are still `.dsw` and `.dsp` files for vc++6 and also `.sln` and `.vcproj` files for VC++ Express.
+If you are building from the sources, there are still `.dsw` and `.dsp` files for vc++6 and also `.sln` and `.vcproj` files for VC++ Express 2008. Do not use vc++ express 2005 any more. The sln and vcproj files produced by vc++ 2008 are not backwards compatible with vc++ 2005.
 
 The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
 
