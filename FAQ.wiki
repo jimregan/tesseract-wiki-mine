@@ -18,8 +18,8 @@ read_tif_image:Error:Illegal image format:Compression
 Windows:
 Libtiff support can be added in either VC++6 or VC++Express with the following:
 
+Goto the [http://gnuwin32.sourceforge.net/packages/tiff.htm Windows download for libtiff] and follow these steps:
 {{{
-Goto http://gnuwin32.sourceforge.net/packages/tiff.htm
 Download and run the setup program.
 Add the paths for include and library files in tools/options/directories
 Add HAVE_LIBTIFF to the preprocessor definitions.
