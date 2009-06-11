@@ -134,7 +134,7 @@ Periodically stable versions go to the downloads page. Between releases, and in 
 There are 2 possibilities:
 X ~= Y, usually with X < Y: Usually caused by a failed training process. Look for FATALITY messages from the tr file generation process. Looks like the training process failed to pick up some samples of some characters, and they didn't make it into the inttemp file (in mftraining) because there was no entry in the tr file. There are bad problems with applybox that make this a problem for a lot of people. The character samples need to be spaced out.
 
-X a wild number (very large + or -) and Y a sane number between 100 and a few thousand, depending on the language: Corrupt inttemp file, or (if you have *NOT* trained youself) your hardware has a funny endian architecture that is not automatically detected. Big-endian or Little-endian 32 and 64 bit *SHOULD* work, but mixed endian (0x12345678 -> 0x56 0x78 0x12 0x13 or similar will *NOT* work. Get a sensible hardware architecture, or retrain yourself. Then your inttemp will match the hardware.)
+X a wild number (very large + or -) and Y a sane number between 100 and a few thousand, depending on the language: Corrupt inttemp file, or (if you have *NOT* trained youself) your hardware has a funny endian architecture that is not automatically detected. Big-endian or Little-endian 32 and 64 bit *SHOULD* work, but mixed endian (0x12345678 -> 0x56 0x78 0x12 0x13 or similar) will *NOT* work. Get a sensible hardware architecture, or retrain yourself. Then your inttemp will match the hardware.
 
 
 
