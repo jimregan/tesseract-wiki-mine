@@ -31,7 +31,7 @@ TIFF files.*
 
 = All Users Do NOT Ignore! =
 
-*The tarballs are split into pieces.*
+==The tarballs are split into pieces.==
 
 `tesseract-2.04.tar.gz` contains all the source code.
 
@@ -43,6 +43,10 @@ Note that `tesseract-2.04.tar.gz` unpacks to the `tesseract-2.04` directory. `te
 do their own training. Most users should *NOT* download these files.
 
 Instructions for using the training tools are documented separately at TrainingTesseract and for testing at TestingTesseract.
+
+==Image format support is limited!==
+
+Without additional libraries, Tesseract can only read uncompressed TIFF. (And some versions of BMP) Upto version 2.04, you can add libtiff-dev. See the [http://code.google.com/p/tesseract-ocr/wiki/FAQ FAQ] question on compressed TIFF for installation instructions. Version 3.00 will support additional formats via Leptonica, but requires more libraries to be added.
 
 ==Windows:==
 
@@ -63,18 +67,6 @@ If you are building from the sources, there are still `.dsw` and `.dsp` files fo
 
 The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
 
-Libtiff support can be added in either VC++6 or VC++Express with the following:
-{{{
-Goto http://gnuwin32.sourceforge.net/packages/tiff.htm
-Download and run the setup program.
-Add the paths for include and library files in tools/options/directories
-Add HAVE_LIBTIFF to the preprocessor definitions.
-Add libtiff.lib to the list of libraries.
-Rebuild.
-Make libtiff3.dll be in your path somewhere.
-This is done by control panel/system/advanced/environment variables and adding c:/program files/gnuwin32/bin to PATH.
-Keep your fingers crossed...
-}}}
 
 ==Non-Windows:==
 
