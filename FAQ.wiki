@@ -30,11 +30,11 @@ This is done by control panel/system/advanced/environment variables and adding c
 Keep your fingers crossed...
 }}}
 
-Non-Windows: Install libtiff. Procedure differs from OS to OS, but on many something like
+Non-Windows: Install libtiff-dev. Procedure differs from OS to OS, but on many something like
 {{{
 sudo apt-get install libtiff-dev
 }}}
-or some variant thereof should do the trick, before running configure.
+or some variant thereof should do the trick, *before* running configure.
 
 = No output with color images =
 
