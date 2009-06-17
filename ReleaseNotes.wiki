@@ -81,51 +81,7 @@ List of changes in this release:
   * Made some improvements to consistency of accuracy across platforms.
   * Added vc++ express support.
 
-==Instructions for downloading and building version 2.00.==
-Things have changed quite a bit since the previous versions so please read carefully.
 
-===All users===
-The tarballs are split into pieces.
-
-`tesseract-2.00.tar.gz` contains all the source code.
-
-`tesseract-2.00.<lang>.tar.gz` contains the data files for <lang>. *You need at least one
-of these or tesseract will not work.*
-
-Note that `tesseract-2.00.tar.gz` unpacks to the `tesseract-2.00` directory. `tesseract-2.00.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your tesseract-2.00 directory. It is therefore best to download them into your `tesseract-2.00` directory, so you can use `unpack here` or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files.
-
-
-===Non-windows users===
-As with 1.04, this version works with make install.
-
-*New* there is a tesseract.spec for making rpms. (Thanks to Andrew Ziem for the help.)
-It might work with your OS if you know how to do that.
-
-If you are linking to the libraries, as Ocropus does, there is now a single master
-library called libtesseract_full.a.
-
-Libtiff support should now be properly working via configure.
-
-===Windows users===
-
-`tesseract-2.00.exe.tar.gz` is not for the 'exe' language. It is windows executables. They are built with VC++ express and come with absolutely no warranty. If they work for you then great, otherwise you probably don't have the necessary dlls to go with them. To solve this you can get Visual C++ Express (and the platform sdk) from Microsoft and build from the source. Alternatively, non-techies might prefer to try `tesseract-2.00.exe6.tar.gz` which was built with Visual C++6. Most Windows machines will have all the necessary dlls for these exes to work, but note that the executables built with the newer compiler are smaller, faster, and, believe it or not, _more accurate._ (See TestingTesseract.)
-
-If you are building from the sources, there are still `.dsw` and `.dsp` files for vc++6 and also `.sln` and `.vcproj` files for VC++ Express.
-
-The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
-
-Libtiff support can be added in either VC++6 or VC++Express with the following:
-{{{
-Goto http://gnuwin32.sourceforge.net/packages/tiff.htm
-Download and run the setup program.
-Add the paths for include and library files in tools/options/directories
-Add HAVE_LIBTIFF to the preprocessor definitions.
-Add libtiff.lib to the list of libraries.
-Rebuild.
-Make libtiff3.dll be in your path somewhere.
-This is done by control panel/system/advanced/environment variables and adding c:/program files/gnuwin32/bin to PATH.
-Keep your fingers crossed...
-}}}
 
 ===xx.00 Version Warning===
 
