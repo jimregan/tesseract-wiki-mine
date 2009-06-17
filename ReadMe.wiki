@@ -22,10 +22,8 @@ limitations under the License.
 = Other Dependencies and Licenses =
 
   * The Aspirin/MIGRAINES system is no longer required.
-  * Tesseract can also make use of the libtiff library. (www.libtiff.org)
-
-*Without libtiff, Tesseract can only read uncompressed and G3 compressed
-TIFF files.*
+  * Tesseract can also make use of the libtiff library. (www.libtiff.org) See [http://code.google.com/p/tesseract-ocr/wiki/FAQ FAQ] for details.
+  * Without libtiff, Tesseract can only read uncompressed and G3 compressed TIFF files.
 
 = Installing and Running Tesseract =
 
@@ -42,28 +40,28 @@ Note that `tesseract-2.04.tar.gz` unpacks to the `tesseract-2.04` directory. `te
 `boxtiff-2.01.<lang>.tar.gz` contains data that was used in training for those that want to
 do their own training. Most users should *NOT* download these files.
 
-Instructions for using the training tools are documented separately at TrainingTesseract and for testing at TestingTesseract.
+Instructions for using the training tools are documented separately at [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract TrainingTesseract] and for testing at [http://code.google.com/p/tesseract-ocr/wiki/TestingTesseract TestingTesseract.]
 
-==Image format support is limited!==
+=Without Additional Libraries, Image format support is limited!==
 
-Without additional libraries, Tesseract can only read uncompressed TIFF. (And some versions of BMP) Upto version 2.04, you can add libtiff-dev. See the [http://code.google.com/p/tesseract-ocr/wiki/FAQ FAQ] question on compressed TIFF for installation instructions. Version 3.00 will support additional formats via Leptonica, but requires more libraries to be added.
+Without additional libraries, Tesseract can only read uncompressed TIFF. (And some versions of BMP) Upto version 2.04, you can add *libtiff-dev.* See the [http://code.google.com/p/tesseract-ocr/wiki/FAQ FAQ] question on compressed TIFF for installation instructions. Version 3.00 will support additional formats via Leptonica, but requires more libraries to be added.
 
 ==Windows:==
 
-*There is no windows installer!* (Still looking for volunteers to create one.) There are windows executables: `tesseract-2.04.exe.tar.gz` (It is not for the 'exe' language.) They are built with VC++ express 2008 and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express 2008 with service pack 1 and build from the source.  You can also try tesseract-2.01.exe.tar.gz, which  is build with VC++6, and may work better if your windows is old. *New with 2.04* the executables are built with static linking, so they stand more chance of working out of the box on more windows systems.
+*There is no windows installer!* (Still looking for volunteers to create one.) There are windows executables: `tesseract-2.04.exe.tar.gz` (It is not for the 'exe' language.) They are built with VC++ express 2008 and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express 2008 with service pack 1 and build from the source.  You can also try tesseract-2.01.exe.tar.gz, which is built with VC++6, and may work better if your windows is old, but note that this is an older version of Tesseract.
 
-The executable must reside in the same directory as the tessdata directory. (*NEW!* the Visual Studio projects build the release executable directly to the correct place!)
+If you are building from the sources, there are still (up to v2.04) `.dsw` and `.dsp` files for vc++6, but the recommended build platform is now VC++ Express 2008. There are also `.sln` and `.vcproj` files for VC++ Express 2008, but these files are not backward compatible with any previous version - not even VC++ Express 2005. Note that the executables produced  with the newer compiler are smaller, faster, and, believe it or not, _more accurate._ (See [http://code.google.com/p/tesseract-ocr/wiki/TestingTesseract TestingTesseract.])
+
+*New with 2.04:* the executables are built with static linking, so they stand more chance of working out of the box on more windows systems.
+
+The executable must reside in the same directory as the tessdata directory. (The Visual Studio projects build the release executable directly to the correct place!)
 
 The command line is:
 {{{
 tesseract <image.tif> <output> [-l <langid>]
 }}}
 
-A windows executable (tesseract.exe) is included in the distribution, (in `tesseract-2.04.exe.tar.gz`).
-There is also a tessdll.dll, which you can use to run tesseract from your
-own program, but you may be better off building it yourself.
-
-If you are building from the sources, there are still `.dsw` and `.dsp` files for vc++6 and also `.sln` and `.vcproj` files for VC++ Express 2008. Do not use vc++ express 2005 any more. The sln and vcproj files produced by vc++ 2008 are not backwards compatible with vc++ 2005.
+For interfacing to other applications, there is a DLL included with the executables, but you may be better off building it yourself. The DLL is NOT built for static C-Runtime, so you will probably need VC++ Express 2008 to run it.
 
 The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
 
@@ -86,6 +84,13 @@ In either case the command line is:
 {{{
 tesseract <image.tif> <output> [-l <langid>]
 }}}
+*New* there is a tesseract.spec for making rpms. (Thanks to Andrew Ziem for the help.)
+It might work with your OS if you know how to do that.
+
+If you are linking to the libraries, as Ocropus does, there is now a single master
+library called libtesseract_full.a.
+
+Libtiff support should now be properly working via configure, but note that you need libtiff-dev, as that contains the header files required to compile the code that uses it.
 
 = History: =
 
