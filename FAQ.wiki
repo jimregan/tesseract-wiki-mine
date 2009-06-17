@@ -15,7 +15,7 @@ I get this error message:
 read_tif_image:Error:Illegal image format:Compression
 }}}
 
-Windows:
+Windows (Visual C++):
 Libtiff support can be added in either VC++6 or VC++Express with the following:
 
 Goto the [http://gnuwin32.sourceforge.net/packages/tiff.htm Windows download for libtiff] and follow these steps:
@@ -30,7 +30,7 @@ This is done by control panel/system/advanced/environment variables and adding c
 Keep your fingers crossed...
 }}}
 
-Non-Windows: Install libtiff-dev. Procedure differs from OS to OS, but on many something like
+Non-Windows (and Cygwin): Install *libtiff-dev.* Procedure differs from OS to OS, but on many something like
 {{{
 sudo apt-get install libtiff-dev
 }}}
