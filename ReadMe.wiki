@@ -66,7 +66,7 @@ For interfacing to other applications, there is a DLL included with the executab
 The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
 
 
-==Non-Windows:==
+==Non-Windows (or Cygwin):==
 
 You have to tell Tesseract through a standard unix mechanism where to find
 its data directory. You must either:
@@ -90,7 +90,7 @@ It might work with your OS if you know how to do that.
 If you are linking to the libraries, as Ocropus does, there is now a single master
 library called libtesseract_full.a.
 
-Libtiff support should now be properly working via configure, but note that you need libtiff-dev, as that contains the header files required to compile the code that uses it.
+Libtiff support should now be properly working via configure, but *note that you need libtiff-dev,* as that contains the header files required to compile the code that uses it.
 
 = History: =
 
