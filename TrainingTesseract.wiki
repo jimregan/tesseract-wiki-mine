@@ -42,12 +42,16 @@ Some of the procedure is inevitably manual. As much automated help as possible i
 The first step is to determine the full character set to be used, and prepare a text or word processor file containing a set of examples. The most important points to bear in mind when creating a training file are:
   * Make sure there are a minimum number of samples of each character. 10 is good, but 5 is OK for rare characters.
   * There should be more samples of the more frequent characters - at least 20.
-  * Don't make the mistake of grouping all the non-letters together. Make the text more realistic. For example, *The quick brown fox jumps over the lazy dog. 0123456789 !@#$%^&(),.[]{}<>/?* is terrible. Much better is *The (quick) [brown] {fox} jumps! over the $3,456.78 <lazy> #90 dog & duck/goose, as 12.5% of E-mail from aspammer@website.com is spam?* This gives the textline finding code a much better chance of getting sensible baseline metrics for the special characters.
-  * It is a good idea to space out the text a bit when printing, so up the inter-character and inter-line spacing in your word processor.
-  * The training data currently needs to fit on a single page.
+  * Don't make the mistake of grouping all the non-letters together. Make the text more realistic. For example, *The quick brown fox jumps over the lazy dog. 0123456789 !@#$%^&(),.[]{}<>/?* is terrible. Much better is *The (quick) [brown] {fox} jumps! over the $3,456.78 `<lazy>` #90 dog & duck/goose, as 12.5% of E-mail from aspammer@website.com is spam?* This gives the textline finding code a much better chance of getting sensible baseline metrics for the special characters.
+  * It is *ABSOLUTLEY VITAL* to space out the text a bit when printing, so up the inter-character and inter-line spacing in your word processor. Not spacing text out sufficiently will cause "FAILURE! box overlaps no blobs or blobs in multiple rows" errors during tr file generation, whcih leads to FATALITY - 0 labelled samples of "x", which leads to "Error: X classes in inttemp while unicharset contains Y unichars" and you can't use your nice new data files.
+  * The training data currently needs to fit in a single tiff image, but it may be multi-page tiff (if you have libtiff installed).
   * There is no need to train with multiple sizes. 10 point will do. (An exception to this is very small text. If you want to recognize text with an x-height smaller than about 15 pixels, you should either train it specifically or scale your images before trying to recognize them.)
+  * *DO NOT MIX FONTS ON A PAGE* (In a single .tr file to be precise.) This will cause features to be dropped at clustering, which leads to recognition errors.
+  * The example boxtiff files on the downloads page will help if you are not sure how to format your training data.
 
 Next print and scan (or use some electronic rendering method) to create an image of your training page. Upto 32 training images can be used. It is best to create pages in a mix of fonts and styles, including italic and bold.
+
+*NOTE:* training from real images is actually quite hard, due to the spacing-out requirements. This will be improved in a future release. For now it is much easier if you can print/scan your own training text.
 
 You will also need to save your training image as a UTF-8 text file for use in the next step where you have to insert the codes into another file.
 
@@ -278,6 +282,10 @@ Tesseract uses 3 dictionary files for each language. Two of the files are coded 
 wordlist2dawg frequent_words_list freq-dawg
 wordlist2dawg words_list word-dawg
 }}}
+
+*NOTE: wordlists must contain at least one word!* Empty files and dictionaries with no words are *not* currently supported! (Surely you know at least one word to be recognized.)
+
+If words always have some punctuation in them, like google.com then it is a good idea to include them in the dictionary.
 
 The third dictionary file is called user-words and is usually empty.
 
