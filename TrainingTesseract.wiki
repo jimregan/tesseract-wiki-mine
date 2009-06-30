@@ -201,9 +201,17 @@ For each of your training image, boxfile pairs, run Tesseract in training mode:
 tesseract fontfile.tif junk nobatch box.train
 }}}
 
+OR
+
+{{{
+tesseract fontfile.tif junk nobatch box.train.stderr
+}}}
+
+The first form sends all the errors to tesseract.log (on all platforms) like it did on windows versions 2.03 and below. With box.train.stderr, all errors are sent to stderr, on all platforms, just like it did on non-windows platforms for versions 2.03 and below.
+
 Note that the box filename must match the tif filename, including the path, or Tesseract won't find it. The output of this step is `fontfile.tr` which contains the features of each character of the training page. Note also that the output name is derived from the input image name, not the normal output name, shown here as `junk`. junk.txt will also be written with a single newline and no text.
 
-*Important* Check (linux:stderr, windows:tesseract.log) for the output from apply_box. If there are FATALITIES reported, then there is no point continuing with the training process until you fix the box file. A FATALITY usually indicates that this step failed to find any training samples of one of the characters listed in your box file. Either the coordinates are wrong, or there is something wrong with the image of the character concerned. If there is no workable sample of a character, it can't be recognized, and the generated inttemp file won't match the unicharset file later and Tesseract will abort.
+*Important* Check for errors in the output from apply_box. If there are FATALITIES reported, then there is no point continuing with the training process until you fix the box file. The new box.train.stderr config file makes is easier to choose the location of the output. A FATALITY usually indicates that this step failed to find any training samples of one of the characters listed in your box file. Either the coordinates are wrong, or there is something wrong with the image of the character concerned. If there is no workable sample of a character, it can't be recognized, and the generated inttemp file won't match the unicharset file later and Tesseract will abort.
 
 Another error that can occur *that is also fatal and needs attention* is an error about "Box file format error on line n". If preceded by "Bad utf-8 char..." then the utf-8 codes are incorrect and need to be fixed. The error "utf-8 string too long..." indicates that you have exceeded the 8 (v2.01) byte limit on a character description. If you need a description longer than 8 bytes, please file an issue. Box file format errors without either of the above errors indicate either something wrong with the bounding box integers, or possibly a blank line in the box file. Blank lines are actually harmless, and the error can be ignored in this case. They could be ignored by the code, but it doesn't ignore them in case there is something unintentional wrong with the box file.
 
