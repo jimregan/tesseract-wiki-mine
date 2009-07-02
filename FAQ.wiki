@@ -136,7 +136,14 @@ X ~= Y, usually with X < Y: Usually caused by a failed training process. Look fo
 
 X a wild number (very large + or -) and Y a sane number between 100 and a few thousand, depending on the language: Corrupt inttemp file, or (if you have *NOT* trained youself) your hardware has a funny endian architecture that is not automatically detected. Big-endian or Little-endian 32 and 64 bit *SHOULD* work, but mixed endian (0x12345678 -> 0x56 0x78 0x12 0x13 or similar) will *NOT* work. Get a sensible hardware architecture, or retrain yourself. Then your inttemp will match the hardware.
 
+= How can I make the error messages go to tesseract.log instead of stderr? =
 
+To restore the old behaviour of writing to tesseract.log instead of writing to the console window, you need a text file that contains this:
+
+debug_file tesseract.log
+
+call the file 'logfile' and put it in tessdata/configs/
+Then add logfile to the end of your command line.
 
 
 = My question isn't in here! =
