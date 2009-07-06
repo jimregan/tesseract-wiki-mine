@@ -135,7 +135,7 @@ e 367 499 386 524
 " 389 520 407 532
 }}}
 
-If you didn't sucessfully space out the characters on the training image, some may have been joined into a single box. In this case, you can either remake the images with better spacing and start again, or if the pair is common, put both characters at the start of the line, leaving the bounding box to represent them both. (As of 2.01, there is a limit of 8 bytes for the description of a "character". This will allow you between 2 and 8 unicodes to describe the character, depending on where your codes sit in the unicode set. If anyone hits this limit, please file an issue describing your situation.)
+If you didn't sucessfully space out the characters on the training image, some may have been joined into a single box. In this case, you can either remake the images with better spacing and start again, or if the pair is common, put both characters at the start of the line, leaving the bounding box to represent them both. (As of 2.04, there is a limit of 24 bytes for the description of a "character". This will allow you between 6 and 24 unicodes to describe the character, depending on where your codes sit in the unicode set. If anyone hits this limit, please file an issue describing your situation.)
 
 *Note* that the coordinate system used in the box file has (0,0) at the bottom-left.
 
