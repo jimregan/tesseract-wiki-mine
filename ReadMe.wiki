@@ -92,6 +92,73 @@ library called libtesseract_full.a.
 
 Libtiff support should now be properly working via configure, but *note that you need libtiff-dev,* as that contains the header files required to compile the code that uses it.
 
+=Installation Notes - 3.00 Prerelease=
+
+=General=
+
+*BIG CAVEAT* It is 23:00 on Friday and I have finished uploading the source to svn, but not yet had a chance to check that I got it right. This code compiled on my linux and windows systems, *before* I checked it in to svn, but the svn code itself is untested!
+
+IMPORTANT: 3.00 is not backwards compatible with 2.04. The data files are different. (Single file per language among other things.) You therefore need to make sure you connect your new executable with the new data files. A lot of these are checked in to svn, but due to the large download size the Chinese, Japanese, and Korean ones are not there. (They were there briefly at rev 309.)
+
+The command line is the same as it was before:
+{{{
+tesseract <image> <outputbasename> [-l lang] [configs]
+}}}
+with the one change that "old" and "new" configs files may now be mixed arbitrarily, since  the old configs are no more. In the executable, page layout analysis is enabled by default. You may need to turn it off to process small images. No command-line control for this yet. Sorry. See tesseractmain.cpp.
+
+The training process is not yet complete. A new executable is needed to repackage the 8 data files into a single file. Called combine_tessdata, there is no vcproj nor Makefile.am entry for it, but the source is included.
+
+The dll isn't properly working either. The BaseAPI is equipped with a dllexport for Windows. I strongly recommend all new dll use to go through the BaseAPI where possible, as this is most likely to keep working in future versions as we move towards thread-safety.
+
+==Linux==
+If they are not already installed, you need the following libraries:
+{{{
+sudo apt-get install libpng12-dev
+sudo apt-get install libjpeg62-dev
+sudo apt-get install libtiff4-dev
+sudo apt-get install zlibg-dev
+}}}
+You also need to install leptonica. There is an apt-get package (name unknown), or the sources are at http://www.leptonica.org/ The instructions at http://www.leptonica.org/source/README.html are clear, but basically it is the usual
+{{{
+./configure
+make
+sudo make install
+}}}
+
+Now back to Tesseract.
+Download the source from svn:
+{{{
+svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
+}}}
+The same build process as usual applies:
+{{{
+./configure
+make
+}}}
+Between configure and make, you can check that everything has worked by looking at config_auto.h It should contain #define HAVE_LIBLEPT 1 and also HAVE_LIBPNG, HAVE_LIBTIFF,  HAVE_LIBJPEG and HAVE_ZLIB.
+If you aren't doing a make install (this is an alpha release), you will probably need to use:
+{{{
+export TESSDATA_PREFIX=/some/path/tessdata
+}}}
+to point to your tessdata directory. The command line is the same as it was before:
+{{{
+tesseract <image> <outputbasename> [-l lang] [configs]
+}}}
+with the one change that "old" and "new" configs files may now be mixed arbitrarily, since  the old configs are no more. In the executable, page layout analysis is enabled by default. You may need to turn it off to process small images. No command-line control for this yet. Sorry.
+
+==Windows==
+Download the source from svn:
+{{{
+svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
+}}}
+The same build process as usual applies:
+Open tesseract.sln with VC++Express 2008 and build all (or just Tesseract) It should compile (in at least release mode) without having to install anything further. The dll dependencies and Leptonica are included. (When the release is final, all the windows-specific parts will be in their own download.) With the full svn download, it should just run immediately after building.
+{{{
+tesseract <image> <outputbasename> [-l lang] [configs]
+}}}
+For debug mode, you will have to copy the tessdata directory to bin.dbg.
+
+
 = History: =
 
 The engine was developed at Hewlett Packard Laboratories Bristol and
