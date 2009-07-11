@@ -156,7 +156,7 @@ Open tesseract.sln with VC++Express 2008 and build all (or just Tesseract) It sh
 {{{
 tesseract <image> <outputbasename> [-l lang] [configs]
 }}}
-For debug mode, you will have to copy the tessdata directory to bin.dbg.
+For debug mode, you will have to copy the tessdata directory and all the dlls in the top-level directory (except tessdll.dll) to bin.dbg. There are no separate debug versions of these dlls.
 
 
 = History: =
