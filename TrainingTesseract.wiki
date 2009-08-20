@@ -176,10 +176,10 @@ This should make the 2nd box file easier to make, as there is a good chance that
 The Tif/Box file pairs are on the downloads page. (Note the tiff files are G4 compressed
 to save space, so you will have to have libtiff or uncompress them first). You could
 follow the following process to make better training data for your own language or
-subset of an existing language:
+subset of an existing language, or add different characters/shapes to an existing language:
   # Filter the box files, keeping lines for only the characters you want.
   # Run tesseract for training (below).
-  # Cat the .tr files from multiple languages for each font to get the character set that you want.
+  # Cat the .tr files from multiple languages for each font to get the character set that you want and add the .tr files from your own fonts or characters.
   # Cat the filtered box files in an identical way to the .tr files for handing off to unicharset_extractor.
   # Run the rest of the training process.
 Caution! This is not quite as simple as it sounds! cntraining and mftraining can only
