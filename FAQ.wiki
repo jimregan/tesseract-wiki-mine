@@ -50,6 +50,10 @@ The API (TessBaseAPI) should be OK with 1, 8, 24 or 32 bit images.
 
 Only with 2.03 and later, and only if you have libtiff installed. See Compressed Tiff above.
 
+= Why doesn't viewer/svutil.cpp compile? =
+
+This file is the single greatest cause of portability issues, because it is the interface to a viewer running in an external process. If you can get it to compile on your system, please report an issue logging what you had to change, but please only for the current version. If you can't get it to compile, you can define GRAPHICS_DISABLED in your compiler (for all the source) and it will comment out all the hard-to-compile code and disable the viewer functionality, which most people don't use anyway.
+
 = How do I Edit Box files used in training? =
 
 Use bbtesseract. See http://code.google.com/p/bbtesseract/ and http://groups.google.com/group/bbtesseract
@@ -73,6 +77,10 @@ and then your command line becomes:
 tesseract image.tif outputbase nobatch digits
 }}}
 *Warning:* Until the old and new config variables get merged, you *must* have the `nobatch` parameter too.
+
+= How do I add just one character or one font to my favourite language, without having to retrain from scratch? =
+
+See the TrainingTesseract wiki entry on "New! Tif/Box pairs provided!"
 
 = Is there a Minimum Text Size? (It won't read screen text!) =
 
