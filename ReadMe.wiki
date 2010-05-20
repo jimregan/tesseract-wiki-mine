@@ -98,7 +98,8 @@ Libtiff support should now be properly working via configure, but *note that you
 
 *BIG CAVEAT* It is 23:00 on Friday and I have finished uploading the source to svn, but not yet had a chance to check that I got it right. This code compiled on my linux and windows systems, *before* I checked it in to svn, but the svn code itself is untested!
 
-IMPORTANT: 3.00 is not backwards compatible with 2.04. The data files are different. (Single file per language among other things.) You therefore need to make sure you connect your new executable with the new data files. A lot of these are checked in to svn, but due to the large download size the Chinese, Japanese, and Korean ones are not there. (They were there briefly at rev 309.)
+IMPORTANT: 3.00 is not backwards compatible with 2.04. The data files are different. (Single file per language among other things.) You therefore need to make sure you connect your new executable with the new data files. A lot of these are checked in to svn, but due to the large download size the Chinese, Japanese, and Korean ones are not there. (They were there briefly at rev 309 and can be found via http://code.google.com/p/tesseract-ocr/source/browse/?r=309#svn/trunk/tessdata
+)
 
 The command line is the same as it was before:
 {{{
