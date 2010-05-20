@@ -96,10 +96,10 @@ Libtiff support should now be properly working via configure, but *note that you
 
 =General=
 
-*BIG CAVEAT* It is 23:00 on Friday and I have finished uploading the source to svn, but not yet had a chance to check that I got it right. This code compiled on my linux and windows systems, *before* I checked it in to svn, but the svn code itself is untested!
-
-IMPORTANT: 3.00 is not backwards compatible with 2.04. The data files are different. (Single file per language among other things.) You therefore need to make sure you connect your new executable with the new data files. A lot of these are checked in to svn, but due to the large download size the Chinese, Japanese, and Korean ones are not there. (They were there briefly at rev 309 and can be found via http://code.google.com/p/tesseract-ocr/source/browse/?r=309#svn/trunk/tessdata
+*IMPORTANT: 3.00 is not backwards compatible with 2.04.* The data files are different. (Single file per language among other things.) You therefore need to make sure you connect your new executable with the new data files. A lot of these are checked in to svn, but due to the large download size the Chinese, Japanese, and Korean ones are not there. (They were there briefly at rev 309 and can be found via http://code.google.com/p/tesseract-ocr/source/browse/?r=309#svn/trunk/tessdata
 )
+
+Another important change is that you should *really* be using TessBaseAPI if you are linking with another program. In Linux (non-Windows) the main library is now libtesseract_api.a instead of the old libtesseract_full.a. In windows, use the define TESSDLL_IMPORTS before including baseapi.h in your code to get the symbols of the TessBaseAPI class.
 
 The command line is the same as it was before:
 {{{
