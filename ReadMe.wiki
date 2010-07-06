@@ -124,6 +124,7 @@ You also need to install leptonica. There is an apt-get package (name unknown), 
 ./configure
 make
 sudo make install
+sudo ldconfig
 }}}
 
 Now back to Tesseract.
