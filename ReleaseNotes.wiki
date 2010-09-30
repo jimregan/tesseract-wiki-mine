@@ -7,15 +7,12 @@ This page keeps the most up-to-date release notes.
 = Tesseract release notes Sep 30 2010 - V3.00 =
   * Preparations for thread safety:
      * Changed TessBaseAPI methods to be non-static
-     * Created a class hierarchy for the directories to hold instance data,
-       and began moving code into the classes.
+     * Created a class hierarchy for the directories to hold instance data, and began moving code into the classes.
      * Moved thresholding code to a separate class.
   * Added major new page layout analysis module.
   * Added HOCR output.
-  * Added Leptonica as main image I/O and handling. Currently optional,
-    but in future releases linking with Leptonica will be mandatory.
-  * Ambiguity table rewritten to allow definite replacements in place
-    of fix_quotes.
+  * Added Leptonica as main image I/O and handling. Currently optional, but in future releases linking with Leptonica will be mandatory.
+  * Ambiguity table rewritten to allow definite replacements in place of fix_quotes.
   * Added TessdataManager to combine data files into a single file.
   * Some dead code deleted.
   * VC++6 no longer supported. It can't cope with the use of templates.
