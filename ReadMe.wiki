@@ -24,7 +24,7 @@ limitations under the License.
   * [http://www.leptonica.org/ Leptonica] for additional formats support (png, jpg...)
   * Tesseract can also make use of the [http://www.libtiff.org libtiff library]. See [http://code.google.com/p/tesseract-ocr/wiki/FAQ FAQ] for details.
 
-Without additional libraries, Tesseract can only read uncompressed TIFF. (And some versions of BMP) Upto version 2.04, you can add *libtiff-dev.* See the [http://code.google.com/p/tesseract-ocr/wiki/FAQ FAQ] question on compressed TIFF for installation instructions. Version 3.00 support additional formats via Leptonica, but requires more libraries to be added. 
+Without additional libraries, Tesseract can only read uncompressed TIFF (upto version 2.04). See the [http://code.google.com/p/tesseract-ocr/wiki/FAQ FAQ] question on compressed TIFF for installation instructions. Version 3.00 support additional formats via Leptonica, but requires more libraries to be added. 
 
 = Installing and Running Tesseract =
 
@@ -105,9 +105,10 @@ tesseract <image> <outputbasename> [-l lang] [configs]
 }}}
 
 Install language data:
-1. Download langugage data file (e.g. 'wget http://tesseract-ocr.googlecode.com/files/eng.traineddata.gz')
-2. Decompress it ('gzip -d eng.traineddata.gz')
-3. Move it to instalation tessdata (e.g. 'mv eng.traineddata $TESSDATA_PREFIX' if defined TESSDATA_PREFIX) 
+
+ #  Download langugage data file (e.g. 'wget http://tesseract-ocr.googlecode.com/files/eng.traineddata.gz')
+ #  Decompress it ('gzip -d eng.traineddata.gz')
+ #  Move it to instalation tessdata (e.g. 'mv eng.traineddata $TESSDATA_PREFIX' if defined TESSDATA_PREFIX) 
 
 
 ===Windows===
@@ -123,7 +124,7 @@ Download the source from svn:
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
 }}}
 
-Windows relevant file are locate in vs2008 directory. The same build process as usual applies:
+Windows relevant files are located in vs2008 directory. The same build process as usual applies:
 Open tesseract.sln with VC++Express 2008 and build all (or just Tesseract) It should compile (in at least release mode) without having to install anything further. The dll dependencies and Leptonica are included. With the full svn download, it should just run immediately after building.
 {{{
 tesseract <image> <outputbasename> [-l lang] [configs]
@@ -139,7 +140,7 @@ If you need support please try to search and use [http://groups.google.com/group
 
 ===Linux===
 
-Instalation process is the same as for version 3.00 just use correct [http://tesseract-ocr.googlecode.com/files/tesseract-2.04.tar.gz source] and language data.
+Instalation process is the same as for version 3.00 just use correct [http://tesseract-ocr.googlecode.com/files/tesseract-2.04.tar.gz source] and language data for Tesseract 2.0x.
 
 ===Windows===
 
@@ -208,27 +209,6 @@ The most recent change is that Tesseract can now recognize 33 languages, is full
 
 Tesseract was included in UNLV's Fourth Annual Test of OCR Accuracy. See http://www.isri.unlv.edu/downloads/AT-1995.pdf. With Tesseract 2.00, scripts are now included to allow anyone to reproduce some of these tests. See [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract TestingTesseract] for more details.
 
-= Directory Structure (ordered by dependency): =
-
-{{{
-ccmain     Top-level code. The main program resides in tesseractmain.cpp.
-training   Top-level code for training tools.
-testing    Set of testing scripts and root of hierarchy of results and error reports.
-display    An "editor" to view and operate on the internal structures.
-           (Requires a working viewer - batteries not included.)
-wordrec    The word-level recognizer.
-textord    The module that organizes(orders) text into lines and words.
-classify   The low-level character classifiers.
-ccstruct   Classes to hold information about a page as it is being processed.
-viewer     The client side of a client server viewing system.
-           Unfortunately, at this time, the server side is not available.
-image      Image class and processing functions.
-dict       Language model code.
-cutil      Code for file I/O, lists, heaps etc, from the old C code.
-ccutil     Somewhat newer code for lists, memory allocation etc from the
-           old C++ code.
-vs2008     Directory with files needed for Windows build
-}}}
 
 = About the Engine =
 
