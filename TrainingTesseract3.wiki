@@ -1,4 +1,5 @@
 #summary How to use the tools provided to train Tesseract3 for a new language.
+#labels Featured 
 
 = Introduction =
 
@@ -154,20 +155,23 @@ The last number on each line is the page number (0-based) of that character in t
 
 If you have an editor that understands UTF-8, this process will be a lot easier than if it doesn't, as each UTF-8 character has upto 4 bytes to code it, and dumb editors will show you all the bytes separately.
 
+=== Box File Editors ===
+
 There are several visual tools for editing box file:
 
-|| *Name* || *Last update* || *Language* ||
-|| [http://code.google.com/p/pytesseracttrainer/ pytesseracttrainer] || Aug 2010 || Python, GTK2 || 
-|| [http://code.google.com/p/owlboxer/ owlboxer] || Mar 2010 || C++, Qt || 
-|| [http://code.google.com/p/cowboxer/ cowboxer] || Jul 2010 || C++, Qt || 
-|| [http://sites.google.com/site/spilkaondrej Tessboxer] || Jun 2009 || .NET ||
-|| [http://tesseract-ocr.googlecode.com/files/boxfilereader.php boxfilereader.php] || Mar 2009 ||  php ||
-|| [http://www.lbreyer.com/tessboxes.html tessboxes] || Nov 2008 || C ||
-|| [http://code.google.com/p/jtesseract/ JTesseract] ||  Oct 2008 || C# ||
-|| [http://code.google.com/p/wx-tetra/ wx-tetra] || Sep 2008 || perl, wx  ||
-|| [http://code.google.com/p/bbtesseract/ bbtesseract] || Jul 2008 || VB.NET 2008 ||
+|| *Name* || *Last update* || *Language* || *3.00 box file support* ||
+|| [http://code.google.com/p/pytesseracttrainer/ pytesseracttrainer] || Jan 2011 || Python, GTK2 || yes || 
+|| [http://code.google.com/p/cowboxer/ cowboxer] || Jan 2011 || C++, Qt || yes || 
+|| [https://github.com/zdenop/qt-box-editor/ QT Box Editor] || Jan 2011 || C++, Qt || yes || 
+|| [http://pp19dd.com/tesseract-ocr-chopper/ Tesseract-OCR boxfile AJAX editor] || Sep 2010 || online tool || no || 
+|| [http://code.google.com/p/owlboxer/ owlboxer] || Jul 2010 || C++, Qt || no || 
+|| [http://sites.google.com/site/spilkaondrej Tessboxer] || Jun 2009 || .NET || no || 
+|| [http://tesseract-ocr.googlecode.com/files/boxfilereader.php boxfilereader.php] || Mar 2009 ||  php || no ||
+|| [http://www.lbreyer.com/tessboxes.html tessboxes] || Nov 2008 || C || no ||
+|| [http://code.google.com/p/jtesseract/ JTesseract] ||  Oct 2008 || C# || no ||
+|| [http://code.google.com/p/wx-tetra/ wx-tetra] || Sep 2008 || perl, wx  || no ||
+|| [http://code.google.com/p/bbtesseract/ bbtesseract] || Jul 2008 || VB.NET 2008 || no ||
 
-Unfortunatelly only [http://code.google.com/p/pytesseracttrainer/ pytesseracttrainer] suppport Tesseract 3 box format. 
 
 Platform support deppends on used language.
 

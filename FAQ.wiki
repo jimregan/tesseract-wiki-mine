@@ -1,4 +1,5 @@
 #summary Frequently Asked Questions
+#labels Featured 
 
 = Tesseract FAQs =
 
@@ -62,9 +63,8 @@ configure --disable-graphics
 
 = How do I Edit Box files used in training? =
 
-Use bbtesseract. See http://code.google.com/p/bbtesseract/ and http://groups.google.com/group/bbtesseract
+Use bbtesseract http://code.google.com/p/bbtesseract/ or [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3#Box_File_Editors other similar program].
 
-Alternatively,  http://code.google.com/p/wx-tetra/ has another application for editing box files.
 
 = How do I recognize only digits? =
 

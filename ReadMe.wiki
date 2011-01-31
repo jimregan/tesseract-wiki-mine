@@ -1,4 +1,5 @@
 #summary Important information all Tesseract users need to know.
+#labels Featured 
 
 = Introduction =
 
