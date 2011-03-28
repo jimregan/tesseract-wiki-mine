@@ -1,5 +1,5 @@
 #summary How to use the tools provided to train Tesseract3 for a new language.
-#labels Featured 
+#labels Featured
 
 = Introduction =
 
@@ -286,6 +286,34 @@ If your system supports the wctype functions, these values will be set automatic
 *NOTE* The unicharset file must be regenerated whenever inttemp, normproto and pffmtable are generated (i.e. they must *all* be recreated when the box file is changed) as they have to be in sync. This is made easier than in previous versions by running unicharset_extractor before mftraining and cntraining, and giving the unicharset to mftraining.
 
 Last two columns represent type of script (Latin, Common, Greek, Cyrillic, Han, null) and id code of character given language.
+
+== font_properties (new in 3.01) ==
+
+A new requirement for training in 3.01 is a `font_properties` file. The purpose of this file is to provide font style information that will appear in the output when the font is recognized. The `font_properties` file is a text file specified by the `-F filename` option to mftraining.
+
+Each line of the font_properties file is formatted as follows:
+{{{
+<fontname> <italic> <bold> <fixed> <serif> <fraktur>
+}}}
+where `<fontname>` is a string naming the font (no spaces allowed!), and `<italic>, <bold>, <fixed>, <serif> and <fraktur>` are all simple 0 or 1 flags indicating whether the font has the named property.
+
+When running mftraining, each .tr filename must match an entry in the font_properties file, or mftraining will abort. At some point, possibly before the release of 3.01, this matching requirement is likely to shift to the font name in the .tr file itself. The name of the .tr file may be either fontanme.tr or [lang].[fontname].exp[num].tr.
+
+*Example:* <br>
+font_properties file: <br>
+{{{
+timesitalic 1 0 0 1 0
+}}}
+
+{{{
+mftraining -F font_properties -U unicharset timesitalic.tr 
+}}}
+
+or, alternatively
+
+{{{
+mftraining -F font_properties -U unicharset eng.timesitalic.exp0.tr 
+}}}
 
 == Clustering ==
 
