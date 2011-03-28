@@ -77,11 +77,15 @@ For the next step below, Tesseract needs a 'box' file to go with each training i
 
 Run Tesseract on each of your training images using this command line:
 {{{
-tesseract lang.fontname.number.tif lang.fontname.number batch.nochop makebox
+tesseract [lang].[fontname].exp[num].tif [lang].[fontname].exp[num] batch.nochop makebox
 }}}
 
+e.g.
+{{{
+tesseract eng.timesitalic.exp0.tif eng.timesitalic.exp0 batch.nochop makebox
+}}}
 
-Now the hard part. You have to edit the file lang.fontname.number.box and put the UTF-8 codes for each character in the file at the start of each line, in place of the incorrect character put there by Tesseract. Example: The distribution includes an image eurotext.tif. Running the above command produces a text file that includes the following lines (lines 141-154):
+Now the hard part. You have to edit the file `[lang].[fontname].exp[num].box` and put the UTF-8 codes for each character in the file at the start of each line, in place of the incorrect character put there by Tesseract. Example: The distribution includes an image eurotext.tif. Running the above command produces a text file that includes the following lines (lines 141-154):
 
 {{{
 s 734 494 751 519 0
@@ -147,7 +151,7 @@ e 367 499 386 524 0
 ” 389 520 407 532 0
 }}}
 
-If you didn't sucessfully space out the characters on the training image, some may have been joined into a single box. In this case, you can either remake the images with better spacing and start again, or if the pair is common, put both characters at the start of the line, leaving the bounding box to represent them both. (As of 3.00, there is a limit of 24 bytes for the description of a "character". This will allow you between 6 and 24 unicodes to describe the character, depending on where your codes sit in the unicode set. If anyone hits this limit, please file an issue describing your situation.)
+If you didn't successfully space out the characters on the training image, some may have been joined into a single box. In this case, you can either remake the images with better spacing and start again, or if the pair is common, put both characters at the start of the line, leaving the bounding box to represent them both. (As of 3.00, there is a limit of 24 bytes for the description of a "character". This will allow you between 6 and 24 unicodes to describe the character, depending on where your codes sit in the unicode set. If anyone hits this limit, please file an issue describing your situation.)
 
 *Note* that the coordinate system used in the box file has (0,0) at the *bottom-left.*
 
@@ -160,9 +164,10 @@ If you have an editor that understands UTF-8, this process will be a lot easier 
 There are several visual tools for editing box file:
 
 || *Name* || *Last update* || *Language* || *3.00 box file support* ||
+|| [https://github.com/zdenop/qt-box-editor/ QT Box Editor] || Mar 2011 || C++, Qt || yes || 
+|| [http://code.google.com/p/moshpytt/ moshPyTT ] || Feb 2011 || Python, GTK2 || yes || 
 || [http://code.google.com/p/pytesseracttrainer/ pytesseracttrainer] || Jan 2011 || Python, GTK2 || yes || 
 || [http://code.google.com/p/cowboxer/ cowboxer] || Jan 2011 || C++, Qt || yes || 
-|| [https://github.com/zdenop/qt-box-editor/ QT Box Editor] || Jan 2011 || C++, Qt || yes || 
 || [http://pp19dd.com/tesseract-ocr-chopper/ Tesseract-OCR boxfile AJAX editor] || Sep 2010 || online tool || no || 
 || [http://code.google.com/p/owlboxer/ owlboxer] || Jul 2010 || C++, Qt || no || 
 || [http://sites.google.com/site/spilkaondrej Tessboxer] || Jun 2009 || .NET || no || 
@@ -173,14 +178,14 @@ There are several visual tools for editing box file:
 || [http://code.google.com/p/bbtesseract/ bbtesseract] || Jul 2008 || VB.NET 2008 || no ||
 
 
-Platform support deppends on used language.
+Platform support depends on used language.
 
 
 === Bootstrapping a new character set ===
 
 If you are trying to train a new character set, it is a good idea to put in the effort on a single font to get one good box file, run the rest of the training process, and then use Tesseract in your new language to make the rest of the box files as follows:
 {{{
-tesseract lang.fontname.number.tif lang.fontname.number -l yournewlanguage batch.nochop makebox
+tesseract [lang].[fontname].exp[num].tif [lang].[fontname].exp[num] -l yournewlanguage batch.nochop makebox
 }}}
 This should make the 2nd box file easier to make, as there is a good chance that Tesseract will recognize most of the text correctly. You can always iterate this sequence adding more fonts to he training set (i.e. to the command line of mfTraining and cnTraining below) as you make them, but note that there is no incremental training mode that allows you to add new training data to existing sets. This means that each time you run mfTraining and cnTraining you are making new data files from scratch from the tr files you give on the command line, and these programs cannot take an existing intproto/pffmtable/normproto and add to them directly.
 
@@ -203,7 +208,7 @@ of characters found in the box files when given to unicharset_extractor, so you 
 cat the box files togther in the *same order* as the tr files.
 The command lines for cn/mftraining and unicharset_extractor must be given the .tr
 and .box files (respectively) in the *same order* just in case you have different
-filterings for the different fonts.
+filtering  for the different fonts.
 There may be a program available to do all this and pick out the characters in
 the style of character map. This might make the whole thing easier.
 
@@ -211,26 +216,26 @@ the style of character map. This might make the whole thing easier.
 
 For each of your training image, boxfile pairs, run Tesseract in training mode:
 {{{
-tesseract lang.fontname.number.tif lang.fontname.number nobatch box.train
+tesseract [lang].[fontname].exp[num].tif [lang].[fontname].exp[num] nobatch box.train
 }}}
 
-OR
+or
 
 {{{
-tesseract lang.fontname.number.tif lang.fontname.number nobatch box.train.stderr
+tesseract [lang].[fontname].exp[num].tif [lang].[fontname].exp[num] nobatch box.train.stderr
 }}}
 
 *NOTE* that although tesseract requires language data to be present for this step, the language data is not used, so English will do, whatever language you are training.
 
 The first form sends all the errors to tesseract.log (on all platforms) like it did on windows versions 2.03 and below. With box.train.stderr, all errors are sent to stderr, on all platforms, just like it did on non-windows platforms for versions 2.03 and below.
 
-Note that the box filename must match the tif filename, including the path, or Tesseract won't find it. The output of this step is `fontfile.tr` which contains the features of each character of the training page. lang.fontname.number.txt will also be written with a single newline and no text.
+Note that the box filename must match the tif filename, including the path, or Tesseract won't find it. The output of this step is `fontfile.tr` which contains the features of each character of the training page. `[lang].[fontname].exp[num].txt` will also be written with a single newline and no text.
 
 *Important* Check for errors in the output from apply_box. If there are FATALITIES reported, then there is no point continuing with the training process until you fix the box file. The new box.train.stderr config file makes is easier to choose the location of the output. A FATALITY usually indicates that this step failed to find any training samples of one of the characters listed in your box file. Either the coordinates are wrong, or there is something wrong with the image of the character concerned. If there is no workable sample of a character, it can't be recognized, and the generated inttemp file won't match the unicharset file later and Tesseract will abort.
 
 Another error that can occur *that is also fatal and needs attention* is an error about "Box file format error on line n". If preceded by "Bad utf-8 char..." then the utf-8 codes are incorrect and need to be fixed. The error "utf-8 string too long..." indicates that you have exceeded the 24 byte limit on a character description. If you need a description longer than 24 bytes, please file an issue.
 
-There is no need to edit the content of the lang.fontname.number.tr file. The font name inside it need not be set. For the curious, here is some information on the format:
+There is no need to edit the content of the `[lang].[fontname].exp[num].tr` file. The font name inside it need not be set. For the curious, here is some information on the format:
 {{{
 Every character in the box file has a corresponding set of entries in
 the .tr file (in order) like this
@@ -258,7 +263,7 @@ distinguish position and size (eg c vs C and , vs ')
 Tesseract needs to know the set of possible characters it can output. To generate the `unicharset` data file, use the `unicharset_extractor` program on the box files generated above:
 
 {{{
-unicharset_extractor lang.fontname.number_1.box lang.fontname.number_2.box ...
+unicharset_extractor lang.fontname.exp0.box lang.fontname.exp1.box ...
 }}}
 
 Tesseract needs to have access to character properties isalpha, isdigit, isupper, islower, ispunctuation. This data must be encoded in the `unicharset` data file. Each line of this file corresponds to one character. The character in UTF-8 is followed by a hexadecimal number representing a binary mask that encodes the properties. Each bit corresponds to a property. If the bit is set to 1, it means that the property is true. The bit ordering is (from least significant bit to most significant bit): isalpha, islower, isupper, isdigit.
@@ -297,7 +302,7 @@ Each line of the font_properties file is formatted as follows:
 }}}
 where `<fontname>` is a string naming the font (no spaces allowed!), and `<italic>, <bold>, <fixed>, <serif> and <fraktur>` are all simple 0 or 1 flags indicating whether the font has the named property.
 
-When running mftraining, each .tr filename must match an entry in the font_properties file, or mftraining will abort. At some point, possibly before the release of 3.01, this matching requirement is likely to shift to the font name in the .tr file itself. The name of the .tr file may be either fontanme.tr or [lang].[fontname].exp[num].tr.
+When running mftraining, each .tr filename must match an entry in the font_properties file, or mftraining will abort. At some point, possibly before the release of 3.01, this matching requirement is likely to shift to the font name in the .tr file itself. The name of the .tr file may be either fontname.tr or `[lang].[fontname].exp[num].tr`.
 
 *Example:* <br>
 font_properties file: <br>
@@ -320,13 +325,13 @@ mftraining -F font_properties -U unicharset eng.timesitalic.exp0.tr
 When the character features of all the training pages have been extracted, we need to cluster them to create the prototypes. The character shape features can be clustered using the `mftraining` and `cntraining` programs:
 
 {{{
-mftraining -U unicharset -O lang.unicharset lang.fontname.number_1.tr lang.fontname.number_2.tr ...
+mftraining -U unicharset -O lang.unicharset lang.fontname.exp0.tr lang.fontname.exp1.tr ...
 }}}
 
 The -U file is the unicharset generated by unicharset_extractor above, and lang.unicharset is the output unicharset that will be given to combine_tessdata. Mftraining will output two other data files: `inttemp` (the shape prototypes) and `pffmtable` (the number of expected features for each character). (A third file called `Microfeat` is also written by this program, but it is not used.)
 
 {{{
-cntraining lang.fontname.number_1.tr lang.fontname.number_2.tr ...
+cntraining lang.fontname.exp0.tr lang.fontname.exp1.tr ...
 }}}
 
 This will output the `normproto` data file (the character normalization sensitivity prototypes).
