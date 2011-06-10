@@ -3,7 +3,9 @@
 
 = Tesseract FAQs =
 
-A collection of frequently asked questions and the answers, or pointers to them.
+A collection of frequently asked questions and the answers, or pointers to them. If you have question, please post it to forums. Wiki comments are for wiki commenting and not for Troubleshooting.
+
+If you found a bug please create issue.
 
 = Can't open eng.unicharset? =
 
@@ -141,6 +143,15 @@ http://groups.google.com/group/tesseract-ocr/browse_thread/thread/3ef5dd674cef37
 = How can I try the next version? =
 
 Periodically stable versions go to the downloads page. Between releases, and in particular, just before a new release, the latest code is available from svn. You can find the source here: http://code.google.com/p/tesseract-ocr/source/checkout where you can check it out either by command line, or by following the link to the howto on using various client programs and plugins.
+
+
+= last_char == '\n':Error:Assert failed:in file ..\ccutil\tessdatamanager.cpp, line 95 =
+
+If you get error during running *combine_tessdata*:
+<wiki:comment>
+   last_char == '\n':Error:Assert failed:in file ..\ccutil\tessdatamanager.cpp, line 95
+</wiki:comment>
+This indicates your lang.unicharambigs is missing empty line at the end of file.
 
 = Error: X classes in inttemp while unicharset contains Y unichars. =
 
