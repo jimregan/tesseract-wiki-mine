@@ -2,95 +2,25 @@
 
 = External Add-ons for Tesseract =
 
+
+
 == GUI ==
 
+  * [http://vietocr.sourceforge.net/ VietOCR]: A Java/.NET GUI frontend for Tesseract OCR engine. Supports optical character recognition for Vietnamese and other languages supported by Tesseract. _Requirements:_ Java or .NET
+  * [http://sourceforge.net/projects/gimagereader/ gImageReader]: A graphical GTK frontend to tesseract-ocr. _Requirements:_ python, PyGtk
+  * [http://live.gnome.org/OCRFeeder OCRFeeder]: OCRFeeder is a document layout analysis and optical character recognition system. _Requirements:_ linux, Python, pyGTK, Ghostscript, Unpaper
+  * [http://www.paperfile.net/ FreeOCR]: Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers. _Requirements:_ Windows, .NET
+  * [http://solutions.weblite.ca/pdfocrx/ PDF OCR X]: PDF OCR is a simple drag-and-drop utility for Mac OS X and Windows, that converts your PDFs and images into text documents or searchable PDF files. _Requirements:_ Mac OS X 10.5/Windows with Java 1.6 or higher 
+  * [http://code.google.com/p/lime-ocr/ Lime OCR]: A simple, free OCR software for Windows using tesseract-ocr engine. _Requirements:_ Windows, ImageMagick
+  * [http://code.google.com/p/ocrivist/ Ocrivist]: Ocrivist is a utility which makes it possible to scan and OCR books and other printed documents to PDF or Djvu format. Ocrivist is intended for use on Linux and uses the Leptonica and Tesseract libraries. _Requirements:_ Linux, Pascal
+  * [http://code.google.com/p/lector/ Lector]: A graphical ocr solution for GNU/Linux based on Python, Qt4 and tessaract OCR. _Requirements:_ Python, Qt4
+  * [http://tesseract-gui.sourceforge.net Tesseract-GUI]: Tessract-GUI is not a front-end for tesseract-ocr. It is just a graphical way to use it  with simple image manipulation thru ImageMagick. _Requirements:_ python, pyGTK
+  * [http://code.google.com/p/qtesseract/ QTesseract]: QT GUI for the Tesseract OCR. _Requirements:_ QT4, c++
 
-==== VietOCR ====
-
-*Homepage:* http://vietocr.sourceforge.net/
-
-*Description:* A Java/.NET GUI frontend for Tesseract OCR engine. Supports optical character recognition for Vietnamese and other languages supported by Tesseract.
-
-*Requirements:* Java or .NET
-
-
-==== gImageReader ====
-
-*Homepage:* http://sourceforge.net/projects/gimagereader/
-
-*Description:* A graphical GTK frontend to tesseract-ocr
-
-*Requirements:* python, PyGtk
-
-==== OCRFeeder ====
-
-*Homepage:* http://live.gnome.org/OCRFeeder
-
-*Description:* OCRFeeder is a document layout analysis and optical character recognition system.
-
-*Requirements:* linux, Python, pyGTK, Ghostscript, Unpaper
-
-==== FreeOCR ====
-
-*Homepage:* http://www.paperfile.net/
-
-*Description:*  Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers.
-
-*Requirements:* Windows, .NET
-
-
-==== PDF OCR X ====
-
-*Homepage:* http://solutions.weblite.ca/pdfocrx/
-
-*Description:* PDF OCR is a simple drag-and-drop utility for Mac OS X and Windows, that converts your PDFs and images into text documents or searchable PDF files.
-
-*Requirements:* Mac OS X 10.5/Windows with Java 1.6 or higher 
-
-
-==== Lime OCR ====
-
-*Homepage:* http://code.google.com/p/lime-ocr/
-
-*Description:* A simple, free OCR software for Windows using tesseract-ocr engine
-
-*Requirements:* Windows, ImageMagick
-
-
-==== Ocrivist ====
-
-*Homepage:* http://code.google.com/p/ocrivist/
-
-*Description:* Ocrivist is a utility which makes it possible to scan and OCR books and other printed documents to PDF or Djvu format. Ocrivist is intended for use on Linux and uses the Leptonica and Tesseract libraries.
-
-*Requirements:* Linux, Pascal
-
-==== Lector ====
-
-*Homepage:* http://code.google.com/p/lector/
-
-*Description:* A graphical ocr solution for GNU/Linux based on Python, Qt4 and tessaract OCR.
-
-*Requirements:* Python,  Qt4
-
-==== Tesseract-GUI ====
-
-*Homepage:* [http://tesseract-gui.sourceforge.net/]
-
-*Description:* Tessract-GUI is not a front-end for tesseract-ocr. It is just a graphical way to use it  with simple image manipulation thru ImageMagick.
-
-*Requirements:* python, pyGTK
-
-==== QTesseract  ====
-
-*Homepage:* [http://code.google.com/p/qtesseract/ QTesseract]
-
-*Description:* QT GUI for the Tesseract OCR
-
-*Requirements:* QT4, c++
 
 
 == Tesseract box editors and traning tools ==
+
 
 === For Tesseract-OCR 3.0x ===
 
@@ -107,6 +37,7 @@
 
 === For Tesseract-OCR 2.0x ===
 
+
 ==== Box file editors ====
 
 || *Name* || *Last update* || *Language* ||
@@ -119,19 +50,9 @@
 || [http://code.google.com/p/wx-tetra/ wx-tetra] || Sep 2008 || perl, wx  ||
 || [http://code.google.com/p/bbtesseract/ bbtesseract] || Jul 2008 || VB.NET 2008 ||
 
+  * [http://www.cs.toronto.edu/~mreimer/tesseract.html DangAmbigs Generator]: Creates a DangAmbigs file automatically given a set of OCR text output and correct text. _Requirements:_ Python
+  * [http://vietocr.svn.sourceforge.net/viewvc/vietocr/jTessBoxEditor/trunk/tools/ train.ps1]: Windows powershell script for Automate Tesseract 3.01 language data pack generation process.
 
-==== DangAmbigs Generator ====
-
-*Homepage:* [http://www.cs.toronto.edu/~mreimer/tesseract.html]
-
-*Description:* Creates a DangAmbigs file automatically given a set of OCR text output and correct text.
-
-*Requirements:* Python
-
-
-==== Traning scripts ====
-
-Windows powershell script for Automate Tesseract 3.01 language data pack generation process: [http://vietocr.svn.sourceforge.net/viewvc/vietocr/jTessBoxEditor/trunk/tools/ train.ps1]
 
 == Community traning project ==
 
@@ -147,81 +68,39 @@ Windows powershell script for Automate Tesseract 3.01 language data pack generat
 
 ===  Tesseract 3.0x ===
 
-*C wrapper*:
-* http://code.google.com/p/ocrivist/source/browse/#svn%2Ftessintf
+*C wrapper*: http://code.google.com/p/ocrivist/source/browse/#svn%2Ftessintf
 
-*.Net*: 
-* http://code.google.com/p/tesseractdotnet/
+*.Net*: http://code.google.com/p/tesseractdotnet/
 
-*Python*:
-* http://code.google.com/p/python-tesseract/ (SWIG based)
+*Python*: http://code.google.com/p/python-tesseract/ (SWIG based)
 
-*Ruby*:
-* https://github.com/dannnylo/rtesseract
+*Ruby*: https://github.com/dannnylo/rtesseract
 
-*Clojure*:
-https://github.com/antoniogarrote/clj-tesseract
+*Clojure*: https://github.com/antoniogarrote/clj-tesseract
+
+
 
 ===  Tesseract 2.0x ===
 
 *Python*:
-* https://github.com/hoffstaetter/python-tesseract/wiki
-* http://code.google.com/p/pytesser/
-* http://code.google.com/p/tesseract-python (pytesser clone)
-* https://github.com/hoffstaetter/python-tesseract/wiki
-* http://pokerai.org/pf3/viewtopic.php?f=3&t=2677&start=0&st=0&sk=t&sd=a
+  * https://github.com/hoffstaetter/python-tesseract/wiki
+  * http://code.google.com/p/pytesser/
+  * http://code.google.com/p/tesseract-python (pytesser clone)
+  * https://github.com/hoffstaetter/python-tesseract/wiki
+  * http://pokerai.org/pf3/viewtopic.php?f=3&t=2677&start=0&st=0&sk=t&sd=a
 
-*.NET*:
-* http://www.pixel-technology.com/freeware/tessnet2/
+*.NET*: http://www.pixel-technology.com/freeware/tessnet2/
 
-*Java*:
-* http://code.google.com/p/tesjeract (JNI wrapper)
+*Java*: http://code.google.com/p/tesjeract (JNI wrapper)
+
+
 
 ==  Others ==
 
-*set of Android APIs*:
-* http://code.google.com/p/tesseract-android-tools/
-
-==== Mobile OCR ====
-
-*Homepage:* http://code.google.com/p/mobileocr/
-
-*Description:* The goal of Mobile OCR is to create an application for the Android platform that will recognize text from an image taken by the phone’s camera. The application will be fully accessible to low vision and blind users
-
-==== Clarify ====
-
-*Homepage:* http://code.google.com/p/clarify/
-
-*Description:* Clarify helps you OCR 'image-only' PDFs. Your input is a PDF that you normally cannot extract text from. The output is text. Clarify is a python module that wraps up tesseract-ocr, xpdf and netpbm
-
-*Requirements:* python, tesseract-ocr, xpdf, netpbm
-
-
-==== hOcr2Pdf.NET ====
-
-*Homepage:* http://hocrtopdf.codeplex.com/documentation
-
-*Description:* hOcr2Pdf.NET is a library that programmers can use to create highly compressed, searchable pdf's for applications.
-
-*Requirements:* .NET 2.0 or higher, Tesseract 3.0, JBig2.exe 
-
-
-====  ScanBizCards ====
-
-*Homepage:* [http://www.scanbizcards.com scanbizcards.com]
-
-*Description:* Mobile solution for business card scanning
-
-*Requirements:* iPhone 4/iPhone 3/Android 2.0
-
-====  CustomOCR ====
-
-*Homepage:* [http://www.customocr.com/index.php?r=site/page&view=services customocr.com]
-
-*Description:* CustomOCR is a Web-based image processing service dedicated to capturing data from text-containing images. CustomOCR allows locating, recognizing and analyzing text from scanned documents, photographed documents or almost any other images containing text.
-
-==== Tally-Ho ====
-
-*Homepage:* http://code.google.com/p/tallyho/
-
-*Description:* Tally-Ho is a screen reader intended for sites like google books
+  * [http://code.google.com/p/tesseract-android-tools/ tesseract-android-tools]: set of Android APIs
+  * [http://code.google.com/p/mobileocr/ Mobile OCR]: The goal of Mobile OCR is to create an application for the Android platform that will recognize text from an image taken by the phone's camera. The application will be fully accessible to low vision and blind users
+  * [http://code.google.com/p/clarify Clarify]: Clarify helps you OCR 'image-only' PDFs. Your input is a PDF that you normally cannot extract text from. The output is text. Clarify is a python module that wraps up tesseract-ocr, xpdf and netpbm. _Requirements:_ python, tesseract-ocr, xpdf, netpbm
+  * [http://hocrtopdf.codeplex.com/documentation hOcr2Pdf.NET]: hOcr2Pdf.NET is a library that programmers can use to create highly compressed, searchable pdf's for applications. _Requirements:_ .NET 2.0 or higher, Tesseract 3.0, JBig2.exe 
+  * [http://www.scanbizcards.com ScanBizCards]: Mobile solution for business card scanning. _Requirements:_ iPhone 4/iPhone 3/Android 2.0
+  * [http://www.customocr.com/index.php?r=site/page&view=services customocr.com]: CustomOCR is a Web-based image processing service dedicated to capturing data from text-containing images. CustomOCR allows locating, recognizing and analyzing text from scanned documents, photographed documents or almost any other images containing text.
+  * [http://code.google.com/p/tallyho/ Tally-Ho]: Tally-Ho is a screen reader intended for sites like google books.
