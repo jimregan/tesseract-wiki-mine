@@ -58,10 +58,11 @@
 == Community training project ==
 
   * *Indic*: http://code.google.com/p/tesseractindic/, https://github.com/debayan/Tesseract-Indic-OCR/
+  * *Indian and South Asian languages*: http://code.google.com/p/parichit/
   * *Irish uncial*: http://code.google.com/p/tesseract-gle-uncial/
   * *Polish*: http://code.google.com/p/tesseract-polish/
   * *Fraktur* (dan, deu, swe):  https://github.com/paalberti/tesseract-dan-fraktur
-  * *Hebrew*: http://roidayan.com/wordpress/?p=26
+  * *Hebrew*: http://roidayan.com/wordpress/?p=26, http://code.google.com/p/tesseract-ocr/issues/detail?id=432
   * *Myanmar*: http://code.google.com/p/myaocr/
 
 
@@ -92,7 +93,9 @@
 
 *.NET*: http://www.pixel-technology.com/freeware/tessnet2/
 
-*Java*: http://code.google.com/p/tesjeract (JNI wrapper)
+*Java*:
+  * http://code.google.com/p/tesjeract (JNI wrapper)
+  * http://tess4j.sourceforge.net/ (JNA wrapper)
 
 
 
@@ -105,3 +108,5 @@
   * [http://www.scanbizcards.com ScanBizCards]: Mobile solution for business card scanning. _Requirements:_ iPhone 4/iPhone 3/Android 2.0
   * [http://www.customocr.com/index.php?r=site/page&view=services customocr.com]: CustomOCR is a Web-based image processing service dedicated to capturing data from text-containing images. CustomOCR allows locating, recognizing and analyzing text from scanned documents, photographed documents or almost any other images containing text.
   * [http://code.google.com/p/tallyho/ Tally-Ho]: Tally-Ho is a screen reader intended for sites like google books.
+  * [http://rosarior.github.com/mayan/ Mayan EDMS]: Document management system with tesseract as it's base
+  * [http://git.lrde.epita.fr/?p=olena.git;a=summary Olena]: a generic and efficient image processing platform (tesseract is used in its part called [http://git.lrde.epita.fr/?p=olena.git;a=tree scribo] )

@@ -2,20 +2,6 @@
 
 These are instructions for installing Tesseract from the Subversion repository.  You need to do that right now if you want to build OCRopus.  For other purposes, you may simply want to download a tar ball.
 
-= Installing Without Autoconf Tools =
-
-You may be able to simply install the SVN version of Tesseract by using:
-
-{{{
-    svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
-    ./configure
-    make
-    make install
-}}}
-
-However, this may also fail (we're occasionally generating the ./configure script and checking it in, but we're not testing it very much).  
-
-If it fails, you should generate your own configure script from autoconf tools, as described in the next section.
 
 = Installing With Autoconf Tools =
 
@@ -37,3 +23,23 @@ Afterwards, the steps for installing the SVN version of Tesseract, do this:
     make
     make install
 }}}
+
+If you get error:
+
+{{{
+make  all-recursive
+Making all in ccstruct
+/bin/sh ../libtool --tag=CXX   --mode=compile g++ -DHAVE_CONFIG_H -I. -
+I..  -I../ccutil -I../cutil -I../image -I../viewer -I/opt/local/
+include -I/usr/local/include/leptonica  -g -O2 -MT blobbox.lo -MD -MP -
+MF .deps/blobbox.Tpo -c -o blobbox.lo blobbox.cpp
+mv -f .deps/blobbox.Tpo .deps/blobbox.Plo
+mv: rename .deps/blobbox.Tpo to .deps/blobbox.Plo: No such file or
+directory
+make[3]: *** [blobbox.lo] Error 1
+make[2]: *** [all-recursive] Error 1
+make[1]: *** [all-recursive] Error 1
+make: *** [all] Error 2
+}}}
+
+try to run _autoreconf -i_ after _./runautoconf_

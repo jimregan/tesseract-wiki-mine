@@ -144,6 +144,9 @@ http://groups.google.com/group/tesseract-ocr/browse_thread/thread/3ef5dd674cef37
 
 Periodically stable versions go to the downloads page. Between releases, and in particular, just before a new release, the latest code is available from svn. You can find the source here: http://code.google.com/p/tesseract-ocr/source/checkout where you can check it out either by command line, or by following the link to the howto on using various client programs and plugins.
 
+= actual_tessdata_num_entries_ <= TESSDATA_NUM_ENTRIES:Error:Assert failed:in file ..\ccutil\tessdatamanager.cpp, line 55 =
+
+If you get error during running *tesseract*, please check if you use correct version of traineddata (e.g. 3.00 with 3.01). You can not use 3.01 traineddata with tesseract 3.00.
 
 = last_char == '\n':Error:Assert failed:in file ..\ccutil\tessdatamanager.cpp, line 95 =
 
