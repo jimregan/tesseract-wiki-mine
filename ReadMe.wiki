@@ -61,6 +61,8 @@ In the executable, page layout analysis is enabled by default. You may need to t
 
 The training process is described on separate [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3 wiki page].
 
+Use the most recently available language files for the languages that you want.
+
 ===Linux===
 If they are not already installed, you need the following libraries (Ubuntu):
 {{{
