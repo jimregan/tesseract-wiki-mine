@@ -1,5 +1,5 @@
 #summary Important information all Tesseract users need to know.
-#labels Featured 
+#labels Featured
 
 = Introduction =
 
@@ -22,10 +22,8 @@ limitations under the License.
 
 = Other Dependencies =
 
-  * [http://www.leptonica.org/ Leptonica] for additional formats support (png, jpg...)
-  * Tesseract can also make use of the [http://www.libtiff.org libtiff library]. See [http://code.google.com/p/tesseract-ocr/wiki/FAQ FAQ] for details.
-
-Without additional libraries, Tesseract can only read uncompressed TIFF (upto version 2.04). See the [http://code.google.com/p/tesseract-ocr/wiki/FAQ FAQ] question on compressed TIFF for installation instructions. Version 3.00 support additional formats via Leptonica, but requires more libraries to be added. 
+  * [http://www.leptonica.org/ Leptonica] is required and provides image I/O and processing.
+  * Other image libraries are required by Leptonica for image I/O (png, tiff, jpg etc.)
 
 = Installing and Running Tesseract =
 
@@ -33,25 +31,25 @@ Without additional libraries, Tesseract can only read uncompressed TIFF (upto ve
 
 Tesseract is split into several packages:
 
-* *`tesseract-x.xx.tar.gz`* contains all the source code.
-* *`tesseract-2.xx.<lang>.tar.gz`* contains the Tesseract 2 language data files for {{{<lang>}}}. *You need at least one of these or tesseract 2 will not work.*
-* *`<lang>.traineddata.gz`* contains the Tesseract 3 language data file for {{{<lang>}}}. *You need at least one of these or tesseract 3 will not work.*
+  * `tesseract-x.xx.tar.gz` contains all the source code.
+  * `tesseract-2.xx.<lang>.tar.gz` contains the Tesseract 2 language data files for {{{<lang>}}}. *You need at least one of these or tesseract 2 will not work.*
+  * `<lang>.traineddata.gz` contains the Tesseract 3 language data file for {{{<lang>}}}. *You need at least one of these or tesseract 3 will not work.*
 
-Note that `tesseract-2.04.tar.gz` unpacks to the `tesseract-2.04` directory. `tesseract-2.01.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your `tesseract-2.04` directory. It is therefore best to download them into your `tesseract-2.04` directory, so you can use unpack here or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files. Note that if you are using make install you should unpack your language data to your *source* tree *before* you run make install. If you unpack them as root to the destination directory of make install, then the user ids and access permissions might be messed up.
+Note that `tesseract-x.xx.tar.gz` unpacks to the `tesseract-x.xx` directory. `tesseract-x.xx.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your `tesseract-x.xx` directory. It is therefore best to download them into your `tesseract-x.xx` directory, so you can use unpack here or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files. If you unpack them as root to the destination directory of make install, then the user ids and access permissions might be messed up.
 
-Similarly `<lang>.traineddata.gz` must be unpacked to `tessdata` directory of `tesseract-3.00` instalation.
+Similarly `<lang>.traineddata.gz` must be unpacked to `tessdata` directory of `tesseract-x.xx` instalation.
 
 `boxtiff-2.01.<lang>.tar.gz` contains data that was used in training for those that want to
 do their own training. Most users should *NOT* download these files.
 
-Instructions for using the training tools are documented separately at [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract TrainingTesseract] and for testing at [http://code.google.com/p/tesseract-ocr/wiki/TestingTesseract TestingTesseract.]
+Instructions for using the training tools are documented separately at [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3 TrainingTesseract3] and for testing at [http://code.google.com/p/tesseract-ocr/wiki/TestingTesseract TestingTesseract.]
 
 
-==Installation Notes - Tesseract 3.00 ==
+==Installation Notes - Tesseract 3.01 ==
 
 ===General===
 
-*IMPORTANT: 3.00 is not backwards compatible with 2.04.* The data files are different. (Single file per language among other things.) You therefore need to make sure you connect your new executable with the new data files.
+*IMPORTANT: 3.01 is not backwards compatible with 2.04.* The data files are different. (Single file per language among other things.) You therefore need to make sure you connect your new executable with the new data files.
 
 Another important change is that you should *really* be using TessBaseAPI if you are linking with another program. In Linux (non-Windows) the main library is now libtesseract_api.a instead of the old libtesseract_full.a. 
 
@@ -73,7 +71,7 @@ sudo apt-get install libtiff4-dev
 sudo apt-get install zlib1g-dev
 }}}
 
-You also need to install [http://www.leptonica.org/ Leptonica]. There is an apt-get package libleptonica-dev, or the sources are at http://www.leptonica.org/. The instructions at [http://www.leptonica.org/source/README.html Leptonica README] are clear, but basically it is the usual
+You also need to install [http://www.leptonica.org/ Leptonica]. There is an apt-get package libleptonica-dev, *but if you are using an oldish version of Linux, the Leptonica version may be too old, so you will need to build from source.* 3.01 requires at least v1.68 of Leptonica. The sources are at http://www.leptonica.org/. The instructions at [http://www.leptonica.org/source/README.html Leptonica README] are clear, but basically it is the usual
 {{{
 ./configure
 make
@@ -86,16 +84,16 @@ Now back to Tesseract. Download the source from svn:
 svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr-read-only
 }}}
 
-or package [http://tesseract-ocr.googlecode.com/files/tesseract-3.00.tar.gz tesseract-3.00.tar.gz] from [http://code.google.com/p/tesseract-ocr/downloads/list download page].
+or package [http://tesseract-ocr.googlecode.com/files/tesseract-3.01.tar.gz tesseract-3.01.tar.gz] from [http://code.google.com/p/tesseract-ocr/downloads/list download page].
 The same build process as usual applies:
 {{{
-./runautoconf
+./autogen.sh
 ./configure
 make
 sudo make install
 }}}
 
-Between configure and make, you can check that everything has worked by looking at config_auto.h It should contain #define HAVE_LIBLEPT 1 and also HAVE_LIBPNG, HAVE_LIBTIFF,  HAVE_LIBJPEG and HAVE_ZLIB.
+Between configure and make, you can check that everything has worked by looking at config_auto.h It should contain #define HAVE_LIBLEPT 1.
 
 You can also use:
 {{{
@@ -110,7 +108,7 @@ Install language data:
 
  #  Download langugage data file (e.g. 'wget http://tesseract-ocr.googlecode.com/files/eng.traineddata.gz')
  #  Decompress it ('gzip -d eng.traineddata.gz')
- #  Move it to instalation tessdata (e.g. 'mv eng.traineddata $TESSDATA_PREFIX' if defined TESSDATA_PREFIX) 
+ #  Move it to installation tessdata (e.g. 'mv eng.traineddata $TESSDATA_PREFIX' if defined TESSDATA_PREFIX) 
 
 
 ===Windows===
