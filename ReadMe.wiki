@@ -115,9 +115,11 @@ Install language data:
 
 ===Windows===
 
-There is [http://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-setup-3.00.exe windows installer] for Tesseract-OCR 3.00 including English langugage data. Other language data can be donwloaded and installed from installer. Installer adapt PATH environment of current user (e.g. user that installed tesseract) and setup TESSDATA_PREFIX environment variable for current user.
+There is [http://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-setup-3.01.exe windows installer] for Tesseract-OCR 3.01 including English langugage data. Other language data can be donwloaded and installed from installer. Installer adapt PATH environment of current user (e.g. user that installed tesseract) and setup TESSDATA_PREFIX environment variable for current user.
 
-The dll isn't supported in Tesseract-OCR 3.00.
+If you have problem to run it, please check if you have installed [http://www.microsoft.com/download/en/details.aspx?id=5582&WT.mc_id=MSCOM_EN_US_DLC_DETAILS_121LSUS007998 Microsoft Visual C++ 2008 SP1 Redistributable Package (x86)].
+
+The dll isn't supported in Tesseract-OCR 3.00/3.01.
  
 ==== Instalation from source ===
 
