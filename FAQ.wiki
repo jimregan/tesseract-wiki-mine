@@ -11,6 +11,20 @@ If you found a bug please create issue.
 
 Read the [http://code.google.com/p/tesseract-ocr/wiki/ReadMe ReadMe] wiki page.
 
+= "leptonica library missing" =
+
+If your leptonica header files are located in `/usr/local/include` (e.g. you installed leptonica to `/usr/local` than run:
+
+{{{
+LIBLEPT_HEADERSDIR=/usr/local/include ./configure
+}}}
+
+or:
+
+{{{
+CPPFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" ./configure
+}}}
+
 = Can't read compressed Tiff files =
 
 I get this error message:

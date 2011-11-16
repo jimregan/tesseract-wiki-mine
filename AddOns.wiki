@@ -8,6 +8,7 @@
 == GUI ==
 
   * [http://vietocr.sourceforge.net/ VietOCR]: A Java/.NET GUI frontend for Tesseract OCR engine. Supports optical character recognition for Vietnamese and other languages supported by Tesseract. _Requirements:_ Java or .NET
+  * [http://symmetrica.net/cuneiform-linux/yagf-en.html YAGF]: graphical front-end for cuneiform and tesseract. _Requirements:_ QT4 , aspell for spellchecking, GhostScript for PDF processing
   * [http://sourceforge.net/projects/gimagereader/ gImageReader]: A graphical GTK frontend to tesseract-ocr. _Requirements:_ python, PyGtk
   * [http://live.gnome.org/OCRFeeder OCRFeeder]: OCRFeeder is a document layout analysis and optical character recognition system. _Requirements:_ linux, Python, pyGTK, Ghostscript, Unpaper
   * [http://www.paperfile.net/ FreeOCR]: Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers. _Requirements:_ Windows, .NET
