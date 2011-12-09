@@ -108,12 +108,14 @@
 
 ==  Others ==
 
+  * [http://blender3d.github.com/Bindery/ Bindery]: A simple GUI for binding post processed scanned pages into digital documents
   * [http://code.google.com/p/tesseract-android-tools/ tesseract-android-tools]: set of Android APIs
   * [http://code.google.com/p/mobileocr/ Mobile OCR]: The goal of Mobile OCR is to create an application for the Android platform that will recognize text from an image taken by the phone's camera. The application will be fully accessible to low vision and blind users
   * [http://code.google.com/p/clarify Clarify]: Clarify helps you OCR 'image-only' PDFs. Your input is a PDF that you normally cannot extract text from. The output is text. Clarify is a python module that wraps up tesseract-ocr, xpdf and netpbm. _Requirements:_ python, tesseract-ocr, xpdf, netpbm
-  * [http://hocrtopdf.codeplex.com/documentation hOcr2Pdf.NET]: hOcr2Pdf.NET is a library that programmers can use to create highly compressed, searchable pdf's for applications. _Requirements:_ .NET 2.0 or higher, Tesseract 3.0, JBig2.exe 
+  * [http://hocrtopdf.codeplex.com/documentation hOcr2Pdf.NET]: hOcr2Pdf.NET is a library that programmers can use to create highly compressed, searchable pdf's for applications. _Requirements:_ .NET 2.0 or higher, Tesseract 3.0, JBig2.exe
   * [http://www.scanbizcards.com ScanBizCards]: Mobile solution for business card scanning. _Requirements:_ iPhone 4/iPhone 3/Android 2.0
-  * [http://code.google.com/p/tallyho/ Tally-Ho]: Tally-Ho is a screen reader intended for sites like google books.
+  * [http://code.google.com/p/tallyho/ Tally-Ho]: Tally-Ho is a screen reader intended for sites like google books
   * [http://rosarior.github.com/mayan/ Mayan EDMS]: Document management system with tesseract as it's base
-  * [http://git.lrde.epita.fr/?p=olena.git;a=summary Olena]: a generic and efficient image processing platform (tesseract is used in its part called [http://git.lrde.epita.fr/?p=olena.git;a=tree scribo] )
+  * [http://git.lrde.epita.fr/?p=olena.git;a=summary Olena]: a generic and efficient image processing platform (tesseract is used in its part called [http://git.lrde.epita.fr/?p=olena.git;a=tree scribo])
+  * [http://jwilk.net/software/ocrodjvu ocrodjvu] is a wrapper for OCR systems, that allows you to perform OCR on DjVu files
  
