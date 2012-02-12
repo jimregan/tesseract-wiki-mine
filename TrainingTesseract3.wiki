@@ -11,9 +11,7 @@ For training Tesseract 2.0x see [http://code.google.com/p/tesseract-ocr/wiki/Tra
 
 Tesseract was originally designed to recognize English text only. Efforts have been made to modify the engine and its training system to make them able to deal with other languages and UTF-8 characters. Tesseract 3.0 can handle any Unicode characters (coded with UTF-8), but there are limits as to the range of languages that it will be successful with, so please take this section into account before building up your hopes that it will work well on your particular language!
 
-Tesseract currently can only handle left-to-right languages. While you can get something out with a right-to-left language, the output file will be ordered as if the text were left-to-right. Top-to-bottom languages will be supported from 3.01.
-
-Tesseract is unlikely to be able to handle connected scripts like Arabic. It will take some specialized algorithms to handle this case, and right now it doesn't have them.
+Tesseract 3.01 added top-to-bottom languages, and Tesseract 3.02 added Hebrew (right-to-left).  Tesseract currently handles scripts like Arabic with an auxilury engine called cube (included in Tesseract 3.0+)
 
 Tesseract is slower with large character set languages (like Chinese), but it seems to work OK.
 
