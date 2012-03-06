@@ -157,28 +157,7 @@ The last number on each line is the page number (0-based) of that character in t
 
 If you have an editor that understands UTF-8, this process will be a lot easier than if it doesn't, as each UTF-8 character has upto 4 bytes to code it, and dumb editors will show you all the bytes separately.
 
-=== Box File Editors ===
-
-There are several visual tools for editing box file:
-
-|| *Name* || *Last update* || *Language* || *3.00 box file support* ||
-|| [http://vietocr.sourceforge.net/training.html jTessBoxEditor] || Apr 2011 || Java || yes || 
-|| [https://github.com/zdenop/qt-box-editor/ QT Box Editor] || Apr 2011 || C++, Qt4 || yes || 
-|| [http://code.google.com/p/moshpytt/ moshPyTT ] || Feb 2011 || Python, GTK2 || yes || 
-|| [http://code.google.com/p/pytesseracttrainer/ pytesseracttrainer] || Jan 2011 || Python, GTK2 || yes || 
-|| [http://code.google.com/p/cowboxer/ cowboxer] || Jan 2011 || C++, Qt4 || yes || 
-|| [http://pp19dd.com/tesseract-ocr-chopper/ Tesseract-OCR boxfile AJAX editor] || Sep 2010 || online tool || no || 
-|| [http://code.google.com/p/owlboxer/ owlboxer] || Jul 2010 || C++, Qt4 || no || 
-|| [http://sites.google.com/site/spilkaondrej Tessboxer] || Jun 2009 || .NET || no || 
-|| [http://tesseract-ocr.googlecode.com/files/boxfilereader.php boxfilereader.php] || Mar 2009 ||  php || no ||
-|| [http://www.lbreyer.com/tessboxes.html tessboxes] || Nov 2008 || C || no ||
-|| [http://code.google.com/p/jtesseract/ JTesseract] ||  Oct 2008 || C# || no ||
-|| [http://code.google.com/p/wx-tetra/ wx-tetra] || Sep 2008 || perl, wx  || no ||
-|| [http://code.google.com/p/bbtesseract/ bbtesseract] || Jul 2008 || VB.NET 2008 || no ||
-
-
-Platform support depends on used language.
-
+There are several visual tools for editing box file - please check [http://code.google.com/p/tesseract-ocr/wiki/AddOns#Tesseract_box_editors_and_traning_tools AddOns wiki].
 
 === Bootstrapping a new character set ===
 

@@ -1,16 +1,15 @@
 #summary Installing Tesseract from Subversion
 
-These are instructions for installing Tesseract from the Subversion repository.  You need to do that right now if you want to build OCRopus.  For other purposes, you may simply want to download a tar ball.
-
+These are instructions for installing Tesseract from the Subversion repository. You should be ready to face unexpected problems.
 
 = Installing With Autoconf Tools =
 
-In order to do this, you must have aclocal, autoheader, autoconf, and automake installed.  
+In order to do this, you must have aclocal, autoheader, autoconf, automake, libtool and leptonica installed.  
 
 On Debian or Ubuntu, you can probably do that with:
 
 {{{
-    apt-get install autoconf automake
+    apt-get install autoconf automake libtool libleptonica-dev
 }}}
 
 Afterwards, the steps for installing the SVN version of Tesseract, do this:
@@ -18,11 +17,18 @@ Afterwards, the steps for installing the SVN version of Tesseract, do this:
 {{{
     svn checkout http://tesseract-ocr.googlecode.com/svn/trunk/ tesseract-ocr
     cd tesseract-ocr
-    ./runautoconf
+    ./autogen.sh
     ./configure
     make
-    make install
+    sudo make install
+    sudo make install-langs
+    sudo ldconfig
 }}}
+
+On some systems autotools did not create m4 directory  automatically (you got error: "`configure: error: cannot find macro directory 'm4'`"). In this case you must create m4 dicrectory by yourself before running `./configure`:
+{{{
+mkdir -p m4
+}}} 
 
 If you get error:
 
@@ -42,4 +48,8 @@ make[1]: *** [all-recursive] Error 1
 make: *** [all] Error 2
 }}}
 
-try to run _autoreconf -i_ after _./runautoconf_
+try to run _autoreconf -i_ after _./autogen.sh_
+
+= Windows Visual Studio build =
+
+Please follow instructions in [":http://tesseract-ocr.googlecode.com/svn/trunk/vs2008/doc/index.html Visual Studio 2008 Developer Notes for Tesseract-OCR]

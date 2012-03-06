@@ -141,27 +141,7 @@ If you didn't sucessfully space out the characters on the training image, some m
 
 If you have an editor that understands UTF-8, this process will be a lot easier than if it doesn't, as each UTF-8 character has upto 4 bytes to code it, and dumb editors will show you all the bytes separately.
 
-There is a visual basic tool that you can use (windows only) to make box file creation *much* easier. See http://groups.google.com/group/tesseract-ocr/files and look for bbtesseract. You can also check out this thread: http://groups.google.com/group/tesseract-ocr/browse_thread/thread/2321deb561450e76/554c7a8cec11c073#554c7a8cec11c073 in the forum for more information. Thanks to unkowner for contributing this.
-
-There is also a .net boxer here:  http://www.ospilka.com/dl/tessboxer.zip 
-
-If you have php, there is a php box viewer and editor on the downloads page:
-http://tesseract-ocr.googlecode.com/files/boxfilereader.php
-
-For Linux and other systems featuring Python and needed modules,
-one can use the excellent GUI tool tesseractTrainer.py contributed in
-November 2007 by Catalin Francu, available in the files section of the
-tesseract-ocr Google group:
-
-http://groups.google.com/group/tesseract-ocr/files
-
-and also on the downloads page:
-
-http://code.google.com/p/tesseract-ocr/downloads/list
-
-There's even a screenshot available:
-
-http://tesseract-ocr.googlegroups.com/web/tesseractTrainer.png
+There are several visual tools for editing box file - please check [http://code.google.com/p/tesseract-ocr/wiki/AddOns#For_Tesseract-OCR_2.0x AddOns wiki].
 
 === Bootstrapping a new character set ===
 

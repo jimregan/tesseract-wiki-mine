@@ -19,6 +19,7 @@
   * [http://code.google.com/p/ocrivist/ Ocrivist]: Ocrivist is a utility which makes it possible to scan and OCR books and other printed documents to PDF or Djvu format. Ocrivist is intended for use on Linux and uses the Leptonica and Tesseract libraries. _Requirements:_ Linux, Pascal
   * [http://tesseract-gui.sourceforge.net Tesseract-GUI]: Tessract-GUI is not a front-end for tesseract-ocr. It is just a graphical way to use it  with simple image manipulation thru ImageMagick. _Requirements:_ python, pyGTK
   * [http://code.google.com/p/qtesseract/ QTesseract]: QT GUI for the Tesseract OCR. _Requirements:_ QT4, c++
+  * [http://djvu.life.coocan.jp/TessOCR/doc/tessOCR_eng.html TessOCR(KISI)]: a free OCR tool. _Requirements:_ Mac OS X, java
 
 == Online OCR services ==
 
@@ -28,18 +29,19 @@
 
 == Tesseract box editors and traning tools ==
 
+Platform support depends on used language and experience of user.
 
 === For Tesseract-OCR 3.0x ===
 
 
 ==== Box file editors ====
 
-|| *Name* || *Last update* || *Language* ||
-|| [http://vietocr.sourceforge.net/training.html jTessBoxEditor] || Oct 2011 || Java ||
-|| [https://github.com/zdenop/qt-box-editor/ QT Box Editor] || Oct 2011 || C++, Qt4 ||
-|| [http://code.google.com/p/moshpytt/ moshPyTT ] || Feb 2011 || Python, GTK2 ||
-|| [http://code.google.com/p/pytesseracttrainer/ pytesseracttrainer] || Jan 2011 || Python, GTK2 ||
-|| [http://code.google.com/p/cowboxer/ cowboxer] || Jan 2011 || C++, Qt4 ||
+|| *Name* || *Last update* || *Language* || Multipage support ||
+|| [http://code.google.com/p/cowboxer/ cowboxer] || Jan 2012 || C++, Qt4 || no ||
+|| [http://vietocr.sourceforge.net/training.html jTessBoxEditor] || Oct 2011 || Java || yes ||
+|| [https://github.com/zdenop/qt-box-editor/ QT Box Editor] || Oct 2011 || C++, Qt4 || no ||
+|| [http://code.google.com/p/moshpytt/ moshPyTT ] || Feb 2011 || Python, GTK2 || no ||
+|| [http://code.google.com/p/pytesseracttrainer/ pytesseracttrainer] || Jan 2011 || Python, GTK2 || no ||
 
 
 === For Tesseract-OCR 2.0x ===
@@ -57,8 +59,12 @@
 || [http://code.google.com/p/wx-tetra/ wx-tetra] || Sep 2008 || perl, wx  ||
 || [http://code.google.com/p/bbtesseract/ bbtesseract] || Jul 2008 || VB.NET 2008 ||
 
+==== Other tools ====
+
   * [http://www.cs.toronto.edu/~mreimer/tesseract.html DangAmbigs Generator]: Creates a DangAmbigs file automatically given a set of OCR text output and correct text. _Requirements:_ Python
   * [http://vietocr.svn.sourceforge.net/viewvc/vietocr/jTessBoxEditor/trunk/tools/ train.ps1]: Windows powershell script for Automate Tesseract 3.01 language data pack generation process.
+  * [http://code.google.com/p/tesseract-ocr/issues/detail?id=544 Update unicharambigs.exe]: A small (windows) C# program for editing "lang.unicharambigs" file
+  * [http://code.google.com/p/tesseract-ocr/issues/detail?id=640 train_tess.pl]: perl script to facilitate training 
 
 
 == Community training project ==
