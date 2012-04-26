@@ -66,6 +66,11 @@ sudo apt-get install libtiff-dev
 }}}
 or some variant thereof should do the trick, *before* running configure.
 
+
+= Can I use tesseract for barcode recognition? =
+
+No. Tesseract is for text recognition. 
+
 = No output with color images =
 
 There have been several bug reports of blank or garbage output with color images, both with and without libtiff. Here is the most up-to-date information (last update 23 Sep 2008):
@@ -121,12 +126,15 @@ See the TrainingTesseract wiki entry on "New! Tif/Box pairs provided!"
 
 There is a minimum text size for reasonable accuracy. You have to consider resolution as well as point size. Accuracy drops off below 10pt x 300dpi, rapidly below 8pt x 300dpi. A quick check is to count the pixels of the x-height of your characters. (X-height is the height of the lower case x.) At 10pt x 300dpi x-heights are typically about 20 pixels, although this can vary dramatically from font to font. Below an x-height of 10 pixels, you have very little chance of accurate results, and below about 8 pixels, most of the text will be "noise removed".
 
-= Output it without result or wrong =
+= Output without result or bad output =
 
   # please check [http://code.google.com/p/tesseract-ocr/wiki/FAQ#Is_there_a_Minimum_Text_Size?_(It_won't_read_screen_text!) DPI of your image and size of text]
   # try to set different segmentation mode (-psm option for command line) if you try to OCR small part of text (line, text)
   # try to add border (see [http://code.google.com/p/tesseract-ocr/issues/detail?id=398 issue 398])
   # try to pre-process image (increase DPI, resize, blur/sharpen image) before OCR (see [http://code.google.com/p/tesseract-ocr/issues/detail?id=191 issue 191])
+  # try to remove noise dewarp (so there are straight text lines) image and binarize image
+
+You can try to have a look at [http://scantailor.sourceforge.net/ Scantailor] -  interactive post-processing tool for scanned pages.
 
 = How do I generate the language data files? =
 

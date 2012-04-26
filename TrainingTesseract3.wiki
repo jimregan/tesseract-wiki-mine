@@ -272,7 +272,7 @@ Last two columns represent type of script (Latin, Common, Greek, Cyrillic, Han, 
 
 == font_properties (new in 3.01) ==
 
-A new requirement for training in 3.01 is a `font_properties` file. The purpose of this file is to provide font style information that will appear in the output when the font is recognized. The `font_properties` file is a text file specified by the `-F filename` option to mftraining.
+A new requirement for training in 3.01 is a `font_properties` file. The purpose of this file is to provide font style information that will appear in the output when the font is recognized. The `font_properties` file is a text file specified by the `-F filename` option to mftraining. Please make sure that file do not have [http://en.wikipedia.org/wiki/Byte_order_mark/ BOM].
 
 Each line of the font_properties file is formatted as follows:
 {{{

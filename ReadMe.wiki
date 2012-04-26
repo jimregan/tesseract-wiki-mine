@@ -113,9 +113,9 @@ tesseract <image> <outputbasename> [-l lang] [configs]
 
 Install language data:
 
- #  Download langugage data file (e.g. 'wget http://tesseract-ocr.googlecode.com/files/eng.traineddata.gz')
- #  Decompress it ('gzip -d eng.traineddata.gz')
- #  Move it to installation tessdata (e.g. 'mv eng.traineddata $TESSDATA_PREFIX' if defined TESSDATA_PREFIX) 
+ #  Download langugage data file (e.g. 'wget http://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.01.eng.tar.gz' for 3.01 version)
+ #  Decompress it ('tar xf tesseract-ocr-3.01.eng.tar.gz')
+ #  Move it to installation of tessdata (e.g. 'mv tesseract-ocr/tessdata $TESSDATA_PREFIX' if defined TESSDATA_PREFIX) 
 
 
 ===Windows===

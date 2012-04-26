@@ -37,9 +37,10 @@ Platform support depends on used language and experience of user.
 ==== Box file editors ====
 
 || *Name* || *Last update* || *Language* || Multipage support ||
+|| [http://zdenop.github.com/qt-box-editor/ QT Box Editor] || Apr 2012 || C++, Qt4 || no ||
+|| [http://pp19dd.com/tesseract-ocr-chopper/ Tesseract-OCR boxfile AJAX editor] || March 2012 || online tool ||
 || [http://code.google.com/p/cowboxer/ cowboxer] || Jan 2012 || C++, Qt4 || no ||
 || [http://vietocr.sourceforge.net/training.html jTessBoxEditor] || Oct 2011 || Java || yes ||
-|| [https://github.com/zdenop/qt-box-editor/ QT Box Editor] || Oct 2011 || C++, Qt4 || no ||
 || [http://code.google.com/p/moshpytt/ moshPyTT ] || Feb 2011 || Python, GTK2 || no ||
 || [http://code.google.com/p/pytesseracttrainer/ pytesseracttrainer] || Jan 2011 || Python, GTK2 || no ||
 
@@ -50,7 +51,7 @@ Platform support depends on used language and experience of user.
 ==== Box file editors ====
 
 || *Name* || *Last update* || *Language* ||
-|| [http://pp19dd.com/tesseract-ocr-chopper/ Tesseract-OCR boxfile AJAX editor] || Sep 2010 || online tool ||
+|| [http://pp19dd.com/tesseract-ocr-chopper/ Tesseract-OCR boxfile AJAX editor] || March 2012 || online tool ||
 || [http://code.google.com/p/owlboxer/ owlboxer] || Jul 2010 || C++, Qt4 ||
 || [http://sites.google.com/site/spilkaondrej Tessboxer] || Jun 2009 || .NET ||
 || [http://tesseract-ocr.googlecode.com/files/boxfilereader.php boxfilereader.php] || Mar 2009 ||  php ||
@@ -61,6 +62,7 @@ Platform support depends on used language and experience of user.
 
 ==== Other tools ====
 
+  * [http://code.google.com/p/txt2img/ txt2img]: Qt GUI application that generate image and box file based on text imput
   * [http://www.cs.toronto.edu/~mreimer/tesseract.html DangAmbigs Generator]: Creates a DangAmbigs file automatically given a set of OCR text output and correct text. _Requirements:_ Python
   * [http://vietocr.svn.sourceforge.net/viewvc/vietocr/jTessBoxEditor/trunk/tools/ train.ps1]: Windows powershell script for Automate Tesseract 3.01 language data pack generation process.
   * [http://code.google.com/p/tesseract-ocr/issues/detail?id=544 Update unicharambigs.exe]: A small (windows) C# program for editing "lang.unicharambigs" file
@@ -92,6 +94,7 @@ Platform support depends on used language and experience of user.
 
 *Clojure*: https://github.com/antoniogarrote/clj-tesseract
 
+*Java*: http://tess4j.sourceforge.net/ (JNA wrapper)
 
 
 ===  Tesseract 2.0x ===
