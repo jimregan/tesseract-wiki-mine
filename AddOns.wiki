@@ -37,7 +37,7 @@ Platform support depends on used language and experience of user.
 ==== Box file editors ====
 
 || *Name* || *Last update* || *Language* || Multipage support ||
-|| [http://zdenop.github.com/qt-box-editor/ QT Box Editor] || Apr 2012 || C++, Qt4 || no ||
+|| [http://zdenop.github.com/qt-box-editor/ QT Box Editor] || May 2012 || C++, Qt4 || no ||
 || [http://pp19dd.com/tesseract-ocr-chopper/ Tesseract-OCR boxfile AJAX editor] || March 2012 || online tool ||
 || [http://code.google.com/p/cowboxer/ cowboxer] || Jan 2012 || C++, Qt4 || no ||
 || [http://vietocr.sourceforge.net/training.html jTessBoxEditor] || Oct 2011 || Java || yes ||
@@ -62,6 +62,8 @@ Platform support depends on used language and experience of user.
 
 ==== Other tools ====
 
+  * [https://github.com/ddohler/tess_school tess_school] - a set of handy scripts to make the tesseract training process a bit easier
+  * [https://www.dur.ac.uk/nick.white/tools/ nick.white tools] various tesseract related tools in C.
   * [http://code.google.com/p/txt2img/ txt2img]: Qt GUI application that generate image and box file based on text imput
   * [http://www.cs.toronto.edu/~mreimer/tesseract.html DangAmbigs Generator]: Creates a DangAmbigs file automatically given a set of OCR text output and correct text. _Requirements:_ Python
   * [http://vietocr.svn.sourceforge.net/viewvc/vietocr/jTessBoxEditor/trunk/tools/ train.ps1]: Windows powershell script for Automate Tesseract 3.01 language data pack generation process.
@@ -122,6 +124,11 @@ Platform support depends on used language and experience of user.
   * [http://code.google.com/p/mobileocr/ Mobile OCR]: The goal of Mobile OCR is to create an application for the Android platform that will recognize text from an image taken by the phone's camera. The application will be fully accessible to low vision and blind users
   * [http://code.google.com/p/clarify Clarify]: Clarify helps you OCR 'image-only' PDFs. Your input is a PDF that you normally cannot extract text from. The output is text. Clarify is a python module that wraps up tesseract-ocr, xpdf and netpbm. _Requirements:_ python, tesseract-ocr, xpdf, netpbm
   * [http://hocrtopdf.codeplex.com/documentation hOcr2Pdf.NET]: hOcr2Pdf.NET is a library that programmers can use to create highly compressed, searchable pdf's for applications. _Requirements:_ .NET 2.0 or higher, Tesseract 3.0, JBig2.exe
+  * [http://rubyforge.org/projects/pdfbeads PDFBeads]: convert scanned images to a single searchable PDF file based on hOCR files. _Requirements:_ ruby, RMagick, hpricot
+  * [http://www.exactcode.com/site/open_source/exactimage/hocr2pdf/ ExactImage/hocr2pdf]: creates a Searchable PDF from hOCR input. _Requirements:_ libagg
+  * [https://github.com/jbrinley/HocrConverter HocrConverter]: creates PDFs and plain text from hOCR documents. _Requirements:_ python, reportlab
+  * [http://www.acoveo.com/acoveo/files/HocrToPdf.java  HocrToPdf.java]: java source for very basic hOCR to PDF converter. Compiled version can be found at project [http://code.google.com/p/modi2hocr/source/browse/trunk/ modi2hocr]. _Requirements:_ java, jericho, iText2 
+  * [http://hocrtopdf.codeplex.com/ hOcr2Pdf.NET]: is a .NET library to convert .hocr html produced by Tesseract or Cuneiform into searchable pdfs using HtmlAgilityPack and iTextSharp. _Requirements:_ C#.
   * [http://www.scanbizcards.com ScanBizCards]: Mobile solution for business card scanning. _Requirements:_ iPhone 4/iPhone 3/Android 2.0
   * [http://code.google.com/p/tallyho/ Tally-Ho]: Tally-Ho is a screen reader intended for sites like google books
   * [http://rosarior.github.com/mayan/ Mayan EDMS]: Document management system with tesseract as it's base
