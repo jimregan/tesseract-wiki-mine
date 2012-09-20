@@ -163,6 +163,8 @@ If the text fonts you are recognizing are significantly different from your trai
 
 Of course any changes that up the power of the dictionary also up the ability to hallucinate dictionary words. If this is a problem, keep short words out of your dictionary, and don't add a vast list of words that are rarely used if they increase the number of ambiguities with more frequent words.
 
+To go the opposite way and turn off the dictionary, you can either delete the appropriate dawg(s) from the traineddata file using combine_tessdata, or set the appropriate load_type_dawg parameter to false, but this must be done with a config file and the version of Init that takes a configs argument. It cannot be done by SetVariable, because the parameter is controlling initialization. type may be one of punc, system, number, bigram, freq, unambig.  
+
 = What are configs and how can I have more? =
 
 Config is an overloaded word in tesseract. One meaning is a file of control parameters used for debugging or modifying its behaviour, such as tessdata/configs/segdemo.
