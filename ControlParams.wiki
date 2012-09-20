@@ -1,0 +1,27 @@
+#summary A list of useful control parameters and config files.
+
+= Introduction =
+
+Tesseract is extremely flexible, if you know how to control it. There is a large number of control parameters to modify its behaviour. While these change from time to time, most of them are fairly stable.
+
+There are (at least) 3 different types:
+
+===Init only.===
+Eg load_system_dawg, characterized by *INIT* in its initialization macro.
+These parameters can *only* be set at the {{{ TessBaseAPI::Init }}} function that takes a list of config files.
+
+The rest can be set through {{{ TessBaseAPI::SetVariable }}} and make 2 further groups:
+
+===General parameters:===
+Control many different aspects of Tesseract's functionality.
+
+===Debug parameters:===
+Contain debug in their name, control huge amounts of optional debug text and graphical output as Tesseract works.
+
+
+= Details =
+
+{{{ load_system_dawg }}} (Init only) controls whether or not to load the main dictionary for the selected language.
+
+If you find a parameter that you consider useful, please add a comment to this page, and we will copy it into the page as we find it.
+
