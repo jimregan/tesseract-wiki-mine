@@ -1,25 +1,26 @@
-#summary External Add-ons and Projects for Tesseract.
+#summary External tools, wrappers and projects for Tesseract.
 #labels Featured
 
-= External Add-ons for Tesseract =
+= External Tools, Wrappers And Projects =
 
 
 
 == GUI ==
 
-  * [http://vietocr.sourceforge.net/ VietOCR]: A Java/.NET GUI frontend for Tesseract OCR engine. Supports optical character recognition for Vietnamese and other languages supported by Tesseract. _Requirements:_ Java or .NET
-  * [http://symmetrica.net/cuneiform-linux/yagf-en.html YAGF]: graphical front-end for cuneiform and tesseract. _Requirements:_ QT4 , aspell for spellchecking, GhostScript for PDF processing
-  * [http://sourceforge.net/projects/gimagereader/ gImageReader]: A graphical GTK frontend to tesseract-ocr. _Requirements:_ python, PyGtk
-  * [http://live.gnome.org/OCRFeeder OCRFeeder]: OCRFeeder is a document layout analysis and optical character recognition system. _Requirements:_ linux, Python, pyGTK, Ghostscript, Unpaper
-  * [http://www.paperfile.net/ FreeOCR]: Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers. _Requirements:_ Windows, .NET
-  * [http://solutions.weblite.ca/pdfocrx/ PDF OCR X]: PDF OCR is a simple drag-and-drop utility for Mac OS X and Windows, that converts your PDFs and images into text documents or searchable PDF files. _Requirements:_ Mac OS X 10.5/Windows with Java 1.6 or higher 
-  * [http://code.google.com/p/lector/ Lector]: A graphical ocr solution for GNU/Linux based on Python, Qt4 and tessaract OCR. _Requirements:_ Python, Qt4
-  * [https://github.com/zdenop/tesseract-ocr-qt4gui Tesseract-OCR QT4 gui]: Tesseract-OCR QT4 gui is a simple GUI for tesseract _Requirements:_ Qt4
-  * [http://code.google.com/p/lime-ocr/ Lime OCR]: A simple, free OCR software for Windows using tesseract-ocr engine. _Requirements:_ Windows, ImageMagick
-  * [http://code.google.com/p/ocrivist/ Ocrivist]: Ocrivist is a utility which makes it possible to scan and OCR books and other printed documents to PDF or Djvu format. Ocrivist is intended for use on Linux and uses the Leptonica and Tesseract libraries. _Requirements:_ Linux, Pascal
-  * [http://tesseract-gui.sourceforge.net Tesseract-GUI]: Tessract-GUI is not a front-end for tesseract-ocr. It is just a graphical way to use it  with simple image manipulation thru ImageMagick. _Requirements:_ python, pyGTK
-  * [http://code.google.com/p/qtesseract/ QTesseract]: QT GUI for the Tesseract OCR. _Requirements:_ QT4, c++
-  * [http://djvu.life.coocan.jp/TessOCR/doc/tessOCR_eng.html TessOCR(KISI)]: a free OCR tool. _Requirements:_ Mac OS X, java
+|| *Name* || *Linux* || *Mac* || *Windows* || *License* || *Description* ||
+|| [http://vietocr.sourceforge.net/ VietOCR] || X || X || X || Apache 2.0 || A GUI frontend for Tesseract OCR engine. Supports optical character recognition for Vietnamese and other languages supported by Tesseract ||
+|| [http://symmetrica.net/cuneiform-linux/yagf-en.html YAGF] || X || || ||  GPL v3 || A graphical front-end for cuneiform and tesseract ||
+|| [http://sourceforge.net/projects/gimagereader/ gImageReader] || X || || X || GPL v3 || A graphical GTK frontend to tesseract-ocr ||
+|| [http://live.gnome.org/OCRFeeder OCRFeeder] || X || || || GPL v3 || OCRFeeder is a document layout analysis and optical character recognition system ||
+|| [http://www.paperfile.net/ FreeOCR] || || || X || Apache 2.0 || Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers ||
+|| [http://solutions.weblite.ca/pdfocrx/ PDF OCR X] || || X || X || Proprietary || PDF OCR is a simple drag-and-drop utility for Mac OS X and Windows, that converts your PDFs and images into text documents or searchable PDF files ||
+|| [http://code.google.com/p/lector/ Lector] || X || || X || GPL v2 || A graphical ocr solution for GNU/Linux based on Python, Qt4 and tessaract OCR ||
+|| [https://github.com/zdenop/tesseract-ocr-qt4gui Tesseract-OCR QT4 gui] || X || || || Apache 2.0 || Tesseract-OCR QT4 gui is a simple GUI for tesseract ||
+|| [http://code.google.com/p/lime-ocr/ Lime OCR] || || || X || GPL v3 || A simple, free OCR software for Windows using tesseract-ocr engine ||
+|| [http://code.google.com/p/ocrivist/ Ocrivist] || X || || || GPL v3 || Ocrivist is a utility which makes it possible to scan and OCR books and other printed documents to PDF or Djvu format ||
+|| [http://tesseract-gui.sourceforge.net Tesseract-GUI] || X || || || GPL v2 || Tessract-GUI is not a front-end for tesseract-ocr, it is just a graphical way to use it  with simple image manipulation thru ImageMagick ||
+|| [http://code.google.com/p/qtesseract/ QTesseract] || X || || || LGPL v3 || QT GUI for the Tesseract OCR ||
+|| [http://djvu.life.coocan.jp/TessOCR/doc/tessOCR_eng.html TessOCR(KISI)] || || X || || Apache 2.0 || A free OCR tool ||
 
 == Online OCR services ==
 
@@ -60,10 +61,11 @@ Platform support depends on used language and experience of user.
 || [http://code.google.com/p/wx-tetra/ wx-tetra] || Sep 2008 || perl, wx  ||
 || [http://code.google.com/p/bbtesseract/ bbtesseract] || Jul 2008 || VB.NET 2008 ||
 
-==== Other tools ====
+== Other Training Tools ==
 
-  * [https://github.com/ddohler/tess_school tess_school] - a set of handy scripts to make the tesseract training process a bit easier
   * [https://www.dur.ac.uk/nick.white/tools/ nick.white tools] various tesseract related tools in C.
+  * [https://github.com/BaltoRouberol/TesseractTrainer] - TesseractTrainer is a simple Python API, taking over the tedious process of manually training Tesseract3
+  * [https://github.com/ddohler/tess_school tess_school] - a set of handy scripts to make the tesseract training process a bit easier
   * [http://code.google.com/p/txt2img/ txt2img]: Qt GUI application that generate image and box file based on text imput
   * [http://www.cs.toronto.edu/~mreimer/tesseract.html DangAmbigs Generator]: Creates a DangAmbigs file automatically given a set of OCR text output and correct text. _Requirements:_ Python
   * [http://vietocr.svn.sourceforge.net/viewvc/vietocr/jTessBoxEditor/trunk/tools/ train.ps1]: Windows powershell script for Automate Tesseract 3.01 language data pack generation process.
@@ -73,6 +75,7 @@ Platform support depends on used language and experience of user.
 
 == Community training project ==
 
+  * *Ancient Greek training for Tesseract*: https://www.dur.ac.uk/nick.white/grctraining/
   * *Indic*: http://code.google.com/p/tesseractindic/, https://github.com/debayan/Tesseract-Indic-OCR/
   * *Indian and South Asian languages*: http://code.google.com/p/parichit/
   * *Irish uncial*: http://code.google.com/p/tesseract-gle-uncial/
@@ -88,7 +91,9 @@ Platform support depends on used language and experience of user.
 
 *C wrapper*: http://code.google.com/p/ocrivist/source/browse/#svn%2Ftessintf
 
-*.Net*: http://code.google.com/p/tesseractdotnet/
+*.Net*:
+  * https://github.com/charlesw/tesseract-ocr-dotnet
+  * http://code.google.com/p/tesseractdotnet/
 
 *Python*: http://code.google.com/p/python-tesseract/ (SWIG based)
 
@@ -117,8 +122,9 @@ Platform support depends on used language and experience of user.
 
 
 
-==  Others ==
+== Others ==
 
+  * [http://apps.man.poznan.pl/trac/varico/wiki Project VIRAL] Varico Invoice Recognition with Assisted Learning
   * [http://blender3d.github.com/Bindery/ Bindery]: A simple GUI for binding post processed scanned pages into digital documents
   * [http://code.google.com/p/tesseract-android-tools/ tesseract-android-tools]: set of Android APIs
   * [http://code.google.com/p/mobileocr/ Mobile OCR]: The goal of Mobile OCR is to create an application for the Android platform that will recognize text from an image taken by the phone's camera. The application will be fully accessible to low vision and blind users
@@ -134,4 +140,3 @@ Platform support depends on used language and experience of user.
   * [http://rosarior.github.com/mayan/ Mayan EDMS]: Document management system with tesseract as it's base
   * [http://git.lrde.epita.fr/?p=olena.git;a=summary Olena]: a generic and efficient image processing platform (tesseract is used in its part called [http://git.lrde.epita.fr/?p=olena.git;a=tree scribo])
   * [http://jwilk.net/software/ocrodjvu ocrodjvu] is a wrapper for OCR systems, that allows you to perform OCR on DjVu files
- 

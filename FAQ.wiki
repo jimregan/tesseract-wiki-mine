@@ -97,12 +97,12 @@ configure --disable-graphics
 
 = How do I Edit Box files used in training? =
 
-Use bbtesseract http://code.google.com/p/bbtesseract/ or [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3#Box_File_Editors other similar program].
+There are a variety of programs to help with this, see [http://code.google.com/p/tesseract-ocr/wiki/AddOns#Tesseract_box_editors_and_traning_tools the AddOns page].
 
 
 = How do I recognize only digits? =
 
-*In 2.03 and above:*
+== Tesseract 2.03 ==
 
 Use
 {{{
@@ -118,9 +118,18 @@ tesseract image.tif outputbase nobatch digits
 }}}
 *Warning:* Until the old and new config variables get merged, you *must* have the `nobatch` parameter too.
 
+== Tesseract 3 ==
+
+A digits config file is already created, so just run a tesseract command like this:
+{{{
+tesseract imagename outputbase digits
+}}}
+
+
 = How do I add just one character or one font to my favourite language, without having to retrain from scratch? =
 
-See the TrainingTesseract wiki entry on "New! Tif/Box pairs provided!"
+There not possible to add just one character or font. You need to retrain from scratch. See the TrainingTesseract wiki.
+
 
 = Is there a Minimum Text Size? (It won't read screen text!) =
 
@@ -142,9 +151,18 @@ Read the TrainingTesseract wiki.
 
 = How do I provide my own dictionary? =
 
+== Tesseract 2 ==
+
 Easy: Replace `tessdata/eng.user-words` with your own word list, in the same format - UTF8 text, one word per line.
 
 More difficult, but better for a large dictionary: Replace `tessdata/eng.word-dawg` with one created from your own word list, using wordlist2dawg. See the TrainingTesseract wiki page for details.
+
+== Tesseract 3 ==
+
+To add an extra word list, create a .user-words file as explained in [http://tesseract-ocr.googlecode.com/svn/trunk/doc/tesseract.1.html#_config_files_and_augmenting_with_user_data tesseract(1)].
+
+If you want to replace the whole dictionary, you will need to unpack the .traineddata file, create a new word-dawg file, and then pack the files back into a .traineddata file. See TrainingTesseract3 for more details.
+ 
 
 = wordlist2dawg doesn't work! =
 
@@ -157,9 +175,11 @@ Then try changing the value of MAX_NUM_EDGES_IN_SQUISHED_DAWG_FILE in dawg.h.
 
 = How to increase the trust in/strength of the dictionary? =
 
-Try upping NON_WERD and GARBAGE_STRING in dict/permute.cpp to maybe 3 or even 5.
+For tesseract-ocr < 3.01 try upping NON_WERD and GARBAGE_STRING in dict/permute.cpp to maybe 3 or even 5.
 
-If the text fonts you are recognizing are significantly different from your training data, and you don't mind a slow-down, you could also try lowering ClassPrunerThreshold in classify/intmatcher.cpp to about 200 from 229. These measures should all improve the power of the dictionary to resolve words from non-words.
+For tesseract-ocr >= 3.01 try increasing the variables language_model_penalty_non_freq_dict_word and language_model_penalty_non_dict_word in a config file. By default they are 0.1 and 0.15 respectively. 
+
+For tesseract-ocr 2.0x: If the text fonts you are recognizing are significantly different from your training data, and you don't mind a slow-down, you could also try lowering ClassPrunerThreshold in classify/intmatcher.cpp to about 200 from 229. These measures should all improve the power of the dictionary to resolve words from non-words.
 
 Of course any changes that up the power of the dictionary also up the ability to hallucinate dictionary words. If this is a problem, keep short words out of your dictionary, and don't add a vast list of words that are rarely used if they increase the number of ambiguities with more frequent words.
 
@@ -171,7 +191,7 @@ Config is an overloaded word in tesseract. One meaning is a file of control para
 
 The other meaning is used in training and in the classifier:
 
-A config represents a (potentially) different shape of a character from a different font. The MAX_NUM_CONFIGS limit applies to the number of different files on the command line of mftraiing containing samples of any one character, as each file is assumed to represent a different font. There is currently (2.03) a limit of 32 configs. You can get away with more than 32 files on the mftraining command line if not all the files contain all the characters.
+A config represents a (potentially) different shape of a character from a different font. The MAX_NUM_CONFIGS limit applies to the number of different files on the command line of mftraining containing samples of any one character, as each file is assumed to represent a different font. There is currently (2.03) a limit of 32 configs. You can get away with more than 32 files on the mftraining command line if not all the files contain all the characters.
 
 Other ways to fix the problem:
 
@@ -179,10 +199,14 @@ If files contain very similar looking samples, then you can cat them together to
 
 Increase MAX_NUM_CONFIGS (in classify/intproto.h) There are consequences. You will make inttemp files generated with a different value of MAX_NUM_CONFIGS unreadable. We are working towards overcoming this weakness for version 3.0. Will not be in 2.04 though. Also, classification will be slower and use more memory.
 
+
+= [http://en.wikipedia.org/wiki/Diacritic Diacritics] above and below glyph are ignored/cause garbage output =
+
+Try to increase default value (1.25) of textord_min_linesize to higher value. Some users report good results with value 2.5.
+
 = Where is the documentation? =
 
-There isn't much. We are concentrating on features at the moment. There is some documentation at http://tesseract-ocr.repairfaq.org/ and more at this forum thread:
-http://groups.google.com/group/tesseract-ocr/browse_thread/thread/3ef5dd674cef3746/68b5f07bff0b54b2?lnk=gst&q=icdar#68b5f07bff0b54b2
+You're looking at it. If things aren't clear, search on the [http://groups.google.com/group/tesseract-ocr/ Tesseract Google Group] or ask us there. If you want to help us write more, please do, and post it to the group!
 
 = How can I try the next version? =
 
