@@ -23,5 +23,6 @@ Contain debug in their name, control huge amounts of optional debug text and gra
 
 {{{ load_system_dawg }}} (Init only) controls whether or not to load the main dictionary for the selected language.
 
-If you find a parameter that you consider useful, please add a comment to this page, and we will copy it into the page as we find it.
+{{{ user_words_suffix }}} (Init only) the extension of the users-words word list file. If non-empty, it will attempt to load the relevant list of words to add to the dictionary for the selected language. Eg if set to {{{ user-words }}} Tesseract will attempt to load {{{ eng.user-words }}} from the tessdata directory at initialization time.
 
+If you find a parameter that you consider useful, please add a comment to this page, and we will copy it into the page as we find it.
