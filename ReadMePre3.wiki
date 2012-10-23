@@ -1,3 +1,5 @@
+#summary Old installation notes for versions 3.01 and earlier.
+
 ==Installation Notes - Tesseract 3.01 ==
 
 ===General===
