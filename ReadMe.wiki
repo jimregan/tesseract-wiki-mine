@@ -3,223 +3,78 @@
 
 = Introduction =
 
-This package contains the Tesseract Open Source OCR Engine.
-Originally developed at Hewlett Packard Laboratories Bristol and
-at Hewlett Packard Co, Greeley Colorado, all the code
-in this distribution is now licensed under the Apache License:
+Tesseract is an Open Source OCR engine, available under the [http://www.apache.org/licenses/LICENSE-2.0 Apache 2.0 license.] It can be used directly, or (for programmers) using an [http://code.google.com/p/tesseract-ocr/source/browse/trunk/api/baseapi.h API]. It supports a wide variety of languages.
+
+Tesseract doesn't have a built-in GUI, but there are several available from the [AddOns] page.
+
+= Installation =
+
+There are two parts to install, the engine itself, and the training data for a language.
+
+== Linux ==
+
+Tesseract is available directly from many Linux distributions. The package is generally called 'tesseract' or 'tesseract-ocr' - search your distribution's repositories to find it. Packages are also generally available for language training data (search the repositories,) but if not you will need to [http://code.google.com/p/tesseract-ocr/downloads/list download the appropriate training data], unpack it, and copy the .traineddata file into the 'tessdata' directory, probably `/usr/share/tesseract-ocr/tessdata` or `/usr/share/tessdata`.
+
+If Tesseract isn't available for your distribution, or you want to use a newer version than is available, you can [Compiling compile your own]. Note that older versions of Tesseract only supported processing .tiff files.
+
+== Mac OS X ==
+
+The easiest way to install Tesseract is through [http://mxcl.github.com/homebrew/ homebrew]. Once homebrew is installed, you can install Tesseract by running the command: `brew install tesseract`.
+
+If you want to use language training data not included with the homebrew package, [http://code.google.com/p/tesseract-ocr/downloads/list download download the appropriate training data], open it with Finder, and copy the .traineddata file into the `/usr/local/Cellar/tesseract/<version>/share/tessdata` directory.
+
+== Windows ==
+
+An installer is available for Windows from our [Downloads download] page. This includes the English training data.
+
+If you want to use another language, [http://code.google.com/p/tesseract-ocr/downloads/list download the appropriate training data], unpack it using [http://www.7-zip.org 7-zip], and copy the .traineddata file into the 'tessdata' directory, probably `C:\Program Files\Tesseract OCR\tessdata`.
+
+== Other Platforms ==
+
+Tesseract may work on more exotic platforms too. You can either try [Compiling compiling it yourself], or take a look at the list of [AddOns other projects using Tesseract].
+
+= Running Tesseract =
+
+Tesseract is a command-line program, so first open a terminal or command prompt. The command is used like this:
 
 {{{
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+  tesseract imagename outputbase [-l lang] [-psm pagesegmode] [configfile...]
 }}}
 
-= Other Dependencies =
+So basic usage to do OCR on an image called 'myscan.png' and save the result to 'out.txt' would be:
 
-  * [http://www.leptonica.org/ Leptonica] is required and provides image I/O and processing.
-  * Other image libraries are required by Leptonica for image I/O (png, tiff, jpg etc.)
-
-= Installing and Running Tesseract =
-
-== Distribution packages ==
-
-Tesseract is split into several packages:
-
-  * `tesseract-x.xx.tar.gz` contains all the source code.
-  * `tesseract-2.xx.<lang>.tar.gz` contains the Tesseract 2 language data files for {{{<lang>}}}. *You need at least one of these or tesseract 2 will not work.*
-  * `<lang>.traineddata.gz` contains the Tesseract 3.00 language data file for {{{<lang>}}}. *You need at least one of these or tesseract 3 will not work.*
-  * `tesseract-ocr-3.01.<lang>.tar.gz` contains the Tesseract 3 language data files for {{{<lang>}}}. You can use for tesseract 3.01 also 
-  language files for tesseract 3.00, but language files for 3.01 version [http://code.google.com/p/tesseract-ocr/wiki/FAQ#actual_tessdata_num_entries_<=_TESSDATA_NUM_ENTRIES:Error:Ass will cause error in tesseract 3.00].
-
-Note that `tesseract-x.xx.tar.gz` unpacks to the `tesseract-x.xx` directory. `tesseract-x.xx.<lang>.tar.gz` unpacks to the `tessdata` directory which belongs inside your `tesseract-x.xx` directory. It is therefore best to download them into your `tesseract-x.xx` directory, so you can use unpack here or equivalent. You can unpack as many of the language packs as you care to, as they all contain different files. If you unpack them as root to the destination directory of make install, then the user ids and access permissions might be messed up.
-
-Similarly `<lang>.traineddata.gz` must be unpacked to `tessdata` directory of `tesseract-x.xx` instalation.
-
-`boxtiff-2.01.<lang>.tar.gz` contains data that was used in training for those that want to
-do their own training. Most users should *NOT* download these files.
-
-Instructions for using the training tools are documented separately at [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3 TrainingTesseract3] and for testing at [http://code.google.com/p/tesseract-ocr/wiki/TestingTesseract TestingTesseract.]
-
-
-==Installation Notes - Tesseract 3.01 ==
-
-===General===
-
-*IMPORTANT: 3.01 is not backwards compatible with 2.04.* The data files are different. (Single file per language among other things.) You therefore need to make sure you connect your new executable with the new data files.
-
-Another important change is that you should *really* be using TessBaseAPI if you are linking with another program. In Linux (non-Windows) the main library is now libtesseract_api.a (in case of creating multiplelibs solution) or libtesseract.a (in case of onelib solution) instead of the old libtesseract_full.a. 
-
-The command line is:
 {{{
-tesseract <image> <outputbasename> [-l lang] [configs]
+  tesseract myscan.png out
 }}}
-In the executable, page layout analysis is enabled by default. You may need to turn it off to process small images. No command-line control for this yet. Sorry. See tesseractmain.cpp.
 
-The training process is described on separate [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3 wiki page].
+Or to do the same with German:
 
-Use the most recently available language files for the languages that you want.
-
-===Linux===
-If they are not already installed, you need the following libraries (Ubuntu):
 {{{
-sudo apt-get install autoconf automake libtool
-sudo apt-get install libpng12-dev
-sudo apt-get install libjpeg62-dev
-sudo apt-get install libtiff4-dev
-sudo apt-get install zlib1g-dev
+  tesseract myscan.png out -l deu
 }}}
 
-You also need to install [http://www.leptonica.org/ Leptonica]. There is an apt-get package libleptonica-dev, *but if you are using an oldish version of Linux, the Leptonica version may be too old, so you will need to build from source.* 3.01 requires at least v1.67 of Leptonica. The sources are at http://www.leptonica.org/. The instructions at [http://www.leptonica.org/source/README.html Leptonica README] are clear, but basically it is the usual
+Tesseract also includes a hOCR mode, which produces a special HTML file with the coordinates of each letter. This can be used to create a searchable pdf, using a tool such as [http://exactcode.de/site/open_source/exactimage/hocr2pdf Hocr2PDF]. To use it, use the 'hocr' config option, like this:
+
 {{{
-./autogen.sh
-./configure
-make
-sudo make install
-sudo ldconfig
+  tesseract myscan.png out hocr
 }}}
 
-Now back to Tesseract. Download the source package [http://tesseract-ocr.googlecode.com/files/tesseract-3.01.tar.gz tesseract-3.01.tar.gz] from [http://code.google.com/p/tesseract-ocr/downloads/list download page]. If you are developer you can try to [http://code.google.com/p/tesseract-ocr/wiki/TesseractSvnInstallation install tesseract from the subversion repository].
+More information about the various options is available in the [http://tesseract-ocr.googlecode.com/svn/trunk/doc/tesseract.1.html Tesseract manpage].
 
-The same build process as usual applies:
-{{{
-./autogen.sh
-./configure
-make
-sudo make install
-sudo ldconfig
-}}}
+= Other Languages =
 
-On some systems autotools did not create m4 directory  automatically (you got error: "`configure: error: cannot find macro directory 'm4'`"). In this case you must create m4 dicrectory by yourself before running `./configure`:
-{{{
-mkdir -p m4
-}}}
+Tesseract has been trained for many languages, check for your language on the [http://code.google.com/p/tesseract-ocr/downloads/list Downloads] page. It can also be trained to support other languages and scripts; for more details see [TrainingTesseract3].
 
-Between configure and make, you can check that everything has worked by looking at config_auto.h.
+= Development =
 
-You can also use:
-{{{
-export TESSDATA_PREFIX=/some/path/to/tessdata
-}}}
-to point to your tessdata directory (example: if your tessdata path is '/usr/local/share/tessdata' you have to use 'export TESSDATA_PREFIX='/usr/local/share/'). The command line for running tesseract is:
-{{{
-tesseract <image> <outputbasename> [-l lang] [configs]
-}}}
+Tesseract can also be used in your own project, under the terms of the [http://www.apache.org/licenses/LICENSE-2.0 Apache License 2.0.] It has a fully featured API, and can be compiled for a variety of targets including Android and the iPhone. See the [AddOns] page for a sample of what has been done with it.
 
-Install language data:
+Also, it's free software, so if you want to pitch in and help, please do!
+If you find a bug and fix it yourself, the best thing to do is to attach the patch to your bug report in the [http://code.google.com/p/tesseract-ocr/issues/list Issues List]
 
- #  Download langugage data file (e.g. 'wget http://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.01.eng.tar.gz' for 3.01 version)
- #  Decompress it ('tar xf tesseract-ocr-3.01.eng.tar.gz')
- #  Move it to installation of tessdata (e.g. 'mv tesseract-ocr/tessdata $TESSDATA_PREFIX' if defined TESSDATA_PREFIX) 
+= Support =
 
+First read the [http://code.google.com/p/tesseract-ocr/w/list Wiki], particularly the [FAQ] to see if your problem is addressed there. If not, search the the [http://groups.google.com/group/tesseract-ocr Tesseract user forum] or the [http://groups.google.com/group/tesseract-dev Tesseract developer forum], and if you still can't find what you need, please ask us there.
 
-===Windows===
+Installation notes for earlier versions have been relocated to a [http://code.google.com/p/tesseract-ocr/wiki/ReadMePre3 separate page]
 
-There is [http://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-setup-3.01.exe windows installer] for Tesseract-OCR 3.01 including English language data. Other language data can be downloaded and installed from installer. Installer adapt PATH environment of current user (e.g. user that installed tesseract) and setup TESSDATA_PREFIX environment variable for current user.
-
-If you have problem to run it, please check if you have installed [http://www.microsoft.com/download/en/details.aspx?id=5582&WT.mc_id=MSCOM_EN_US_DLC_DETAILS_121LSUS007998 Microsoft Visual C++ 2008 SP1 Redistributable Package (x86)].
-
-The dll isn't supported in Tesseract-OCR 3.00/3.01.
- 
-==== Installation from source ===
-
-Download these packages:
-  * [http://tesseract-ocr.googlecode.com/files/tesseract-3.01.tar.gz tesseract-3.01.tar.gz] - tesseract source
-  * [http://tesseract-ocr.googlecode.com/files/tesseract-3.01-win_vs.zip tesseract-3.01-win_vs.zip] - Visual studio (2008 & 2010) solution with necessary libraries
-  * [http://tesseract-ocr.googlecode.com/files/tesseract-ocr-3.01.eng.tar.gz tesseract-ocr-3.01.eng.tar.gz] - English language file for tesseract (or download other 3.01 or 3.00 language datafile)
-  
-Unpack them to one directory ('tesseract-3.01'). tesseract-ocr-3.01.eng.tar.gz has wrong name of root directory ('tesseract-ocr' instead of 'tesseract-3.01').
-
-Windows relevant files are located in vs2008 directory (e.g. 'tesseract-3.01\vs2008'). The same build process as usual applies:
-Open tesseract.sln with VC++Express 2008 and build all (or just Tesseract) It should compile (in at least release mode) without having to install anything further. The dll dependencies and Leptonica are included. Output will be in tesseract-3.01\vs2008\bin (or tesseract-3.01\vs2008\bin.rd or tesseract-3.01\vs2008\bin.dbg based on configuration build).
-
-If you want to use code from svn please check [http://tesseract-ocr.googlecode.com/svn/trunk/vs2008/doc/setup.html#using-the-latest-tesseractocr-sources Visual Studio 2008 Developer Notes for Tesseract-OCR].
-
-== Support ==
-
-If you need support please try to search and use [http://groups.google.com/group/tesseract-ocr tesseract user forum] or [http://groups.google.com/group/tesseract-dev tesseract developer forum]. It is good to read [http://code.google.com/p/tesseract-ocr/wiki wiki pages]  before posting on forum.
-
-
-==Installation Notes - Tesseract 2.04 == 
-
-===Linux===
-
-Installation process is the same as for version 3.01 just use correct [http://tesseract-ocr.googlecode.com/files/tesseract-2.04.tar.gz source] and language data for Tesseract 2.0x.
-
-===Windows===
-
-*There is no windows installer!* There are windows executables: `tesseract-2.04.exe.tar.gz` (It is not for the 'exe' language.) They are built with VC++ express 2008 and come with absolutely no warranty. If they work for you then great, otherwise get Visual C++ Express 2008 with service pack 1 and build from the source.  You can also try tesseract-2.01.exe.tar.gz, which is built with VC++6, and may work better if your windows is old, but note that this is an older version of Tesseract.
-
-If you are building from the [http://tesseract-ocr.googlecode.com/files/tesseract-2.04.tar.gz sources], there are still (up to v2.04) `.dsw` and `.dsp` files for vc++6, but the recommended build platform is now VC++ Express 2008. There are also `.sln` and `.vcproj` files for VC++ Express 2008, but these files are not backward compatible with any previous version - not even VC++ Express 2005. Note that the executables produced  with the newer compiler are smaller, faster, and, believe it or not, _more accurate._ (See [http://code.google.com/p/tesseract-ocr/wiki/TestingTesseract TestingTesseract.])
-
-*New with 2.04:* the executables are built with static linking, so they stand more chance of working out of the box on more windows systems.
-
-The executable must reside in the same directory as the tessdata directory. (The Visual Studio projects build the release executable directly to the correct place!)
-
-The command line is:
-{{{
-tesseract <image.tif> <output> [-l <langid>]
-}}}
-
-For interfacing to other applications, there is a DLL included with the executables, but you may be better off building it yourself. The DLL is NOT built for static C-Runtime, so you will probably need VC++ Express 2008 to run it.
-
-The dll has been updated to allow input of non-binary images. (Thanks to Glen of Jetsoft.)
-
-
-===Non-Windows (or Cygwin)===
-
-You have to tell Tesseract through a standard unix mechanism where to find
-its data directory. You must either:
-{{{
-./configure
-make
-make install
-}}}
-to move the data files to the standard place, or:
-{{{
-export TESSDATA_PREFIX="directory in which your tessdata resides/"
-}}}
-
-In either case the command line is:
-{{{
-tesseract <image.tif> <output> [-l <langid>]
-}}}
-*New* there is a tesseract.spec for making rpms. (Thanks to Andrew Ziem for the help.)
-It might work with your OS if you know how to do that.
-
-If you are linking to the libraries, as Ocropus does, there is now a single master
-library called libtesseract_full.a.
-
-Libtiff support should now be properly working via configure, but *note that you need libtiff-dev,* as that contains the header files required to compile the code that uses it.
-
-
-= History: =
-
-The engine was developed at Hewlett Packard Laboratories Bristol and
-at Hewlett Packard Co, Greeley Colorado between 1985 and 1994, with some
-more changes made in 1996 to port to Windows, and some C++izing in 1998.
-A lot of the code was written in C, and then some more was written in C++.
-Since then all the code has been converted to at least compile with a C++
-compiler. Currently it builds under Linux with gcc4.0, gcc4.1 and under Windows
-with VC++2008 Express. The C++ code makes heavy use of a list system using macros.
-This predates stl, was portable before stl, and is more efficient than stl
-lists, but has the big negative that if you do get a segmentation violation,
-it is hard to debug. Another "feature" of the C/C++ split is that the C++
-data structures get converted to C data structures to call the low-level C
-code. This is ugly, and the C++izing of the C code is a step towards
-eliminating the conversion, but it has not happened yet.
-
-The most recent change is that Tesseract can now recognize 33 languages, is fully UTF8 capable, and is fully trainable. See TrainingTesseract for more information on training.
-
-Tesseract was included in UNLV's Fourth Annual Test of OCR Accuracy. See http://www.isri.unlv.edu/downloads/AT-1995.pdf. With Tesseract 2.00, scripts are now included to allow anyone to reproduce some of these tests. See [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract TestingTesseract] for more details.
-
-
-= About the Engine =
-
-This code is a raw OCR engine. It has *NO OUTPUT FORMATTING, and NO UI.* It can detect fixed pitch vs proportional text.
-Having said that, in 1995, this engine was in the top 3 in terms of character accuracy, and it compiles and runs on both Linux and Windows. Training code IS included in the open source release however, and is now included for those willing to try. 
