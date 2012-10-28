@@ -7,7 +7,7 @@
 || [http://symmetrica.net/cuneiform-linux/yagf-en.html YAGF] || X || || ||  GPL v3 || A graphical front-end for cuneiform and tesseract ||
 || [http://www.paperfile.net/ FreeOCR] || || || X || Apache 2.0 || Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers ||
 || [http://sourceforge.net/projects/gimagereader/ gImageReader] || X || || X || GPL v3 || A graphical GTK frontend to tesseract-ocr ||
-|| [http://www.sunnypage.ge/en/ SunnyPage OCR] || || || X || Proprietary || A GUI frontend for Tesseract OCR engine with automatic adjustment of image brightness, image processing and PDF support.
+|| [http://www.sunnypage.ge/en/ SunnyPage OCR] || || || X || Proprietary || A GUI frontend for Tesseract OCR engine with automatic adjustment of image brightness, image processing and PDF support.||
 || [http://vietocr.sourceforge.net/ VietOCR] || X || X || X || Apache 2.0 || A GUI frontend for Tesseract OCR engine. Supports optical character recognition for Vietnamese and other languages supported by Tesseract ||
 || [http://live.gnome.org/OCRFeeder OCRFeeder] || X || || || GPL v3 || OCRFeeder is a document layout analysis and optical character recognition system ||
 || [http://solutions.weblite.ca/pdfocrx/ PDF OCR X] || || X || X || Proprietary || PDF OCR is a simple drag-and-drop utility for Mac OS X and Windows, that converts your PDFs and images into text documents or searchable PDF files ||
