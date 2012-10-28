@@ -7,9 +7,9 @@ A collection of frequently asked questions and the answers, or pointers to them.
 
 *If you found a bug - please create issue. If you have a question - put it to tesseract [http://groups.google.com/group/tesseract-ocr/ user] or [http://groups.google.com/group/tesseract-dev/ developer] forum.* Questions in comments are not answered by developers.
 
-= Windows: tesseract close automaticaly right after launching =
+= Windows: tesseract closes automatically right after launching =
 
-tesseract program is command line program, so you need to run it from [http://commandwindows.com/ command line]. If you need program with Graphic intercase please have a look at [http://code.google.com/p/tesseract-ocr/wiki/AddOns#GUI AddOns wiki.]
+Tesseract is a command line program, so you need to run it from the [http://commandwindows.com/ command line]. If you need program with a graphical interface there are several available from the [http://code.google.com/p/tesseract-ocr/wiki/AddOns#GUI AddOns] page.
 
 = libtesseract.so.3: cannot open shared object file =
 
@@ -22,7 +22,7 @@ If you see this error, than you have problem with leptonica instalation. Please 
 
 = Can't open eng.unicharset? =
 
-Read the [http://code.google.com/p/tesseract-ocr/wiki/ReadMe ReadMe] wiki page.
+You don't have language training data installed. Read the [http://code.google.com/p/tesseract-ocr/wiki/ReadMe ReadMe] wiki page.
 
 = leptonica library missing =
 
@@ -187,7 +187,7 @@ To go the opposite way and turn off the dictionary, you can either delete the ap
 
 = What are configs and how can I have more? =
 
-Config is an overloaded word in tesseract. One meaning is a file of control parameters used for debugging or modifying its behaviour, such as tessdata/configs/segdemo.
+Config is an overloaded word in tesseract. One meaning is a file of [http://code.google.com/p/tesseract-ocr/wiki/ControlParams control parameters] used for debugging or modifying its behaviour, such as tessdata/configs/segdemo.
 
 The other meaning is used in training and in the classifier:
 

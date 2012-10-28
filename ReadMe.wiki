@@ -21,7 +21,7 @@ If Tesseract isn't available for your distribution, or you want to use a newer v
 
 The easiest way to install Tesseract is through [http://mxcl.github.com/homebrew/ homebrew]. Once homebrew is installed, you can install Tesseract by running the command: `brew install tesseract`.
 
-If you want to use language training data not included with the homebrew package, [http://code.google.com/p/tesseract-ocr/downloads/list download download the appropriate training data], open it with Finder, and copy the .traineddata file into the `/usr/local/Cellar/tesseract/<version>/share/tessdata` directory.
+If you want to use language training data not included with the homebrew package, [http://code.google.com/p/tesseract-ocr/downloads/list download the appropriate training data], open it with Finder, and copy the .traineddata file into the `/usr/local/Cellar/tesseract/<version>/share/tessdata` directory.
 
 == Windows ==
 

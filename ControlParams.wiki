@@ -4,10 +4,10 @@
 
 Tesseract is extremely flexible, if you know how to control it. There is a large number of control parameters to modify its behaviour. While these change from time to time, most of them are fairly stable.
 
-There are (at least) 3 different types:
+There are 3 different types:
 
-===Init only.===
-Eg load_system_dawg, characterized by *INIT* in its initialization macro.
+===Init only===
+Characterized by *INIT* in its initialization macro.
 These parameters can *only* be set at the {{{ TessBaseAPI::Init }}} function that takes a list of config files.
 
 The rest can be set through {{{ TessBaseAPI::SetVariable }}} and make 2 further groups:
@@ -19,10 +19,14 @@ Control many different aspects of Tesseract's functionality.
 Contain debug in their name, control huge amounts of optional debug text and graphical output as Tesseract works.
 
 
-= Details =
+= Useful parameters =
 
-{{{ load_system_dawg }}} (Init only) controls whether or not to load the main dictionary for the selected language.
+Note that the default value may change; check the source code if you need to be sure of it.
 
-{{{ user_words_suffix }}} (Init only) the extension of the users-words word list file. If non-empty, it will attempt to load the relevant list of words to add to the dictionary for the selected language. Eg if set to {{{ user-words }}} Tesseract will attempt to load {{{ eng.user-words }}} from the tessdata directory at initialization time.
+|| *Name* || *Type* || *Default value* || *Init only* || *Description* ||
+|| {{{ load_system_dawg }}} || boolean (0/1) || 1 || Yes || Controls whether or not to load the main dictionary for the selected language. ||
+|| {{{ user_words_suffix }}} || string || "" || Yes || The extension of the users-words word list file. If non-empty, it will attempt to load the relevant list of words to add to the dictionary for the selected language. Eg if set to {{{ user-words }}} Tesseract will attempt to load {{{ eng.user-words }}} from the tessdata directory at initialization time. ||
+|| {{{ language_model_penalty_non_dict_word }} || double (0-1) || 0.15 || No || The penalty to apply to words not in the word_dawg / user_words wordlists. ||
+|| {{{ language_model_penalty_non_freq_dict_word }} || double (0-1) || 0.1 || No || The penalty to apply to words not in the freq_dawg wordlist. ||
 
 If you find a parameter that you consider useful, please add a comment to this page, and we will copy it into the page as we find it.

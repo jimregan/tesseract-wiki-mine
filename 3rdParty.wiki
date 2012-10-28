@@ -1,0 +1,46 @@
+#summary GUIs and Other Projects.
+#labels Featured
+
+== GUI ==
+
+|| *Name* || *Linux* || *Mac* || *Windows* || *License* || *Description* ||
+|| [http://symmetrica.net/cuneiform-linux/yagf-en.html YAGF] || X || || ||  GPL v3 || A graphical front-end for cuneiform and tesseract ||
+|| [http://www.paperfile.net/ FreeOCR] || || || X || Apache 2.0 || Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers ||
+|| [http://sourceforge.net/projects/gimagereader/ gImageReader] || X || || X || GPL v3 || A graphical GTK frontend to tesseract-ocr ||
+|| [http://www.sunnypage.ge/en/ SunnyPage OCR] || || || X || Proprietary || A GUI frontend for Tesseract OCR engine with automatic adjustment of image brightness, image processing and PDF support.
+|| [http://vietocr.sourceforge.net/ VietOCR] || X || X || X || Apache 2.0 || A GUI frontend for Tesseract OCR engine. Supports optical character recognition for Vietnamese and other languages supported by Tesseract ||
+|| [http://live.gnome.org/OCRFeeder OCRFeeder] || X || || || GPL v3 || OCRFeeder is a document layout analysis and optical character recognition system ||
+|| [http://solutions.weblite.ca/pdfocrx/ PDF OCR X] || || X || X || Proprietary || PDF OCR is a simple drag-and-drop utility for Mac OS X and Windows, that converts your PDFs and images into text documents or searchable PDF files ||
+|| [http://code.google.com/p/lector/ Lector] || X || || X || GPL v2 || A graphical ocr solution for GNU/Linux based on Python, Qt4 and tessaract OCR ||
+|| [https://github.com/zdenop/tesseract-ocr-qt4gui Tesseract-OCR QT4 gui] || X || || || Apache 2.0 || Tesseract-OCR QT4 gui is a simple GUI for tesseract ||
+|| [http://code.google.com/p/lime-ocr/ Lime OCR] || || || X || GPL v3 || A simple, free OCR software for Windows using tesseract-ocr engine ||
+|| [http://code.google.com/p/ocrivist/ Ocrivist] || X || || || GPL v3 || Ocrivist is a utility which makes it possible to scan and OCR books and other printed documents to PDF or Djvu format ||
+|| [http://tesseract-gui.sourceforge.net Tesseract-GUI] || X || || || GPL v2 || Tessract-GUI is not a front-end for tesseract-ocr, it is just a graphical way to use it  with simple image manipulation thru ImageMagick ||
+|| [http://code.google.com/p/qtesseract/ QTesseract] || X || || || LGPL v3 || QT GUI for the Tesseract OCR ||
+|| [http://djvu.life.coocan.jp/TessOCR/doc/tessOCR_eng.html TessOCR(KISI)] || || X || || Apache 2.0 || A free OCR tool ||
+
+== Online OCR services ==
+
+  * [http://ocr1.sc.isc.tohoku.ac.jp/e1/ WeOCR]: is a platform for Web-enabled OCR (Optical Character Reader/Recognition) systems that enables people to use character recognition over networks
+  * [http://www.ocr-extract.com/ OCRextrACT]:  is an online access to the tesseract via a WeOCR interface
+  * [http://www.customocr.com/index.php?r=site/page&view=demos.tesseract_ocr CustomOCR]
+
+== Others ==
+
+  * [http://www.donaldmarang.org/speedy-ocr.html speedy-ocr] utility to simplify scanning and OCR focus to help blind and visually impaired community. It is part of [http://vinuxproject.org Vinux project].
+  * [http://apps.man.poznan.pl/trac/varico/wiki Project VIRAL] Varico Invoice Recognition with Assisted Learning
+  * [http://blender3d.github.com/Bindery/ Bindery]: A simple GUI for binding post processed scanned pages into digital documents
+  * [http://code.google.com/p/tesseract-android-tools/ tesseract-android-tools]: set of Android APIs
+  * [http://code.google.com/p/mobileocr/ Mobile OCR]: The goal of Mobile OCR is to create an application for the Android platform that will recognize text from an image taken by the phone's camera. The application will be fully accessible to low vision and blind users
+  * [http://code.google.com/p/clarify Clarify]: Clarify helps you OCR 'image-only' PDFs. Your input is a PDF that you normally cannot extract text from. The output is text. Clarify is a python module that wraps up tesseract-ocr, xpdf and netpbm. _Requirements:_ python, tesseract-ocr, xpdf, netpbm
+  * [http://hocrtopdf.codeplex.com/documentation hOcr2Pdf.NET]: hOcr2Pdf.NET is a library that programmers can use to create highly compressed, searchable pdf's for applications. _Requirements:_ .NET 2.0 or higher, Tesseract 3.0, JBig2.exe
+  * [http://rubyforge.org/projects/pdfbeads PDFBeads]: convert scanned images to a single searchable PDF file based on hOCR files. _Requirements:_ ruby, RMagick, hpricot
+  * [http://www.exactcode.com/site/open_source/exactimage/hocr2pdf/ ExactImage/hocr2pdf]: creates a Searchable PDF from hOCR input. _Requirements:_ libagg
+  * [https://github.com/jbrinley/HocrConverter HocrConverter]: creates PDFs and plain text from hOCR documents. _Requirements:_ python, reportlab
+  * [http://www.acoveo.com/acoveo/files/HocrToPdf.java  HocrToPdf.java]: java source for very basic hOCR to PDF converter. Compiled version can be found at project [http://code.google.com/p/modi2hocr/source/browse/trunk/ modi2hocr]. _Requirements:_ java, jericho, iText2 
+  * [http://hocrtopdf.codeplex.com/ hOcr2Pdf.NET]: is a .NET library to convert .hocr html produced by Tesseract or Cuneiform into searchable pdfs using HtmlAgilityPack and iTextSharp. _Requirements:_ C#.
+  * [http://www.scanbizcards.com ScanBizCards]: Mobile solution for business card scanning. _Requirements:_ iPhone 4/iPhone 3/Android 2.0
+  * [http://code.google.com/p/tallyho/ Tally-Ho]: Tally-Ho is a screen reader intended for sites like google books
+  * [http://rosarior.github.com/mayan/ Mayan EDMS]: Document management system with tesseract as it's base
+  * [http://git.lrde.epita.fr/?p=olena.git;a=summary Olena]: a generic and efficient image processing platform (tesseract is used in its part called [http://git.lrde.epita.fr/?p=olena.git;a=tree scribo])
+  * [http://jwilk.net/software/ocrodjvu ocrodjvu] is a wrapper for OCR systems, that allows you to perform OCR on DjVu files
