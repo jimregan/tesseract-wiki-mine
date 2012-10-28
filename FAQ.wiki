@@ -9,7 +9,7 @@ A collection of frequently asked questions and the answers, or pointers to them.
 
 = Windows: tesseract closes automatically right after launching =
 
-Tesseract is a command line program, so you need to run it from the [http://commandwindows.com/ command line]. If you need program with a graphical interface there are several available from the [http://code.google.com/p/tesseract-ocr/wiki/AddOns#GUI AddOns] page.
+Tesseract is a command line program, so you need to run it from the [http://commandwindows.com/ command line]. If you need program with a graphical interface there are several available from the [http://code.google.com/p/tesseract-ocr/wiki/3rdParty#GUI 3rdParty] page.
 
 = libtesseract.so.3: cannot open shared object file =
 
@@ -241,6 +241,18 @@ debug_file tesseract.log
 call the file 'logfile' and put it in tessdata/configs/
 Then add logfile to the end of your command line.
 
+= How can I supress tesseract info line? =
+
+See [http://code.google.com/p/tesseract-ocr/issues/detail?id=579 issue 579]. On linux you can redirect stderr and stdout output to /dev/null. E.g.:
+{{{
+tesseract phototest.tif phototest 1>/dev/null 2>&1
+}}}
+With tesseract 3.02 you can use config "quiet". E.g.:
+{{{
+tesseract phototest.tif phototest quiet
+}}}
+
+*Warning:* Both options will cause that you will not see error message if there is any.
 
 = My question isn't in here! =
 
