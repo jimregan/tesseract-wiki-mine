@@ -17,7 +17,7 @@ The piccolo libraries are available from: http://www.cs.umd.edu/hcil/jazz/downlo
 On Linux:
    * Copy piccolo-1.2.jar and piccolox-1.2.jar to tesseract/java.
    * cd java
-   * make
+   * make ScrollView.jar
    * Set the SCROLLVIEW_PATH environment variable to point to your java directory containing all 3 jar files.
 
 On Windows:
