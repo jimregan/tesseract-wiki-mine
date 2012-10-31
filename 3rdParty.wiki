@@ -1,4 +1,4 @@
-#summary GUIs and Other Projects.
+#summary GUIs and Other Projects using Tesseract OCR.
 #labels Featured
 
 == GUI ==
