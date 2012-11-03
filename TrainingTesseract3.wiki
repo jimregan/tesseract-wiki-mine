@@ -1,4 +1,4 @@
-#summary How to use the tools provided to train Tesseract3 for a new language.
+﻿#summary How to use the tools provided to train Tesseract3 for a new language.
 #labels Featured
 
 = Introduction =
@@ -11,7 +11,7 @@ For training Tesseract 2.0x see [http://code.google.com/p/tesseract-ocr/wiki/Tra
 
 Tesseract was originally designed to recognize English text only. Efforts have been made to modify the engine and its training system to make them able to deal with other languages and UTF-8 characters. Tesseract 3.0 can handle any Unicode characters (coded with UTF-8), but there are limits as to the range of languages that it will be successful with, so please take this section into account before building up your hopes that it will work well on your particular language!
 
-Tesseract 3.01 added top-to-bottom languages, and Tesseract 3.02 added Hebrew (right-to-left).  Tesseract currently handles scripts like Arabic with an auxilury engine called cube (included in Tesseract 3.0+)
+Tesseract 3.01 added top-to-bottom languages, and Tesseract 3.02 added Hebrew (right-to-left).  Tesseract currently handles scripts like Arabic with an auxiliary engine called cube (included in Tesseract 3.0+)
 
 Tesseract is slower with large character set languages (like Chinese), but it seems to work OK.
 
@@ -169,7 +169,7 @@ This should make the 2nd box file easier to make, as there is a good chance that
 
 === Tif/Box pairs provided! ===
 
-Some Tif/Box file pairs are on the downloads page. (Note the tiff files are G4 compressed
+*Some* Tif/Box file pairs are on the downloads page. (Note the tiff files are G4 compressed
 to save space, so you will have to have libtiff or uncompress them first). You could
 follow the following process to make better training data for your own language or
 subset of an existing language, or add different characters/shapes to an existing language:
@@ -183,7 +183,7 @@ take upto 32 .tr files, so you must cat all the files from multiple languages fo
 same font together to make 32 language-combined, but font-individual files.
 The characters found in the tr files *must* match the sequence
 of characters found in the box files when given to unicharset_extractor, so you have to
-cat the box files togther in the *same order* as the tr files.
+cat the box files together in the *same order* as the tr files.
 The command lines for cn/mftraining and unicharset_extractor must be given the .tr
 and .box files (respectively) in the *same order* just in case you have different
 filtering  for the different fonts.
@@ -300,7 +300,13 @@ mftraining -F font_properties -U unicharset -O eng.unicharset eng.timesitalic.ex
 
 == Clustering ==
 
-When the character features of all the training pages have been extracted, we need to cluster them to create the prototypes. The character shape features can be clustered using the `mftraining` and `cntraining` programs:
+When the character features of all the training pages have been extracted, we need to cluster them to create the prototypes. The character shape features can be clustered using the `shapeclustering` (available from 3.02 version), `mftraining` and `cntraining` programs:
+
+{{{
+shapeclustering -F font_properties -U unicharset lang.fontname.exp0.tr lang.fontname.exp1.tr ...
+}}}
+
+shapeclustering creates the master shape table by shape clustering and writes it to a file - shapetable.
 
 {{{
 mftraining -F font_properties -U unicharset -O lang.unicharset lang.fontname.exp0.tr lang.fontname.exp1.tr ...
@@ -316,20 +322,34 @@ This will output the `normproto` data file (the character normalization sensitiv
 
 == Dictionary Data (Optional) ==
 
-Tesseract uses up to 5 dictionary files for each language. Four of the files are coded as a Directed Acyclic Word Graph (DAWG), and the other is a plain UTF-8 text file. To make the DAWG dictionary files, you first need a wordlist for your language. The wordlist is formatted as a UTF-8 text file with one word per line. Split the wordlist into two sets: the frequent words, and the rest of the words, and then use `wordlist2dawg` to make the DAWG files:
+Tesseract uses up to 8 dictionary files for each language. Seven of the files are coded as a Directed Acyclic Word Graph (DAWG), and the other is a plain UTF-8 text file:
+
+|| *Name* || *Type* || *Description* ||
+punc-dawg || dawg || A dawg made from punctuation patterns found around words. The _"word"_ part is replaced by a single space. ||
+word-dawg || dawg || A dawg made from dictionary words from the language. ||
+number-dawg || dawg || A dawg made from tokens which originally contained digits. Each digit is replaced by a space character. ||
+freq-dawg || dawg || A dawg made from the most frequent words which would have gone into word-dawg. ||
+fixed-length-dawgs || dawg || Several dawgs of different fixed lengths —— useful for languages like Chinese. ||
+bigram-dawg || dawg || A dawg of word bigrams where the words are separated by a space and each digit is replaced by a _?_. ||
+unambig-dawg || dawg || TODO: Describe. ||
+
+To make the DAWG dictionary files, you first need a wordlist for your language. The wordlist is formatted as a UTF-8 text file with one word per line. Split the wordlist into needed sets e.g.: the frequent words, and the rest of the words, and then use `wordlist2dawg` to make the DAWG files:
 
 {{{
 wordlist2dawg frequent_words_list lang.freq-dawg lang.unicharset
 wordlist2dawg words_list lang.word-dawg lang.unicharset
 }}}
 
+For right-to-left languges (RTL) use option _"-r 1"_. Other options can be found in [http://tesseract-ocr.googlecode.com/svn-history/trunk/doc/wordlist2dawg.1.html wordlist2dawg Manual Page]
+
 *NOTE: wordlists must contain at least one word!* Files are allowed to not exist in the combined traineddata file though.
 
 If words always have some punctuation in them, like google.com then it is a good idea to include them in the dictionary.
 
-*TODO: add information on punc-dawg and number-dawg.*
+The last dictionary file is called user-words and is usually empty.
 
-The 5th dictionary file is called user-words and is usually empty.
+If you need example files for dictionary wordlists, uncombine (with [http://tesseract-ocr.googlecode.com/svn-history/r800/trunk/doc/combine_tessdata.1.html combine_tessdata]) existing language data file (e.g. eng.traineddata) and then extract wordlist with [http://tesseract-ocr.googlecode.com/svn-history/trunk/doc/dawg2wordlist.1.html dawg2wordlist]
+
 
 == The last file (unicharambigs) ==
 
@@ -356,7 +376,7 @@ The unicharambigs file may also be empty or non-existent.
 
 = Putting it all together =
 
-That is all there is to it! All you need to do now is collect together all (normproto, Microfeat, inttemp, pffmtable) the files and rename them with a `lang.` prefix, where lang is the 3-letter code for your language taken from http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes and then run combine_tessdata on them as follows:
+That is all there is to it! All you need to do now is collect together all (shapetable, normproto, inttemp, pffmtable) the files and rename them with a `lang.` prefix, where lang is the 3-letter code for your language taken from http://en.wikipedia.org/wiki/List_of_ISO_639-2_codes and then run combine_tessdata on them as follows:
 {{{
 combine_tessdata lang.
 }}}
@@ -370,47 +390,4 @@ tesseract image.tif output -l lang
 
 (Actually, you can use any string you like for the language code, but if you want anybody else to be able to use it easily, ISO 639 is the way to go.)
 
-The following comment from combine_tessdata.cpp gives its options in more detail:
-
-{{{
-// To combine all the individual tessdata components (unicharset, DAWGs,
-// classifier templates, ambiguities, language configs) located at, say,
-// /home/$USER/temp/eng.* run:
-//
-//   combine_tessdata /home/$USER/temp/eng.
-//
-// The result will be a combined tessdata file /home/$USER/temp/eng.traineddata
-//
-// Specify option -e if you would like to extract individual components
-// from a combined traineddata file. For example, to extract language config
-// file and the unicharset from tessdata/eng.traineddata run:
-//
-//   combine_tessdata -e tessdata/eng.traineddata
-//   /home/$USER/temp/eng.config /home/$USER/temp/eng.unicharset
-//
-// The desired config file and unicharset will be written to
-// /home/$USER/temp/eng.config /home/$USER/temp/eng.unicharset
-//
-// Specify option -o to overwrite individual components of the given
-// [lang].traineddata file. For example, to overwrite language config
-// and unichar ambiguities files in tessdata/eng.traineddata use:
-//
-//   combine_tessdata -o tessdata/eng.traineddata
-//   /home/$USER/temp/eng.config /home/$USER/temp/eng.unicharambigs
-//
-// As a result, tessdata/eng.traineddata will contain the new language config
-// and unichar ambigs, plus all the original DAWGs, classifier teamples, etc.
-//
-// Note: the file names of the files to extract to and to overwrite from should
-// have the appropriate file suffixes (extensions) indicating their tessdata
-// component type (.unicharset for the unicharset, .unicharambigs for unichar
-// ambigs, etc). See k*FileSuffix variable in ccutil/tessdatamanager.h.
-//
-// Specify option -u to unpack all the components to the specified path:
-//
-// combine_tessdata -u tessdata/eng.traineddata /home/$USER/temp/eng.
-//
-// This will create  /home/$USER/temp/eng.* files with individual tessdata
-// components from tessdata/eng.traineddata.
-//
-}}}
+More options of combine_tessdata can be found on its [http://tesseract-ocr.googlecode.com/svn-history/trunk/doc/combine_tessdata.1.html Manual Page] or in comment of its [http://code.google.com/p/tesseract-ocr/source/browse/trunk/training/combine_tessdata.cpp?r=800#23 source code].

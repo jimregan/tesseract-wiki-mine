@@ -39,7 +39,7 @@ Platform support depends on used language and experience of user.
 
 == Other Training Tools ==
 
-  * [https://github.com/reza1615/PersianOcr/tree/master/BoxMaker/BoxMaker BoxMaker] is html&javascript tool for generating image&box pair
+  * [http://reza1615.github.com/index.html BoxMaker] is online tool for generating image&box pair. Offline version is available in download section of [https://github.com/reza1615/PersianOcr/downloads PersianOCR project]
   * [http://www.dinosaursandmoustaches.com/boxFactory.php boxFactory] is a tool for quickly creating box files to train the Tesseract OCR engine. You can identify characters in the image by simply drawing boxes around them..
   * [https://www.dur.ac.uk/nick.white/tools/ nick.white tools] various tesseract related tools in C.
   * [https://github.com/BaltoRouberol/TesseractTrainer] - TesseractTrainer is a simple Python API, taking over the tedious process of manually training Tesseract3
