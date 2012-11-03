@@ -325,13 +325,13 @@ This will output the `normproto` data file (the character normalization sensitiv
 Tesseract uses up to 8 dictionary files for each language. Seven of the files are coded as a Directed Acyclic Word Graph (DAWG), and the other is a plain UTF-8 text file:
 
 || *Name* || *Type* || *Description* ||
-punc-dawg || dawg || A dawg made from punctuation patterns found around words. The _"word"_ part is replaced by a single space. ||
-word-dawg || dawg || A dawg made from dictionary words from the language. ||
-number-dawg || dawg || A dawg made from tokens which originally contained digits. Each digit is replaced by a space character. ||
-freq-dawg || dawg || A dawg made from the most frequent words which would have gone into word-dawg. ||
-fixed-length-dawgs || dawg || Several dawgs of different fixed lengths —— useful for languages like Chinese. ||
-bigram-dawg || dawg || A dawg of word bigrams where the words are separated by a space and each digit is replaced by a _?_. ||
-unambig-dawg || dawg || TODO: Describe. ||
+|| punc-dawg || dawg || A dawg made from punctuation patterns found around words. The _"word"_ part is replaced by a single space. ||
+|| word-dawg || dawg || A dawg made from dictionary words from the language. ||
+|| number-dawg || dawg || A dawg made from tokens which originally contained digits. Each digit is replaced by a space character. ||
+|| freq-dawg || dawg || A dawg made from the most frequent words which would have gone into word-dawg. ||
+|| fixed-length-dawgs || dawg || Several dawgs of different fixed lengths —— useful for languages like Chinese. ||
+|| bigram-dawg || dawg || A dawg of word bigrams where the words are separated by a space and each digit is replaced by a _?_. ||
+|| unambig-dawg || dawg || TODO: Describe. ||
 
 To make the DAWG dictionary files, you first need a wordlist for your language. The wordlist is formatted as a UTF-8 text file with one word per line. Split the wordlist into needed sets e.g.: the frequent words, and the rest of the words, and then use `wordlist2dawg` to make the DAWG files:
 
