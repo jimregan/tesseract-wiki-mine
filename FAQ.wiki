@@ -17,7 +17,8 @@ Run 'sudo ldconfig' after 'sudo make install'. See [http://code.google.com/p/tes
 
 = Error in pixReadStream: =
 
-If you see this error, than you have problem with leptonica instalation. Please check issues
+If you see this error, than you have problem with leptonica installation - e.g. there is missing support for your image format. Usually needed image library was not installed properly during leptonica build or there is some configure problem within leptonica.
+ Please check issues
 [http://code.google.com/p/tesseract-ocr/issues/detail?id=340 340], [http://code.google.com/p/tesseract-ocr/issues/detail?id=391 391] and [http://code.google.com/p/tesseract-ocr/issues/detail?id=443 443]
 
 = Can't open eng.unicharset? =

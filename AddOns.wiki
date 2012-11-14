@@ -54,6 +54,7 @@ Platform support depends on used language and experience of user.
 == Community training project ==
 
   * *Ancient Greek training for Tesseract*: https://www.dur.ac.uk/nick.white/grctraining/
+  * *Chinese simplefied*: see issue [http://code.google.com/p/tesseract-ocr/issues/detail?id=296 296]; download http://ubuntuone.com/p/3Yw/
   * *Indic*: http://code.google.com/p/tesseractindic/, https://github.com/debayan/Tesseract-Indic-OCR/
   * *Indian and South Asian languages*: http://code.google.com/p/parichit/
   * *Irish uncial*: http://code.google.com/p/tesseract-gle-uncial/
@@ -67,7 +68,9 @@ Platform support depends on used language and experience of user.
 
 ===  Tesseract 3.0x ===
 
-*C wrapper*: http://code.google.com/p/ocrivist/source/browse/#svn%2Ftessintf
+*C wrapper*: 
+  * 3.02 includes C API
+  * for 3.00 (and 3.01?) see http://code.google.com/p/ocrivist/source/browse/#svn%2Ftessintf where is C wrapper with Freepascal bindings 
 
 *.Net*:
   * https://github.com/charlesw/tesseract-ocr-dotnet
