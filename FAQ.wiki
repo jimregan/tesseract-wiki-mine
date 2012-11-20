@@ -15,6 +15,10 @@ Tesseract is a command line program, so you need to run it from the [http://comm
 
 Run 'sudo ldconfig' after 'sudo make install'. See [http://code.google.com/p/tesseract-ocr/issues/detail?id=621 issue 621].
 
+= Tesseract does not work =
+
+Please ensure there is only one instalation of tesseract e.g. there are reported problems(in case of shared build) if tesseract 3.01 and 3.02 are installed on the same computer. See e.g. [http://code.google.com/p/tesseract-ocr/issues/detail?id=793 issue 793]
+
 = Error in pixReadStream: =
 
 If you see this error, than you have problem with leptonica installation - e.g. there is missing support for your image format. Usually needed image library was not installed properly during leptonica build or there is some configure problem within leptonica.
@@ -200,6 +204,15 @@ If files contain very similar looking samples, then you can cat them together to
 
 Increase MAX_NUM_CONFIGS (in classify/intproto.h) There are consequences. You will make inttemp files generated with a different value of MAX_NUM_CONFIGS unreadable. We are working towards overcoming this weakness for version 3.0. Will not be in 2.04 though. Also, classification will be slower and use more memory.
 
+= There are inconsistent results from tesseract when the same TessBaseAPI object is used for decoding multiple images =
+
+Try to clean adaptive data with `ClearAdaptiveClassifier()` or turn off adaptive classifier with config variables:
+{{{
+classify_enable_learning 0
+classify_enable_adaptive_matcher 0
+}}}
+
+See also discussion on [https://groups.google.com/d/topic/tesseract-ocr/ByGJhocI9qQ tesseract forum]
 
 = [http://en.wikipedia.org/wiki/Diacritic Diacritics] above and below glyph are ignored/cause garbage output =
 
@@ -224,6 +237,18 @@ If you get error during running *combine_tessdata*:
    last_char == '\n':Error:Assert failed:in file ..\ccutil\tessdatamanager.cpp, line 95
 </wiki:comment>
 This indicates your lang.unicharambigs is missing empty line at the end of file.
+
+= Error: Illegal min or max specification =
+
+This can happend if number format ("locale" on linux or "Regional and Language Options" in Windows) is different than English format. Solution is to set your locale (in code) of LC_NUMERIC to "C"  before calling tesseract. In some cases you need to include locale.h:
+{{{
+#include <locale.h>
+setlocale (LC_NUMERIC, "C");
+}}}
+
+Other option is to adjust your user locale/regional settings.
+
+See also information in issues [http://code.google.com/p/tesseract-ocr/issues/detail?id=250 250] and [http://code.google.com/p/tesseract-ocr/issues/detail?id=228 228]
 
 = Error: X classes in inttemp while unicharset contains Y unichars. =
 
