@@ -154,6 +154,10 @@ You can try to have a look at [http://scantailor.sourceforge.net/ Scantailor] - 
 
 Read the TrainingTesseract wiki.
 
+= How do I unpack or alter existing language data files? =
+
+Use the combine_tessdata command. See the [http://tesseract-ocr.googlecode.com/svn-history/trunk/doc/combine_tessdata.1.html combine_tessdata manual page] for details on its usage.
+
 = How do I provide my own dictionary? =
 
 == Tesseract 2 ==
