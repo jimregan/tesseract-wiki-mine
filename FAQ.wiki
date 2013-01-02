@@ -11,6 +11,11 @@ A collection of frequently asked questions and the answers, or pointers to them.
 
 Tesseract is a command line program, so you need to run it from the [http://commandwindows.com/ command line]. If you need program with a graphical interface there are several available from the [http://code.google.com/p/tesseract-ocr/wiki/3rdParty#GUI 3rdParty] page.
 
+= Tesseract output =
+
+Tesseract standard output is plain txt file (utf-8 encoded, with '\n' as [http://en.wikipedia.org/wiki/Newline end-of-line marker]).
+With configfile 'hocr' tesseract will produce xhtml output compliant with [https://docs.google.com/document/preview?id=1QQnIQtvdAC_8n92-LhwPcjtAUFwBlzE8EWnKAxlgVf0&pli=1 hocr specification] (input image name must be ascii if operation system use other than utf-8 encoding for filesystem names).
+
 = libtesseract.so.3: cannot open shared object file =
 
 Run 'sudo ldconfig' after 'sudo make install'. See [http://code.google.com/p/tesseract-ocr/issues/detail?id=621 issue 621].
@@ -283,6 +288,38 @@ tesseract phototest.tif phototest quiet
 }}}
 
 *Warning:* Both options will cause that you will not see error message if there is any.
+
+= Issues with older versions of tesseract =
+_(informations from issue tracker with Status: Look-here-for-help.)_
+
+== How to port Tesseract engine into vb6 project? ==
+
+See suggestions in [http://code.google.com/p/tesseract-ocr/issues/detail?id=42 issue 42].
+
+== Delphi wrapper for tessdll.dll ==
+
+Have a look  at [http://code.google.com/p/tesseract-ocr/wiki/AddOns Addon Wiki] or see comments in [http://code.google.com/p/tesseract-ocr/issues/detail?id=88 issue 88].
+
+== In-complete OCR result ==
+
+See suggestions in [http://code.google.com/p/tesseract-ocr/issues/detail?id=44 issue 44].
+
+== error LNK2001: unresolved external symbol "public: static char * __cdecl TessBaseAPI::TesseractRect(unsigned char const *,int,int,int,int,int,int)" (?TesseractRect@TessBaseAPI@@SAPADPBEHHHHHH@Z) ==
+
+If you are using version 2.04 and VC++ 6 add a #define TESSDLL_IMPORTS before you include baseapi.h. (see [http://code.google.com/p/tesseract-ocr/issues/detail?id=297 issue 297]
+
+== box overlaps no blobs or blobs in multiple rows error when training ==
+
+If you get this error try to use pagesegmenation value 5 or 6. E.g.:
+{{{
+tesseract input_image output -psm 6 batch.nochop makebox
+}}}
+Or have a look at other suggestions in [http://code.google.com/p/tesseract-ocr/issues/detail?id=471 issue 471]
+
+== Training failed  with error message "mf.cpp:78: FEATURE_SET_STRUCT* ExtractMicros..." ==
+
+See suggestions how to improve input image in [http://code.google.com/p/tesseract-ocr/issues/detail?id=488 issue 488].
+
 
 = My question isn't in here! =
 
