@@ -333,7 +333,7 @@ Tesseract uses up to 8 dictionary files for each language. Seven of the files ar
 || bigram-dawg || dawg || A dawg of word bigrams where the words are separated by a space and each digit is replaced by a _?_. ||
 || unambig-dawg || dawg || TODO: Describe. ||
 
-To make the DAWG dictionary files, you first need a wordlist for your language. The wordlist is formatted as a UTF-8 text file with one word per line. Split the wordlist into needed sets e.g.: the frequent words, and the rest of the words, and then use `wordlist2dawg` to make the DAWG files:
+To make the DAWG dictionary files, you first need a wordlist for your language. You may find an appropriate dictionary file to use as the basis for a wordlist from the spellcheckers (e. g. [http://ficus-www.cs.ucla.edu/geoff/ispell-dictionaries.html ispell], [http://aspell.net/ aspell] or [http://hunspell.sourceforge.net/ hunspell]) - be carefull about the lincense. The wordlist is formatted as a UTF-8 text file with one word per line. Split the wordlist into needed sets e.g.: the frequent words, and the rest of the words, and then use `wordlist2dawg` to make the DAWG files:
 
 {{{
 wordlist2dawg frequent_words_list lang.freq-dawg lang.unicharset

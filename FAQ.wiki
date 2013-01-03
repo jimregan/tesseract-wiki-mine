@@ -5,7 +5,7 @@
 
 A collection of frequently asked questions and the answers, or pointers to them. If you have question, please post it to forums. Wiki comments are for wiki commenting and not for Troubleshooting.
 
-*If you found a bug - please create issue. If you have a question - put it to tesseract [http://groups.google.com/group/tesseract-ocr/ user] or [http://groups.google.com/group/tesseract-dev/ developer] forum.* Questions in comments are not answered by developers.
+*If you found a bug - please create issue. If you have a question - put it to tesseract [http://groups.google.com/group/tesseract-ocr/ user] or [http://groups.google.com/group/tesseract-dev/ developer] forum.* Do not ask for support in comments - it will be deleted.
 
 = Windows: tesseract closes automatically right after launching =
 
@@ -288,6 +288,11 @@ tesseract phototest.tif phototest quiet
 }}}
 
 *Warning:* Both options will cause that you will not see error message if there is any.
+
+= How can I get the coordinates and confidence of each character? =
+
+There are two options. If you would rather not get into programming, you can use Tesseract's hocr output format (read the [http://tesseract-ocr.googlecode.com/svn-history/trunk/doc/tesseract.1.html Tesseract manual page] for details). If you are comfortable programming, use the [http://code.google.com/p/tesseract-ocr/source/browse/trunk/api/baseapi.h Tesseract API].  
+
 
 = Issues with older versions of tesseract =
 _(informations from issue tracker with Status: Look-here-for-help.)_
