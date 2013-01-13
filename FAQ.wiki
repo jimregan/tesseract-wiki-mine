@@ -5,7 +5,16 @@
 
 A collection of frequently asked questions and the answers, or pointers to them. If you have question, please post it to forums. Wiki comments are for wiki commenting and not for Troubleshooting.
 
-*If you found a bug - please create issue. If you have a question - put it to tesseract [http://groups.google.com/group/tesseract-ocr/ user] or [http://groups.google.com/group/tesseract-dev/ developer] forum.* Do not ask for support in comments - it will be deleted.
+= Rules and advices =
+
+  * If you found a bug - please create issue: Please make sure you are able to replicate problem with tesseract executables on Linux or Windows. For other platforms or external/your programs (including tesseract wrappers) please use tesseract forums.
+  * If you have a question - put it to tesseract [http://groups.google.com/group/tesseract-ocr/ user] or [http://groups.google.com/group/tesseract-dev/ developer] forum.
+  * Do not ask for support in comments - it will be deleted.
+  * Post example files e.g. if you have problem with training. Just posting error messages is not sufficient if you used input file. Source of problem is hidden in input files usually.
+  * Do not post programs or libraries (e.g. program for editing box files) - post link where they can be downloaded
+  * Try to find optimal format for example images - 20Mb image is not helpful. Multi-page tiff useful only in case you have problem with multi-page functionality. E.g. 2 colour png provide same information as truecolour uncompressed tiff (tesseract will convert it to 2 colours anyway).
+  * Copy error message from terminal/console/command line windows (yes, it is possible on windows too) instead of sending screen-shot.
+  * Read wiki, search issues (also closed), search in tesseract forum before you post your issues/question. Maybe it was solved already.
 
 = Windows: tesseract closes automatically right after launching =
 
@@ -14,7 +23,8 @@ Tesseract is a command line program, so you need to run it from the [http://comm
 = Tesseract output =
 
 Tesseract standard output is plain txt file (utf-8 encoded, with '\n' as [http://en.wikipedia.org/wiki/Newline end-of-line marker]).
-With configfile 'hocr' tesseract will produce xhtml output compliant with [https://docs.google.com/document/preview?id=1QQnIQtvdAC_8n92-LhwPcjtAUFwBlzE8EWnKAxlgVf0&pli=1 hocr specification] (input image name must be ascii if operation system use other than utf-8 encoding for filesystem names).
+
+With configfile 'hocr' tesseract will produce xhtml output compliant with [https://docs.google.com/document/preview?id=1QQnIQtvdAC_8n92-LhwPcjtAUFwBlzE8EWnKAxlgVf0&pli=1 hocr specification] (input image name must be ASCII if operation system use other than utf-8 encoding for filesystem names - see [http://code.google.com/p/tesseract-ocr/issues/detail?id=809 issue 809] for some details).
 
 = libtesseract.so.3: cannot open shared object file =
 

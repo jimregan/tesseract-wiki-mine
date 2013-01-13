@@ -289,12 +289,7 @@ timesitalic 1 0 0 1 0
 }}}
 
 {{{
-mftraining -F font_properties -U unicharset timesitalic.tr 
-}}}
-
-or, alternatively
-
-{{{
+shapeclustering -F font_properties -U unicharset eng.timesitalic.exp0.tr
 mftraining -F font_properties -U unicharset -O eng.unicharset eng.timesitalic.exp0.tr 
 }}}
 
