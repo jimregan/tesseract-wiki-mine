@@ -14,6 +14,7 @@ Platform support depends on used language and experience of user.
 ==== Box file editors ====
 
 || *Name* || *Last update* || *Language* || Multipage support ||
+|| [http://code.google.com/p/tesseract-box-editor/ tesseract-box-editor] || Feb 2013 || .NET 4 || yes ||
 || [http://zdenop.github.com/qt-box-editor/ QT Box Editor] || May 2012 || C++, Qt4 || no ||
 || [http://pp19dd.com/tesseract-ocr-chopper/ Tesseract-OCR boxfile AJAX editor] || March 2012 || online tool ||
 || [http://code.google.com/p/cowboxer/ cowboxer] || Jan 2012 || C++, Qt4 || no ||
@@ -41,7 +42,7 @@ Platform support depends on used language and experience of user.
 
   * [http://reza1615.github.com/index.html BoxMaker] is online tool for generating image&box pair. Offline version is available in download section of [https://github.com/reza1615/PersianOcr/downloads PersianOCR project]
   * [http://www.dinosaursandmoustaches.com/boxFactory.php boxFactory] is a tool for quickly creating box files to train the Tesseract OCR engine. You can identify characters in the image by simply drawing boxes around them..
-  * [https://www.dur.ac.uk/nick.white/tools/ nick.white tools] various tesseract related tools in C.
+  * [https://gitorious.org/ancient-greek-training-for-tesseract/tesstrainingtools tesstrainingtools] various tesseract related tools in C.
   * [https://github.com/BaltoRouberol/TesseractTrainer] - TesseractTrainer is a simple Python API, taking over the tedious process of manually training Tesseract3
   * [https://github.com/ddohler/tess_school tess_school] - a set of handy scripts to make the tesseract training process a bit easier
   * [http://code.google.com/p/txt2img/ txt2img]: Qt GUI application that generate image and box file based on text imput

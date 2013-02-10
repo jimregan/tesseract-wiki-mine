@@ -27,7 +27,8 @@
 
 == Others ==
 
-  * [https://github.com/schulzch/node-dv/ node-dv] is a node.js library for processing and understanding scanned documents 
+  * [http://www.wolfram.com/mathematica/ Wolfram Mathematica 9.0] use tesseract for [https://groups.google.com/d/msg/tesseract-ocr/NmxFclHcsAE/-KaiT5oJ8oQJ recognizing text]
+  * [https://github.com/schulzch/node-dv/ node-dv] is a node.js library for processing and understanding scanned documents
   * [http://www.chronoscan.org ChronoScan] is a complete suite for document Scanning & Data Entry
   * [http://www.donaldmarang.org/speedy-ocr.html speedy-ocr] utility to simplify scanning and OCR focus to help blind and visually impaired community. It is part of [http://vinuxproject.org Vinux project].
   * [http://apps.man.poznan.pl/trac/varico/wiki Project VIRAL] Varico Invoice Recognition with Assisted Learning

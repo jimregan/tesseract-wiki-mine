@@ -27,14 +27,14 @@ Spain July 25, 2009. http://doi.acm.org/10/1145/1577802.1577804.
 = Manual Pages =
 
 There are manual pages for tesseract tools available in svn:
-  * [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/ambiguous_words.1.html ambiguous_words]
-  * [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/cntraining.1.html cntraining]
-  * [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/combine_tessdata.1.html combine_tessdata]
-  * [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/dawg2wordlist.1.html dawg2wordlist]
-  * [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/mftraining.1.html mftraining]
-  * [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/shapeclustering.1.html shapeclustering]
-  * [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/tesseract.1.html tesseract]
-  * [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/unicharset_extractor.1.html unicharset_extractor]
-  * [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/wordlist2dawg.1.html wordlist2dawg]
+  * [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/ambiguous_words.1.html ambiguous_words]
+  * [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/cntraining.1.html cntraining]
+  * [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/combine_tessdata.1.html combine_tessdata]
+  * [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/dawg2wordlist.1.html dawg2wordlist]
+  * [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/mftraining.1.html mftraining]
+  * [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/shapeclustering.1.html shapeclustering]
+  * [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/tesseract.1.html tesseract]
+  * [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/unicharset_extractor.1.html unicharset_extractor]
+  * [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/wordlist2dawg.1.html wordlist2dawg]
 
-plus description of [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/unicharambigs.5.html unicharambigs] and [http://tesseract-ocr.googlecode.com/svn-history/r683/trunk/doc/unicharset.5.html unicharset] files
+plus description of [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/unicharambigs.5.html unicharambigs] and [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/doc/unicharset.5.html unicharset] files

@@ -40,7 +40,14 @@ may still be provided separately.
 
 The traineddata file is simply a concatenation of the input files, with a table of contents that contains the offsets of the known file types. See ccutil/tessdatamanager.h in the source code for a list of the currently accepted filenames. *NOTE* the files in the traineddata file are different from the list used prior to 3.00, and will most likely change, possibly dramatically in future revisions.
 
-How little can you get away with?
+== Requirements for text input files ==
+
+Text input files (lang.config, lang.unicharambigs, font_properties, box files, wordlists for dictionaries...) need to meet this criterias:
+  * ASCII or UTF-8 encoding without [http://en.wikipedia.org/wiki/Byte_order_mark/ BOM]
+  * unix [http://en.wikipedia.org/wiki/Newline end-of-line marker] ('\n')
+  * empty line at the end of file (e.g. there must be end-of-line marker after last line of data). If you omnit this you will got error message containing "last_char == '\n':Error:Assert failed..."
+
+== How little can you get away with? ==
 
 You *must* create unicharset, inttemp, normproto, pfftable using the procedure described below. If you are only trying to recognize a limited range of fonts (like a single font for instance), then a single training page might be enough. The other files no longer need to be provided, but will most likely improve accuracy, depending on your application. The old DangAmbigs has been replaced by unicharambigs.
 
@@ -154,8 +161,6 @@ If you didn't successfully space out the characters on the training image, some 
 *Note* that the coordinate system used in the box file has (0,0) at the *bottom-left.*
 
 The last number on each line is the page number (0-based) of that character in the multi-page tiff file.
-
-If you have an editor that understands UTF-8, this process will be a lot easier than if it doesn't, as each UTF-8 character has upto 4 bytes to code it, and dumb editors will show you all the bytes separately.
 
 There are several visual tools for editing box file - please check [http://code.google.com/p/tesseract-ocr/wiki/AddOns#Tesseract_box_editors_and_traning_tools AddOns wiki].
 
@@ -272,7 +277,7 @@ Last two columns represent type of script (Latin, Common, Greek, Cyrillic, Han, 
 
 == font_properties (new in 3.01) ==
 
-A new requirement for training in 3.01 is a `font_properties` file. The purpose of this file is to provide font style information that will appear in the output when the font is recognized. The `font_properties` file is a text file specified by the `-F filename` option to mftraining. Please make sure that file do not have [http://en.wikipedia.org/wiki/Byte_order_mark/ BOM].
+A new requirement for training in 3.01 is a `font_properties` file. The purpose of this file is to provide font style information that will appear in the output when the font is recognized. The `font_properties` file is a text file specified by the `-F filename` option to mftraining.
 
 Each line of the font_properties file is formatted as follows:
 {{{

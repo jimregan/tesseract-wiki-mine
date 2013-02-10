@@ -1,6 +1,6 @@
 #summary Compilation guide for various platforms
 
-*Note:* This wiki expects you to be familiar with compiling sofware on your operation system.
+*Note:* This wiki expects you to be familiar with compiling software on your operation system.
 
 = Linux / Other Unices =
 
