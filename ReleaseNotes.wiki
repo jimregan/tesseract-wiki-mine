@@ -68,7 +68,7 @@ This page keeps the most up-to-date release notes.
      * Created a class hierarchy for the directories to hold instance data, and began moving code into the classes.
      * Moved thresholding code to a separate class.
   * Added major new page layout analysis module.
-  * Added HOCR output.
+  * Added hOCR output.
   * Added Leptonica as main image I/O and handling. Currently optional, but in future releases linking with Leptonica will be mandatory.
   * Ambiguity table rewritten to allow definite replacements in place of fix_quotes.
   * Added TessdataManager to combine data files into a single file.

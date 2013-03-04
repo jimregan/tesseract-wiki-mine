@@ -40,6 +40,7 @@ Platform support depends on used language and experience of user.
 
 == Other Training Tools ==
 
+  * [https://code.google.com/p/serak-tesseract-trainer/ Serak Tesseract Trainer for Tesseract 3.02] - a front end GUI for training tesseract 3.02 
   * [http://reza1615.github.com/index.html BoxMaker] is online tool for generating image&box pair. Offline version is available in download section of [https://github.com/reza1615/PersianOcr/downloads PersianOCR project]
   * [http://www.dinosaursandmoustaches.com/boxFactory.php boxFactory] is a tool for quickly creating box files to train the Tesseract OCR engine. You can identify characters in the image by simply drawing boxes around them..
   * [https://gitorious.org/ancient-greek-training-for-tesseract/tesstrainingtools tesstrainingtools] various tesseract related tools in C.

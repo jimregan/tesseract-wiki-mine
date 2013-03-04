@@ -19,14 +19,18 @@
 || [http://code.google.com/p/qtesseract/ QTesseract] || X || || || LGPL v3 || QT GUI for the Tesseract OCR ||
 || [http://djvu.life.coocan.jp/TessOCR/doc/tessOCR_eng.html TessOCR(KISI)] || || X || || Apache 2.0 || A free OCR tool ||
 
+
 == Online OCR services ==
 
   * [http://ocr1.sc.isc.tohoku.ac.jp/e1/ WeOCR]: is a platform for Web-enabled OCR (Optical Character Reader/Recognition) systems that enables people to use character recognition over networks
   * [http://www.ocr-extract.com/ OCRextrACT]:  is an online access to the tesseract via a WeOCR interface
   * [http://www.customocr.com/index.php?r=site/page&view=demos.tesseract_ocr CustomOCR]
 
+
 == Others ==
 
+  * [https://code.google.com/p/ocrivist/ Ocrivist] is a utility which makes it possible to scan and OCR books and other printed documents to PDF or Djvu format.
+  * [https://code.google.com/p/thu-ipv6-login/ thu-ipv6-login] a python script for IPv6 authentication in Tsinghua University with support for OCR of authcode
   * [http://www.wolfram.com/mathematica/ Wolfram Mathematica 9.0] use tesseract for [https://groups.google.com/d/msg/tesseract-ocr/NmxFclHcsAE/-KaiT5oJ8oQJ recognizing text]
   * [https://github.com/schulzch/node-dv/ node-dv] is a node.js library for processing and understanding scanned documents
   * [http://www.chronoscan.org ChronoScan] is a complete suite for document Scanning & Data Entry
