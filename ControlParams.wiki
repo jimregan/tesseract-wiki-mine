@@ -29,4 +29,18 @@ Note that the default value may change; check the source code if you need to be 
 || {{{ language_model_penalty_non_dict_word }}} || double (0-1) || 0.15 || No || The penalty to apply to words not in the word_dawg / user_words wordlists. ||
 || {{{ language_model_penalty_non_freq_dict_word }}} || double (0-1) || 0.1 || No || The penalty to apply to words not in the freq_dawg wordlist. ||
 
+=== Useful parameters for Japanese ===
+
+[https://groups.google.com/d/msg/tesseract-ocr/A4IQlslY7hc/d4xK1PoihfMJ Some Japanese tesseract user] found these parameters helpful for increasing tesseract-ocr (3.02) accuracy for Japanese :
+
+|| *Name* || *Suggested value* || *Description* ||
+|| chop_enable || T || Chop enable. ||
+|| use_new_state_cost || F || Use new state cost heuristics for segmentation state evaluation ||
+|| segment_segcost_rating || F || Incorporate segmentation cost in word rating? ||
+|| enable_new_segsearch || 0 || Enable new segmentation search path. ||
+|| language_model_ngram_on || 0 || Turn on/off the use of character ngram model. ||
+|| textord_force_make_prop_words || F || Force proportional word segmentation on all rows. ||
+
+
 If you find a parameter that you consider useful, please add a comment to this page, and we will copy it into the page as we find it.
+

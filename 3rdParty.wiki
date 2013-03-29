@@ -5,7 +5,7 @@
 
 || *Name* || *Linux* || *Mac* || *Windows* || *License* || *Description* ||
 || [http://symmetrica.net/cuneiform-linux/yagf-en.html YAGF] || X || || ||  GPL v3 || A graphical front-end for cuneiform and tesseract ||
-|| [http://www.paperfile.net/ FreeOCR] || || || X || Apache 2.0 || Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers ||
+|| [http://www.paperfile.net/ FreeOCR] || || || X || Proprietary || Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers ||
 || [http://sourceforge.net/projects/gimagereader/ gImageReader] || X || || X || GPL v3 || A graphical GTK frontend to tesseract-ocr ||
 || [http://www.sunnypage.ge/en/ SunnyPage OCR] || || || X || Proprietary || A GUI frontend for Tesseract OCR engine with automatic adjustment of image brightness, image processing and PDF support.||
 || [http://vietocr.sourceforge.net/ VietOCR] || X || X || X || Apache 2.0 || A GUI frontend for Tesseract OCR engine. Supports optical character recognition for Vietnamese and other languages supported by Tesseract ||
@@ -29,6 +29,7 @@
 
 == Others ==
 
+  * [http://audiveris.kenai.com/ Audiveris ]  is an open-source Optical Music Recognition software which processes the image of a music sheet to automatically provide symbolic music information in MusicXML standard.
   * [https://code.google.com/p/ocrivist/ Ocrivist] is a utility which makes it possible to scan and OCR books and other printed documents to PDF or Djvu format.
   * [https://code.google.com/p/thu-ipv6-login/ thu-ipv6-login] a python script for IPv6 authentication in Tsinghua University with support for OCR of authcode
   * [http://www.wolfram.com/mathematica/ Wolfram Mathematica 9.0] use tesseract for [https://groups.google.com/d/msg/tesseract-ocr/NmxFclHcsAE/-KaiT5oJ8oQJ recognizing text]
