@@ -40,6 +40,7 @@ Platform support depends on used language and experience of user.
 
 == Other Training Tools ==
 
+  * [https://code.google.com/p/tesseract-box-file/ tesseract-box-file] - autoit script to make editing the box file easier 
   * [https://code.google.com/p/serak-tesseract-trainer/ Serak Tesseract Trainer for Tesseract 3.02] - a front end GUI for training tesseract 3.02 
   * [http://reza1615.github.com/index.html BoxMaker] is online tool for generating image&box pair. Offline version is available in download section of [https://github.com/reza1615/PersianOcr/downloads PersianOCR project]
   * [http://www.dinosaursandmoustaches.com/boxFactory.php boxFactory] is a tool for quickly creating box files to train the Tesseract OCR engine. You can identify characters in the image by simply drawing boxes around them..
@@ -79,8 +80,9 @@ Platform support depends on used language and experience of user.
   * http://code.google.com/p/tesseractdotnet/
 
 *Python*:
+  * https://github.com/gregjurman/tesserwrap - Python bindings to the Tesseract API
   * http://code.google.com/p/pytess/ - A simple SWIG-based interface to Tesseract
-  * http://code.google.com/p/python-tesseract/ is a wrapper class for Tesseract OCR that allows any conventional image files (SWIG based) 
+  * http://code.google.com/p/python-tesseract/ is a wrapper class for Tesseract OCR that allows any conventional image files (SWIG based)
 
 *Ruby*:
   * https://github.com/meh/ruby-tesseract-ocr/ - wrapper for tesseract 3.0x using the C++ API
