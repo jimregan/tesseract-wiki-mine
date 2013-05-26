@@ -76,7 +76,7 @@ Platform support depends on used language and experience of user.
   * for 3.00 (and 3.01?) see http://code.google.com/p/ocrivist/source/browse/#svn%2Ftessintf where is C wrapper with Freepascal bindings 
 
 *.Net*:
-  * https://github.com/charlesw/tesseract-ocr-dotnet
+  * https://github.com/charlesw/tesseract
   * http://code.google.com/p/tesseractdotnet/
 
 *Python*:
