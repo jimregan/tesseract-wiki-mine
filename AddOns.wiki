@@ -38,8 +38,10 @@ Platform support depends on used language and experience of user.
 || [http://code.google.com/p/wx-tetra/ wx-tetra] || Sep 2008 || perl, wx  ||
 || [http://code.google.com/p/bbtesseract/ bbtesseract] || Jul 2008 || VB.NET 2008 ||
 
+
 == Other Training Tools ==
 
+  * [https://github.com/this-is-ari/python-tesseract-3.02-training python-tesseract-3.02-training] - script to automate the generation of Tesseract 3.02 training files 
   * [https://code.google.com/p/tesseract-box-file/ tesseract-box-file] - autoit script to make editing the box file easier 
   * [https://code.google.com/p/serak-tesseract-trainer/ Serak Tesseract Trainer for Tesseract 3.02] - a front end GUI for training tesseract 3.02 
   * [http://reza1615.github.com/index.html BoxMaker] is online tool for generating image&box pair. Offline version is available in download section of [https://github.com/reza1615/PersianOcr/downloads PersianOCR project]
@@ -92,6 +94,7 @@ Platform support depends on used language and experience of user.
 
 *Java*: http://tess4j.sourceforge.net/ (JNA wrapper)
 
+*PHP*: https://code.google.com/p/php-tesseract/
 
 ===  Tesseract 2.0x ===
 
