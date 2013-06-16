@@ -51,6 +51,7 @@ If you want to restrict recognition to a sub-rectangle of the image - call _SetR
 
 = GetComponentImages example =
 
+{{{
   Pix *image = pixRead("/usr/src/tesseract-3.02/phototest.tif");
   tesseract::TessBaseAPI *api = new tesseract::TessBaseAPI();
   api->Init(NULL, "eng");
@@ -65,7 +66,7 @@ If you want to restrict recognition to a sub-rectangle of the image - call _SetR
     fprintf(stdout, "Box[%d]: x=%d, y=%d, w=%d, h=%d, confidence: %d, text: %s",
                     i, box->x, box->y, box->w, box->h, conf, ocrResult);
   }
-
+}}}
 
 = Result iterator example =
 
