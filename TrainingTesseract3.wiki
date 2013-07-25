@@ -17,6 +17,8 @@ Tesseract is slower with large character set languages (like Chinese), but it se
 
 Any language that has different punctuation and numbers is going to be disadvantaged by some of the hard-coded algorithms that assume ASCII punctuation and digits. To be fixed in 3.0x for x>=2.
 
+You need to run all commands in the same folder where are located your input files.
+
 = Data files required =
 
 To train for another language, you have to create some data files in the `tessdata` subdirectory, and then crunch these together into a single file, using combine_tessdata. The naming convention is `languagecode.file_name` Language codes for released files follow the ISO 639-3 standard, but any string can be used. The files used for English (3.00) are:
@@ -306,7 +308,7 @@ When the character features of all the training pages have been extracted, we ne
 shapeclustering -F font_properties -U unicharset lang.fontname.exp0.tr lang.fontname.exp1.tr ...
 }}}
 
-shapeclustering creates the master shape table by shape clustering and writes it to a file - shapetable.
+shapeclustering creates the master shape table by shape clustering and writes it to a file - shapetable. It currently should not be used except for the [https://groups.google.com/d/msg/tesseract-dev/Z1lTKePp-hY/kUtGy4gdNS4J Indic languages]. 
 
 {{{
 mftraining -F font_properties -U unicharset -O lang.unicharset lang.fontname.exp0.tr lang.fontname.exp1.tr ...

@@ -29,7 +29,7 @@ Note that the default value may change; check the source code if you need to be 
 || {{{ language_model_penalty_non_dict_word }}} || double (0-1) || 0.15 || No || The penalty to apply to words not in the word_dawg / user_words wordlists. ||
 || {{{ language_model_penalty_non_freq_dict_word }}} || double (0-1) || 0.1 || No || The penalty to apply to words not in the freq_dawg wordlist. ||
 
-=== Useful parameters for Japanese ===
+=== Useful parameters for Japanese and Chinese ===
 
 [https://groups.google.com/d/msg/tesseract-ocr/A4IQlslY7hc/d4xK1PoihfMJ Some Japanese tesseract user] found these parameters helpful for increasing tesseract-ocr (3.02) accuracy for Japanese :
 

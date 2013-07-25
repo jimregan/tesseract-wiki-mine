@@ -36,7 +36,7 @@ Run 'sudo ldconfig' after 'sudo make install'. See [http://code.google.com/p/tes
 
 = Tesseract does not work =
 
-Please ensure there is only one instalation of tesseract e.g. there are reported problems(in case of shared build) if tesseract 3.01 and 3.02 are installed on the same computer. See e.g. [http://code.google.com/p/tesseract-ocr/issues/detail?id=793 issue 793]
+Please ensure there is only one installation of tesseract e.g. there are reported problems(in case of shared build) if tesseract 3.01 and 3.02 are installed on the same computer. See e.g. [http://code.google.com/p/tesseract-ocr/issues/detail?id=793 issue 793]
 
 = Error in pixReadStream: =
 

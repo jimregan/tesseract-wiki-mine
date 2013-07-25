@@ -29,6 +29,7 @@
 
 == Others ==
 
+  * [http://www.primaresearch.org/tools.php Aletheia] - An Advanced Document Layout and Text Ground-Truthing System for Production Environments
   * [http://gscan2pdf.sourceforge.net/ gscan2pdf] a GUI to produce PDFs or DjVus from scanned documents
   * [https://play.google.com/store/apps/details?id=com.renard.ocr textfairy] Android OCR App with source code at [https://github.com/renard314/textfairy github.com]
   * [http://audiveris.kenai.com/ Audiveris] is an open-source Optical Music Recognition software which processes the image of a music sheet to automatically provide symbolic music information in MusicXML standard.
