@@ -5,7 +5,6 @@
 
 || *Name* || *Linux* || *Mac* || *Windows* || *License* || *Description* ||
 || [http://symmetrica.net/cuneiform-linux/yagf-en.html YAGF] || X || || ||  GPL v3 || A graphical front-end for cuneiform and tesseract ||
-|| [http://www.paperfile.net/ FreeOCR] || || || X || Proprietary || Free OCR is a document scanning software including the Windows compiled Tesseract free ocr engine. It is very simple to use and supports opening multi-page tiff documents, Adobe PDF and fax documents as well as most image types including compressed Tiff's. It can scan using Twain and WIA scanning drivers ||
 || [http://sourceforge.net/projects/gimagereader/ gImageReader] || X || || X || GPL v3 || A graphical GTK frontend to tesseract-ocr ||
 || [http://www.sunnypage.ge/en/ SunnyPage OCR] || || || X || Proprietary || A GUI frontend for Tesseract OCR engine with automatic adjustment of image brightness, image processing and PDF support.||
 || [http://vietocr.sourceforge.net/ VietOCR] || X || X || X || Apache 2.0 || A GUI frontend for Tesseract OCR engine. Supports optical character recognition for Vietnamese and other languages supported by Tesseract ||
@@ -28,7 +27,7 @@
 
 
 == Others ==
-
+  * [https://github.com/jflesch/paperwork Paperwork] - using OCR to grep dead trees the easy way (requires pyocr)
   * [http://www.primaresearch.org/tools.php Aletheia] - An Advanced Document Layout and Text Ground-Truthing System for Production Environments
   * [http://gscan2pdf.sourceforge.net/ gscan2pdf] a GUI to produce PDFs or DjVus from scanned documents
   * [https://play.google.com/store/apps/details?id=com.renard.ocr textfairy] Android OCR App with source code at [https://github.com/renard314/textfairy github.com]

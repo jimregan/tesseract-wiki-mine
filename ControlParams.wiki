@@ -37,7 +37,7 @@ Note that the default value may change; check the source code if you need to be 
 || chop_enable || T || Chop enable. ||
 || use_new_state_cost || F || Use new state cost heuristics for segmentation state evaluation ||
 || segment_segcost_rating || F || Incorporate segmentation cost in word rating? ||
-|| enable_new_segsearch || 0 || Enable new segmentation search path. ||
+|| enable_new_segsearch || 0 || Enable new segmentation search path. It could solve the problem of dividing one character to two characters ||
 || language_model_ngram_on || 0 || Turn on/off the use of character ngram model. ||
 || textord_force_make_prop_words || F || Force proportional word segmentation on all rows. ||
 
