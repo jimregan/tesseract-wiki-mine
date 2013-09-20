@@ -308,7 +308,9 @@ When the character features of all the training pages have been extracted, we ne
 shapeclustering -F font_properties -U unicharset lang.fontname.exp0.tr lang.fontname.exp1.tr ...
 }}}
 
-shapeclustering creates the master shape table by shape clustering and writes it to a file - shapetable. It currently should not be used except for the [https://groups.google.com/d/msg/tesseract-dev/Z1lTKePp-hY/kUtGy4gdNS4J Indic languages]. 
+shapeclustering creates the master shape table by shape clustering and writes it to a file - shapetable. It currently should not be used except for the [https://groups.google.com/d/msg/tesseract-dev/Z1lTKePp-hY/kUtGy4gdNS4J Indic languages].
+
+*NOTE*: If you get error message like this `"index >= 0 && index < size_used_:Error:Assert failed in genericvector.h, line 512"` - add shapetable file to your language datafile.
 
 {{{
 mftraining -F font_properties -U unicharset -O lang.unicharset lang.fontname.exp0.tr lang.fontname.exp1.tr ...

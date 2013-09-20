@@ -69,6 +69,11 @@ Platform support depends on used language and experience of user.
   * *Myanmar*: http://code.google.com/p/myaocr/
   * *Persian (Farsi)*: https://github.com/reza1615/PersianOcr
 
+== Commercial Training Services ==
+
+  * http://www.tesseract-training.com/
+
+  
 == Tesseract wrappers ==
 
 ===  Tesseract 3.0x ===
