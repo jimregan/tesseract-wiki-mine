@@ -27,6 +27,7 @@
 
 
 == Others ==
+  * [http://www.devscope.net/products/DevScopeOCR DevScope OCR SDK] is a Optical Character Recognition toolkit engine based on Tesseract OCR v3 that allows to develop applications using Microsoft .NET framework
   * [https://github.com/jflesch/paperwork Paperwork] - using OCR to grep dead trees the easy way (requires pyocr)
   * [http://www.primaresearch.org/tools.php Aletheia] - An Advanced Document Layout and Text Ground-Truthing System for Production Environments
   * [http://gscan2pdf.sourceforge.net/ gscan2pdf] a GUI to produce PDFs or DjVus from scanned documents
