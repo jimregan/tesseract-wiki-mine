@@ -1,3 +1,4 @@
+#How to build Tesseract with OpenCL
 =How to build Tesseract with OpenCL=
 
 ==Building Tesseract on VS 2010 with OpenCL==
