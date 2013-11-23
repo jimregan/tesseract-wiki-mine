@@ -14,11 +14,11 @@ Platform support depends on used language and experience of user.
 ==== Box file editors ====
 
 || *Name* || *Last update* || *Language* || Multipage support ||
+|| [http://vietocr.sourceforge.net/training.html jTessBoxEditor] || Nov 2013 || Java || yes ||
+|| [http://zdenop.github.com/qt-box-editor/ QT Box Editor] || July 2013 || C++, Qt4 || no ||
 || [http://code.google.com/p/tesseract-box-editor/ tesseract-box-editor] || Feb 2013 || .NET 4 || yes ||
-|| [http://zdenop.github.com/qt-box-editor/ QT Box Editor] || May 2012 || C++, Qt4 || no ||
 || [http://pp19dd.com/tesseract-ocr-chopper/ Tesseract-OCR boxfile AJAX editor] || March 2012 || online tool ||
 || [http://code.google.com/p/cowboxer/ cowboxer] || Jan 2012 || C++, Qt4 || no ||
-|| [http://vietocr.sourceforge.net/training.html jTessBoxEditor] || Oct 2011 || Java || yes ||
 || [http://code.google.com/p/moshpytt/ moshPyTT ] || Feb 2011 || Python, GTK2 || no ||
 || [http://code.google.com/p/pytesseracttrainer/ pytesseracttrainer] || Jan 2011 || Python, GTK2 || no ||
 
