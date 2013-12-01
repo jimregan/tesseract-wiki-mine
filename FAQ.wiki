@@ -20,6 +20,45 @@ A collection of frequently asked questions and the answers, or pointers to them.
   * Copy error message from terminal/console/command line windows (yes, it is possible on windows too) instead of sending screen-shot.
   * Read wiki, search issues (also closed), search in tesseract forum before you post your issues/question. Maybe it was solved already.
 
+= What is the description of issue statutes? =
+
+=== Open Statuses ===
+
+|| *Status* || *Description* ||
+|| New || Issues has not had initial review yet ||
+|| Accepted || Problem reproduced / Need acknowledged ||
+|| Started || Work on this issue has begun ||
+|| Look-here-for-help || Read this if you have the same problem! ||
+
+=== Closed Statuses ===
+
+|| *Status* || *Description* ||
+|| Fixed || Developer made requested changes, QA should verify ||
+|| Verified || QA has verified that the fix worked ||
+|| Invalid || This was not a valid issue report ||
+|| Duplicate || This report duplicates an existing issue ||
+|| WontFix || We decided to not take action on this issues ||
+|| WorksForMe || Can't reproduce the bug ||
+|| No-Longer-an-issue || Problem went away as solution was already found ||
+
+= Can I increase speed of OCR? =
+
+If you are processing several  images you can run tesseract in parallel with [http://www.gnu.org/software/parallel/ GNU Parallel].
+E.g. instead of:
+{{{
+find . -maxdepth 1 -name "*.tif" -print0 | while IFS= read -r -d '' n; do 
+    tesseract "$n" "$n" -l eng hocr
+    hocr2pdf -i "$n" -n -o "$n.pdf" < "$n.html"
+done 
+}}}
+
+you can run:
+
+{{{
+parallel "tesseract {} {} -l eng hocr; hocr2pdf -i {} -n -o {}.pdf < {}.html" ::: *.tif
+}}}
+
+
 = Windows: tesseract closes automatically right after launching =
 
 Tesseract is a command line program, so you need to run it from the [http://commandwindows.com/ command line]. If you need program with a graphical interface there are several available from the [http://code.google.com/p/tesseract-ocr/wiki/3rdParty#GUI 3rdParty] page.
