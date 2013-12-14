@@ -41,6 +41,7 @@ Platform support depends on used language and experience of user.
 
 == Other Training Tools ==
 
+  * [https://github.com/this-is-ari/python-tesseract-3.02-training FrankenPlus] - tool for creating font training for Tesseract OCR engine from page images. More information about Franken+ is at at [http://emop.tamu.edu/node/54Franken+: IT'S ALIVE!] and [http://dh-emopweb.tamu.edu/Franken+/ Franken+ homepage]. 
   * [https://github.com/this-is-ari/python-tesseract-3.02-training python-tesseract-3.02-training] - script to automate the generation of Tesseract 3.02 training files 
   * [https://code.google.com/p/tesseract-box-file/ tesseract-box-file] - autoit script to make editing the box file easier 
   * [https://code.google.com/p/serak-tesseract-trainer/ Serak Tesseract Trainer for Tesseract 3.02] - a front end GUI for training tesseract 3.02 

@@ -24,6 +24,8 @@
   * [http://ocr1.sc.isc.tohoku.ac.jp/e1/ WeOCR]: is a platform for Web-enabled OCR (Optical Character Reader/Recognition) systems that enables people to use character recognition over networks
   * [http://www.ocr-extract.com/ OCRextrACT]:  is an online access to the tesseract via a WeOCR interface
   * [http://www.customocr.com/index.php?r=site/page&view=demos.tesseract_ocr CustomOCR]
+  * [http://www.free-ocr.com/ Free OCR]
+  * [http://www.i2ocr.com/ i2OCR]
 
 
 == Others ==
@@ -55,3 +57,20 @@
   * [http://rosarior.github.com/mayan/ Mayan EDMS]: Document management system with tesseract as it's base
   * [http://git.lrde.epita.fr/?p=olena.git;a=summary Olena]: a generic and efficient image processing platform (tesseract is used in its part called [http://git.lrde.epita.fr/?p=olena.git;a=tree scribo])
   * [http://jwilk.net/software/ocrodjvu ocrodjvu] is a wrapper for OCR systems, that allows you to perform OCR on DjVu files
+  * [https://sites.google.com/site/paradiitproject/home PaRADIIT] (Pattern Redundancy Analysis for Document Image Indexation & Transcription) is a project initiated and sponsored by 2 successive Google DH awards. It aims to turn ancient books, especially from the Renaissance, into accessible digital libraries.
+  
+=== IMPACT related ===
+
+  * [http://www.impact-project.eu/ IMPACT project]
+  * [http://www.digitisation.eu/ IMPACT Centre] - a not-for-profit organisation founded to sustain IMPACT outcomes and foster community building
+  * [http://www.digitisation.eu/data IMPACT data]
+  * [https://github.com/impactcentre IMPACT tools]
+  * [http://dl.psnc.pl/activities/projekty/impact/results/ Results of the IMPACT project] by PSNC Digital Libraries Team
+  * [http://wlt.synat.pcss.pl/wlt-web/index.xhtml Virtual Transcription Laboratory] by PSNC
+  * [https://github.com/impactcentre/interoperability-framework IMPACT Interoperability Framework] - interoperability layer supporting the loose coupling of software components developed during the IMPACT project.
+  * [https://github.com/impactcentre/inventory-extraction Inventory-Extraction-Tool Prototype] is a prototype with graphical user interface (GUI) that allows for the extraction of a complete list of characters from a document, without reference to a specific language dictionary or a library of fonts.
+  * [https://github.com/impactcentre/PoCoTo Post Correction Tool] is interactive post-correction of OCRed documents. Using the information obtained by the Text and Error Profiler the whole correction process is adaptive to the document being processed. In this way, usually huge numbers of systematic errors can be corrected with just a few keystrokes..
+  * [https://github.com/impactcentre/ocrevalUAtion OCR evaluation tool].
+  * [https://github.com/INL/BlackLab BlackLab] is a corpus retrieval engine built on top of Apache Lucene. It allows fast, complex searches with accurate hit highlighting on large, tagged and annotated, bodies of text. It was developed at the Institute of Dutch Lexicology (INL) to provide a fast and feature-rich search interface on our historical and contemporary text corpora.
+
+For more information about [http://www.impact-project.eu/ IMPACT project] see [https://groups.google.com/forum/?hl=en#!topic/tesseract-ocr/A1Qq_vfKyRs discussion in tesseract forum].
