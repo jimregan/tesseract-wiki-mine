@@ -18,7 +18,7 @@ You can see how Tesseract has processed the image by using the [ControlParams co
 
 === Binarisation ===
 
-https://code.google.com/p/tesseract-ocr/source/browse/wiki/binarisation.png
+http://www.sk-spell.sk.cx/images/16.png
 
 This is converting an image to black and white. Tesseract does this internally, but it can make mistakes, particularly if the page background is of uneven darkness.
 
