@@ -28,6 +28,7 @@
   * [http://www.i2ocr.com/ i2OCR]
 
 
+<<<<<<< HEAD
 == Others ==
   * [http://www.devscope.net/products/DevScopeOCR DevScope OCR SDK] is a Optical Character Recognition toolkit engine based on Tesseract OCR v3 that allows to develop applications using Microsoft .NET framework
   * [https://github.com/jflesch/paperwork Paperwork] - using OCR to grep dead trees the easy way (requires pyocr)
@@ -39,6 +40,11 @@
   * [https://code.google.com/p/thu-ipv6-login/ thu-ipv6-login] a python script for IPv6 authentication in Tsinghua University with support for OCR of authcode
   * [http://www.wolfram.com/mathematica/ Wolfram Mathematica 9.0] use tesseract for [https://groups.google.com/d/msg/tesseract-ocr/NmxFclHcsAE/-KaiT5oJ8oQJ recognizing text]
   * [https://github.com/creatale/node-dv node-dv] is a node.js library for processing and understanding scanned documents
+=======
+  * [https://hocr-tools.googlecode.com hocr-tools] - python tools for manipulating and evaluating the hOCR format for representing multi-lingual OCR results by embedding them into HTML. They include hocr-pdf tool for creating searchable pdf.
+  * [http://documentup.com/virantha/pypdfocr/ PyPDFOCR] - Tesseract-OCR based PDF filing
+  * [https://github.com/schulzch/node-dv/ node-dv] is a node.js library for processing and understanding scanned documents 
+>>>>>>> add PoorQuality wiki; wiki update
   * [http://www.chronoscan.org ChronoScan] is a complete suite for document Scanning & Data Entry
   * [http://www.donaldmarang.org/speedy-ocr.html speedy-ocr] utility to simplify scanning and OCR focus to help blind and visually impaired community. It is part of [http://vinuxproject.org Vinux project].
   * [http://apps.man.poznan.pl/trac/varico/wiki Project VIRAL] Varico Invoice Recognition with Assisted Learning

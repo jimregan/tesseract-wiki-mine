@@ -15,13 +15,11 @@ There are two parts to install, the engine itself, and the training data for a l
 
 Tesseract is available directly from many Linux distributions. The package is generally called 'tesseract' or 'tesseract-ocr' - search your distribution's repositories to find it. Packages are also generally available for language training data (search the repositories,) but if not you will need to [http://code.google.com/p/tesseract-ocr/downloads/list download the appropriate training data], unpack it, and copy the .traineddata file into the 'tessdata' directory, probably `/usr/share/tesseract-ocr/tessdata` or `/usr/share/tessdata`.
 
-If Tesseract isn't available for your distribution, or you want to use a newer version than is available, you can [Compiling compile your own]. Note that older versions of Tesseract only supported processing .tiff files.
+If Tesseract isn't available for your distribution, or you want to use a newer version than they offer, you can [Compiling compile your own]. Note that older versions of Tesseract only supported processing .tiff files.
 
 == Mac OS X ==
 
-The easiest way to install Tesseract is through [http://brew.sh/ homebrew]. Once homebrew is installed, you can install Tesseract by running the command: `brew install tesseract`.
-
-If you want to use language training data not included with the homebrew package, [http://code.google.com/p/tesseract-ocr/downloads/list download the appropriate training data], open it with Finder, and copy the .traineddata file into the `/usr/local/Cellar/tesseract/<version>/share/tessdata` directory.
+The easiest way to install Tesseract is with [https://www.macports.org/ macports]. Once it is installed, you can install Tesseract by running the command `sudo port install tesseract`, and any language with `sudo port install tesseract-ocr-<langcode>`.
 
 == Windows ==
 
@@ -53,7 +51,7 @@ Or to do the same with German:
   tesseract myscan.png out -l deu
 }}}
 
-Tesseract also includes a hOCR mode, which produces a special HTML file with the coordinates of each letter. This can be used to create a searchable pdf, using a tool such as [http://exactcode.de/site/open_source/exactimage/hocr2pdf Hocr2PDF]. To use it, use the 'hocr' config option, like this:
+Tesseract also includes a hOCR mode, which produces a special HTML file with the coordinates of each word. This can be used to create a searchable pdf, using a tool such as [http://exactcode.de/site/open_source/exactimage/hocr2pdf Hocr2PDF]. To use it, use the 'hocr' config option, like this:
 
 {{{
   tesseract myscan.png out hocr
