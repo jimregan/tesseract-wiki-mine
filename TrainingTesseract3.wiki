@@ -15,6 +15,8 @@ Tesseract 3.01 added top-to-bottom languages, and Tesseract 3.02 added Hebrew (r
 
 Tesseract is slower with large character set languages (like Chinese), but it seems to work OK.
 
+Tesseract needs to know about different shapes of the same character by having different fonts separated explicitly. This used to be limited to 32 fonts, but the limit has been raised to 64. It is set by the constant MAX_NUM_CONFIGS defined in intproto.h. Note that runtime is heavily dependent on the number of fonts provided, and training more than 32 will result in a significant slow-down.
+
 Any language that has different punctuation and numbers is going to be disadvantaged by some of the hard-coded algorithms that assume ASCII punctuation and digits. To be fixed in 3.0x for x>=2.
 
 You need to run all commands in the same folder where are located your input files.
@@ -100,14 +102,14 @@ If you can use text2image for your application, great! Now skip to Run Tesseract
   * *DO NOT MIX FONTS IN AN IMAGE FILE* (In a single .tr file to be precise.) This will cause features to be dropped at clustering, which leads to recognition errors.
   * The example boxtiff files on the downloads page will help if you are not sure how to format your training data.
 
-Next print and scan (or use some electronic rendering method) to create an image of your training page. Upto 32 training files can be used (of multiple pages). It is best to create a mix of fonts and styles (but in separate files), including italic and bold.
+Next print and scan (or use some electronic rendering method) to create an image of your training page. Upto 64 training files can be used (of multiple pages). It is best to create a mix of fonts and styles (but in separate files), including italic and bold.
 
 *NOTE:* training from real images is actually quite hard, due to the spacing-out requirements. This will be improved in a future release. For now it is much easier if you can print/scan your own training text.
 
 You will also need to save your training text as a UTF-8 text file for use in the next step where you have to insert the codes into another file.
 
 *Clarification for large amounts of training data*
-The 32 images limit is for the number of *FONTS.* Each font should be put in a single multi-page tiff and the box file can be modified to specify the page number for each character after the coordinates. Thus an arbitrarily large amount of training data may be created for any given font, allowing training for large character-set languages. An alternative to multi-page tiffs is to create many single-page tiffs for a single font, and then you must cat together the tr files for each font into several single-font tr files. In any case, the input tr files to mftraining must each contain a single font.
+The 64 images limit is for the number of *FONTS.* Each font should be put in a single multi-page tiff and the box file can be modified to specify the page number for each character after the coordinates. Thus an arbitrarily large amount of training data may be created for any given font, allowing training for large character-set languages. An alternative to multi-page tiffs is to create many single-page tiffs for a single font, and then you must cat together the tr files for each font into several single-font tr files. In any case, the input tr files to mftraining must each contain a single font.
 
 == Make Box Files ==
 
@@ -217,8 +219,8 @@ subset of an existing language, or add different characters/shapes to an existin
   # Cat the filtered box files in an identical way to the .tr files for handing off to unicharset_extractor.
   # Run the rest of the training process.
 Caution! This is not quite as simple as it sounds! cntraining and mftraining can only
-take upto 32 .tr files, so you must cat all the files from multiple languages for the
-same font together to make 32 language-combined, but font-individual files.
+take upto 64 .tr files, so you must cat all the files from multiple languages for the
+same font together to make 64 language-combined, but font-individual files.
 The characters found in the tr files *must* match the sequence
 of characters found in the box files when given to unicharset_extractor, so you have to
 cat the box files together in the *same order* as the tr files.
