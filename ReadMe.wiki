@@ -19,7 +19,7 @@ If Tesseract isn't available for your distribution, or you want to use a newer v
 
 == Mac OS X ==
 
-The easiest way to install Tesseract is with [https://www.macports.org/ macports]. Once it is installed, you can install Tesseract by running the command `sudo port install tesseract`, and any language with `sudo port install tesseract-ocr-<langcode>`.
+The easiest way to install Tesseract is with [https://www.macports.org/ macports]. Once it is installed, you can install Tesseract by running the command `sudo port install tesseract`, and any language with `sudo port install tesseract-<langcode>`.
 
 == Windows ==
 
@@ -75,4 +75,3 @@ If you find a bug and fix it yourself, the best thing to do is to attach the pat
 First read the [http://code.google.com/p/tesseract-ocr/w/list Wiki], particularly the [FAQ] to see if your problem is addressed there. If not, search the the [http://groups.google.com/group/tesseract-ocr Tesseract user forum] or the [http://groups.google.com/group/tesseract-dev Tesseract developer forum], and if you still can't find what you need, please ask us there.
 
 Installation notes for earlier versions have been relocated to a [http://code.google.com/p/tesseract-ocr/wiki/ReadMePre3 separate page]
-
