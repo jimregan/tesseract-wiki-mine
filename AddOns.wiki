@@ -59,6 +59,7 @@ Platform support depends on used language and experience of user.
 
 == Community training project ==
 
+  * *Polish Fraktur*: training as [http://dl.psnc.pl/activities/projekty/impact/results/ result of the IMPACT project], [http://dl.psnc.pl/download/tesseract_traineddata.zip trained dataset] 
   * *Ancient Greek training for Tesseract*: https://www.dur.ac.uk/nick.white/grctraining/
   * *Chinese simplefied*: see issue [http://code.google.com/p/tesseract-ocr/issues/detail?id=296 296]; download http://ubuntuone.com/p/3Yw/
   * *Indic*: http://code.google.com/p/tesseractindic/, https://github.com/debayan/Tesseract-Indic-OCR/
@@ -84,7 +85,7 @@ Platform support depends on used language and experience of user.
   * for 3.00 (and 3.01?) see http://code.google.com/p/ocrivist/source/browse/#svn%2Ftessintf where is C wrapper with Freepascal bindings 
 
 *.Net*:
-  * https://github.com/charlesw/tesseract
+  * https://github.com/charlesw/tesseract - project offers also [https://github.com/charlesw/tesseract/tree/master/src/lib/TesseractOcr/x64 tesseract-ocr 64bit Windows library]
   * http://code.google.com/p/tesseractdotnet/
 
 *Python*:
@@ -103,6 +104,9 @@ Platform support depends on used language and experience of user.
 *Java*: http://tess4j.sourceforge.net/ (JNA wrapper)
 
 *PHP*: https://code.google.com/p/php-tesseract/
+
+*Objective-C*: https://github.com/ldiqual/tesseract-ios
+
 
 ===  Tesseract 2.0x ===
 

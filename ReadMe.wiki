@@ -19,7 +19,7 @@ If Tesseract isn't available for your distribution, or you want to use a newer v
 
 == Mac OS X ==
 
-The easiest way to install Tesseract is with [https://www.macports.org/ macports]. Once it is installed, you can install Tesseract by running the command `sudo port install tesseract`, and any language with `sudo port install tesseract-<langcode>`.
+The easiest way to install Tesseract is with [https://www.macports.org/ MacPorts]. Once it is installed, you can install Tesseract by running the command `sudo port install tesseract`, and any language with `sudo port install tesseract-<langcode>`. List of available langcodes can be found on [https://www.macports.org/ports.php?by=name&substr=tesseract- MacPorts tesseract page].
 
 == Windows ==
 

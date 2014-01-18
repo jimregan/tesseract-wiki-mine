@@ -27,13 +27,24 @@
   * [http://www.free-ocr.com/ Free OCR]
   * [http://www.i2ocr.com/ i2OCR]
 
+== Mobile ==
 
+  * _Android_:
+    * [https://github.com/rmtheis/tess-two tess-two] - A fork of Tesseract Tools for Android [http://code.google.com/p/tesseract-android-tools/ tesseract-android-tools] that adds some additional functions.
+    * [https://play.google.com/store/apps/details?id=com.renard.ocr textfairy] Android OCR App with source code at [https://github.com/renard314/textfairy github.com]
+    * [http://code.google.com/p/tesseract-android-tools/ tesseract-android-tools]: set of Android APIs
+    * [http://code.google.com/p/mobileocr/ Mobile OCR]: The goal of Mobile OCR is to create an application for the Android platform that will recognize text from an image taken by the phone's camera. The application will be fully accessible to low vision and blind users
+  * _iOS_:
+    * [https://github.com/robmathews/OCR-iOS-Example OCR-iOS-Example] - a simple example of how to do optical character recognition (OCR) on iOS.
+    * [https://github.com/nolanbrown/Tesseract-iPhone-Demo Tesseract-iPhone-Demo ] - example based on tesseract 2.04.
+  * _More OS_:
+    * [http://www.scanbizcards.com ScanBizCards]: Mobile solution for business card scanning. _Requirements:_ iPhone 4/iPhone 3/Android 2.0
+  
 == Others ==
   * [http://www.devscope.net/products/DevScopeOCR DevScope OCR SDK] is a Optical Character Recognition toolkit engine based on Tesseract OCR v3 that allows to develop applications using Microsoft .NET framework
   * [https://github.com/jflesch/paperwork Paperwork] - using OCR to grep dead trees the easy way (requires pyocr)
   * [http://www.primaresearch.org/tools.php Aletheia] - An Advanced Document Layout and Text Ground-Truthing System for Production Environments
   * [http://gscan2pdf.sourceforge.net/ gscan2pdf] a GUI to produce PDFs or DjVus from scanned documents
-  * [https://play.google.com/store/apps/details?id=com.renard.ocr textfairy] Android OCR App with source code at [https://github.com/renard314/textfairy github.com]
   * [http://audiveris.kenai.com/ Audiveris] is an open-source Optical Music Recognition software which processes the image of a music sheet to automatically provide symbolic music information in MusicXML standard.
   * [https://code.google.com/p/ocrivist/ Ocrivist] is a utility which makes it possible to scan and OCR books and other printed documents to PDF or Djvu format.
   * [https://code.google.com/p/thu-ipv6-login/ thu-ipv6-login] a python script for IPv6 authentication in Tsinghua University with support for OCR of authcode
@@ -46,8 +57,6 @@
   * [http://www.donaldmarang.org/speedy-ocr.html speedy-ocr] utility to simplify scanning and OCR focus to help blind and visually impaired community. It is part of [http://vinuxproject.org Vinux project].
   * [http://apps.man.poznan.pl/trac/varico/wiki Project VIRAL] Varico Invoice Recognition with Assisted Learning
   * [http://blender3d.github.com/Bindery/ Bindery]: A simple GUI for binding post processed scanned pages into digital documents
-  * [http://code.google.com/p/tesseract-android-tools/ tesseract-android-tools]: set of Android APIs
-  * [http://code.google.com/p/mobileocr/ Mobile OCR]: The goal of Mobile OCR is to create an application for the Android platform that will recognize text from an image taken by the phone's camera. The application will be fully accessible to low vision and blind users
   * [http://code.google.com/p/clarify Clarify]: Clarify helps you OCR 'image-only' PDFs. Your input is a PDF that you normally cannot extract text from. The output is text. Clarify is a python module that wraps up tesseract-ocr, xpdf and netpbm. _Requirements:_ python, tesseract-ocr, xpdf, netpbm
   * [http://hocrtopdf.codeplex.com/documentation hOcr2Pdf.NET]: hOcr2Pdf.NET is a library that programmers can use to create highly compressed, searchable pdf's for applications. _Requirements:_ .NET 2.0 or higher, Tesseract 3.0, JBig2.exe
   * [http://rubyforge.org/projects/pdfbeads PDFBeads]: convert scanned images to a single searchable PDF file based on hOCR files. _Requirements:_ ruby, RMagick, hpricot
@@ -55,7 +64,6 @@
   * [https://github.com/jbrinley/HocrConverter HocrConverter]: creates PDFs and plain text from hOCR documents. _Requirements:_ python, reportlab
   * [http://www.acoveo.com/acoveo/files/HocrToPdf.java  HocrToPdf.java]: java source for very basic hOCR to PDF converter. Compiled version can be found at project [http://code.google.com/p/modi2hocr/source/browse/trunk/ modi2hocr]. _Requirements:_ java, jericho, iText2 
   * [http://hocrtopdf.codeplex.com/ hOcr2Pdf.NET]: is a .NET library to convert .hocr html produced by Tesseract or Cuneiform into searchable pdfs using HtmlAgilityPack and iTextSharp. _Requirements:_ C#.
-  * [http://www.scanbizcards.com ScanBizCards]: Mobile solution for business card scanning. _Requirements:_ iPhone 4/iPhone 3/Android 2.0
   * [http://code.google.com/p/tallyho/ Tally-Ho]: Tally-Ho is a screen reader intended for sites like google books
   * [http://rosarior.github.com/mayan/ Mayan EDMS]: Document management system with tesseract as it's base
   * [http://git.lrde.epita.fr/?p=olena.git;a=summary Olena]: a generic and efficient image processing platform (tesseract is used in its part called [http://git.lrde.epita.fr/?p=olena.git;a=tree scribo])
