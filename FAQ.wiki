@@ -200,7 +200,7 @@ There is a minimum text size for reasonable accuracy. You have to consider resol
 
 = Why is the output is empty or of poor quality? =
 
-Read the [PoorQuality] wiki page.
+Read the [ImproveQuality] wiki page.
 
 = How do I generate the language data files? =
 
