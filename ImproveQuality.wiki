@@ -1,4 +1,4 @@
-#summary Suggestions in case of poor quality output.
+#summary Advice on improving the quality of your output.
 
 = Improving the quality of the output =
 
