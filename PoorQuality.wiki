@@ -48,6 +48,16 @@ Scanned pages often have dark borders around them. These can be erroneously pick
 
 By default Tesseract segments an image expecting a page of text. If you're just seeking to OCR a small region try a different segmentation mode, using the {{{-psm}}} argument.
 
+
+== Dictionaries, word lists, and patterns ==
+
+Tesseract is optimised to recognise sentences of words. If you're trying to recognise something else, like receipts, price lists, or codes, there are a few things you can do to improve the accuracy of your results, as well as double-checking that the appropriate [#Segmentation_method] segmentation method is selected.
+
+Disabling the dictionaries Tesseract uses should increase recognition if most of your text isn't dictionary words. They can be disabled by setting the both of the [ControlParams configuration variables] <code>load_system_dawg</code> and <code>load_freq_dawg</code> to false.
+
+It is also possible to add words to the word list Tesseract uses to help recognition, or to add common character patterns, which can further help to improve accuracy if you have a good idea of the sort of input you expect. This is explained in more detail in the [http://tesseract-ocr.googlecode.com/svn-history/trunk/doc/tesseract.1.html#_config_files_and_augmenting_with_user_data Tesseract manual].
+
+
 == Still having problems? ==
 
 If you've tried the above and are still getting low accuracy results, [https://groups.google.com/forum/?fromgroups#!forum/tesseract-ocr ask on the forum] for help, ideally posting an example image.
