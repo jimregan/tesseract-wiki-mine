@@ -63,11 +63,11 @@ parallel "tesseract {} {} -l eng hocr; hocr2pdf -i {} -n -o {}.pdf < {}.html" ::
 
 Tesseract is a command line program, so you need to run it from the [http://commandwindows.com/ command line]. If you need program with a graphical interface there are several available from the [http://code.google.com/p/tesseract-ocr/wiki/3rdParty#GUI 3rdParty] page.
 
-= Tesseract output =
+= What output formats can Tesseract produce? =
 
-Tesseract standard output is plain txt file (utf-8 encoded, with '\n' as [http://en.wikipedia.org/wiki/Newline end-of-line marker]).
+Tesseract's standard output is plain txt file (utf-8 encoded, with '\n' as [http://en.wikipedia.org/wiki/Newline end-of-line marker]).
 
-With configfile 'hocr' tesseract will produce xhtml output compliant with [https://docs.google.com/document/preview?id=1QQnIQtvdAC_8n92-LhwPcjtAUFwBlzE8EWnKAxlgVf0&pli=1 hocr specification] (input image name must be ASCII if operation system use other than utf-8 encoding for filesystem names - see [http://code.google.com/p/tesseract-ocr/issues/detail?id=809 issue 809] for some details).
+With the configfile 'hocr' tesseract will produce xhtml output compliant with [https://docs.google.com/document/preview?id=1QQnIQtvdAC_8n92-LhwPcjtAUFwBlzE8EWnKAxlgVf0&pli=1 hocr specification] (the input image name must be ASCII if operation system use other than utf-8 encoding for filesystem names - see [http://code.google.com/p/tesseract-ocr/issues/detail?id=809 issue 809] for some details).
 
 = libtesseract.so.3: cannot open shared object file =
 
@@ -198,19 +198,13 @@ There not possible to add just one character or font. You need to retrain from s
 
 There is a minimum text size for reasonable accuracy. You have to consider resolution as well as point size. Accuracy drops off below 10pt x 300dpi, rapidly below 8pt x 300dpi. A quick check is to count the pixels of the x-height of your characters. (X-height is the height of the lower case x.) At 10pt x 300dpi x-heights are typically about 20 pixels, although this can vary dramatically from font to font. Below an x-height of 10 pixels, you have very little chance of accurate results, and below about 8 pixels, most of the text will be "noise removed".
 
-= Output without result or bad output =
+= Why is the output is empty or of poor quality? =
 
-  # please check [http://code.google.com/p/tesseract-ocr/wiki/FAQ#Is_there_a_Minimum_Text_Size?_(It_won't_read_screen_text!) DPI of your image and size of text]
-  # try to set different segmentation mode (-psm option for command line) if you try to OCR small part of text (line, text)
-  # try to add border (see [http://code.google.com/p/tesseract-ocr/issues/detail?id=398 issue 398])
-  # Set tesseract variable `tessedit_write_images` as true. It will save binarized image used for OCR to file `tessinput.tif`. Try to pre-process input image (increase DPI, resize, blur/sharpen image) before OCR (see [http://code.google.com/p/tesseract-ocr/issues/detail?id=191 issue 191]), so `tessinput.tif` will be clean (no noise).
-  # try to remove noise, dewarp (so there are straight text lines) image and binarize image
-
-You can try to have a look at [http://scantailor.sourceforge.net/ Scantailor] -  interactive post-processing tool for scanned pages.
+Read the [PoorQuality] wiki page.
 
 = How do I generate the language data files? =
 
-Read the TrainingTesseract wiki.
+Read the [TrainingTesseract] wiki page.
 
 = How do I unpack or alter existing language data files? =
 

@@ -46,12 +46,12 @@ Scanned pages often have dark borders around them. These can be erroneously pick
 
 == Segmentation method ==
 
-By default Tesseract segments an image expecting a page of text. If you're just seeking to OCR a small region try a different segmentation mode, using the {{{-psm}}} argument.
+By default Tesseract expects a page of text when it segments an image. If you're just seeking to OCR a small region try a different segmentation mode, using the {{{-psm}}} argument. Note that adding a border to the text may also help, see [https://code.google.com/p/tesseract-ocr/issues/detail?id=398 issue 398].
 
 
 == Dictionaries, word lists, and patterns ==
 
-Tesseract is optimised to recognise sentences of words. If you're trying to recognise something else, like receipts, price lists, or codes, there are a few things you can do to improve the accuracy of your results, as well as double-checking that the appropriate [#Segmentation_method segmentation method] is selected.
+By default Tesseract is optimised to recognise sentences of words. If you're trying to recognise something else, like receipts, price lists, or codes, there are a few things you can do to improve the accuracy of your results, as well as double-checking that the appropriate [#Segmentation_method segmentation method] is selected.
 
 Disabling the dictionaries Tesseract uses should increase recognition if most of your text isn't dictionary words. They can be disabled by setting the both of the [ControlParams configuration variables] <code>load_system_dawg</code> and <code>load_freq_dawg</code> to false.
 
