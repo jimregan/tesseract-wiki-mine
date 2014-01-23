@@ -1,4 +1,5 @@
 #summary Advice on improving the quality of your output.
+#labels Featured
 
 = Improving the quality of the output =
 
