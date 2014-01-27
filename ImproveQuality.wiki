@@ -58,6 +58,8 @@ Disabling the dictionaries Tesseract uses should increase recognition if most of
 
 It is also possible to add words to the word list Tesseract uses to help recognition, or to add common character patterns, which can further help to improve accuracy if you have a good idea of the sort of input you expect. This is explained in more detail in the [http://tesseract-ocr.googlecode.com/svn-history/trunk/doc/tesseract.1.html#_config_files_and_augmenting_with_user_data Tesseract manual].
 
+If you know you will only encounter a subset of the characters available in the language, such as only digits, you can use the `tessedit_char_whitelist` [ControlParams configuration variable]. See the [https://code.google.com/p/tesseract-ocr/wiki/FAQ#How_do_I_recognize_only_digits? FAQ for an example].
+
 
 == Still having problems? ==
 
