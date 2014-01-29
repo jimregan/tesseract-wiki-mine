@@ -162,6 +162,10 @@ configure --disable-graphics
 
 There are a variety of programs to help with this, see [http://code.google.com/p/tesseract-ocr/wiki/AddOns#Tesseract_box_editors_and_traning_tools the AddOns page].
 
+= Utf8 buffer too big, size=xx (Error during training) =
+
+There is an upper limit of 30 bytes for the utf-8 representation of each recognizable unit (character/grapheme/glyph). It can't easily be increased. Check your box file for strangely long strings.
+
 
 = How do I recognize only digits? =
 
