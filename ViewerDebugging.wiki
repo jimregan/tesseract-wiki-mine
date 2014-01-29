@@ -8,18 +8,18 @@ Tesseract has a built-in capability to display its internal state, so that you c
 
 The following components are required to run the viewer:
    * Java runtime
-   * piccolo-1.2.jar
-   * piccolox-1.2.jar
+   * piccolo2d-core-3.0.jar
+   * piccolo2d-extras-3.0.jar
    * `ScrollView.jar`, built from the source in tesseract/java
 
-The piccolo libraries are available from: http://www.cs.umd.edu/hcil/jazz/download/index.shtml. Download 
-[http://www.cs.umd.edu/hcil/jazz/download/piccolo/piccolo-1.2-compiled.zip piccolo-1.2-compiled.zip], extract piccolox.jar and piccolo.jar from piccolo-1.2\build\ and rename (or link) them to piccolo-1.2.jar and  piccolox-1.2.jar.
+The piccolo libraries are available from: http://search.maven.org/#search|ga|1|g%3A%22org.piccolo2d%22. Download 
+[http://search.maven.org/remotecontent?filepath=org/piccolo2d/piccolo2d-core/3.0/piccolo2d-core-3.0.jar piccolo2d-core-3.0.jar], and [http://search.maven.org/remotecontent?filepath=org/piccolo2d/piccolo2d-extras/3.0/piccolo2d-extras-3.0.jar piccolo2d-extras-3.0.jar] to tesseract/java to build ScrollView.jar.
 
 All these jar files need to go in a single directory. Tesseract learns the location either through the environment variable SCROLLVIEW_PATH or a compiler define of the same name.
 
 *On Linux:*
 
-   * Copy piccolo-1.2.jar and piccolox-1.2.jar to tesseract/java.
+   * Copy piccolo2d-core-3.0.jar and piccolo2d-extras-3.0.jar to tesseract/java.
    * cd java
    * {{{make ScrollView.jar}}}
    * Set the SCROLLVIEW_PATH environment variable to point to your java directory containing all 3 jar files.
