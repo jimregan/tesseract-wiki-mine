@@ -16,6 +16,7 @@ sudo apt-get install libpng12-dev
 sudo apt-get install libjpeg62-dev
 sudo apt-get install libtiff4-dev
 sudo apt-get install zlib1g-dev
+sudo apt-get install libicu-dev # (if you plan to make the training tools)
 }}}
 
 You also need to install [http://www.leptonica.org/ Leptonica]. There is an apt-get package libleptonica-dev, *but if you are using an oldish version of Linux, the Leptonica version may be too old, so you will need to build from source.*
