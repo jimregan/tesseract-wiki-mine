@@ -4,6 +4,21 @@
 
 This page keeps the most up-to-date release notes.
 
+= Tesseract release notes Feb 4 2014 = V3.03 (rc1). =
+  * Added new training tool text2image to generate box/tif file pairs from text and truetype fonts.
+  * Added support for PDF output with searchable text.
+  * Removed entire IMAGE class and all code in image directory.
+  * Tesseract executable: support for output to stdout; limited support for one page images from stdin (especially on Windows)
+  * Added Renderer to API to allow document-level processing and output of document formats, like hOCR, PDF.
+  * Major refactor of word-level recognition, beam search, eliminating dead code.
+  * Refactored classifier to make it easier to add new ones.
+  * Generalized feature extractor to allow feature extraction from greyscale.
+  * Improved sub/superscript treatment.
+  * Improved baseline fit.
+  * Added set_unicharset_properties to training tools.
+  * Many bug fixes.
+  * More training source data included.
+
 = Tesseract release notes Oct 23 2012 - V3.02.02 =
   * Moved ResultIterator/PageIterator to ccmain.
   * Added Right-to-left/Bidi capability in the output iterators for Hebrew/Arabic.
