@@ -32,6 +32,7 @@
   * _Android_:
     * [https://github.com/rmtheis/tess-two tess-two] - A fork of Tesseract Tools for Android [http://code.google.com/p/tesseract-android-tools/ tesseract-android-tools] that adds some additional functions.
     * [https://play.google.com/store/apps/details?id=com.renard.ocr textfairy] Android OCR App with source code at [https://github.com/renard314/textfairy github.com]
+    * [https://play.google.com/store/apps/details?id=org.atai.TessUI#?t=W251bGwsMSwxLDUwMSwib3JnLmF0YWkuVGVzc1VJIl0. Character Recognition] Android OCR App with source code at [https://gitorious.org/character-recognition/ gitorious.org]
     * [http://code.google.com/p/tesseract-android-tools/ tesseract-android-tools]: set of Android APIs
     * [http://code.google.com/p/mobileocr/ Mobile OCR]: The goal of Mobile OCR is to create an application for the Android platform that will recognize text from an image taken by the phone's camera. The application will be fully accessible to low vision and blind users
   * _iOS_:
@@ -41,6 +42,8 @@
     * [http://www.scanbizcards.com ScanBizCards]: Mobile solution for business card scanning. _Requirements:_ iPhone 4/iPhone 3/Android 2.0
   
 == Others ==
+  * https://github.com/guitarmind/tesseract-web-service is An implementation of RESTful web service for tesseract-OCR using tornado
+  * [http://www.rasteredge.com/dotnet-imaging/addon-ocr-sdk/ RasterEdge .NET Image SDK - OCR Recognition] is robust, high-performance recognition application of royalty-free distribution for desktop or server applications.
   * [http://www.devscope.net/products/DevScopeOCR DevScope OCR SDK] is a Optical Character Recognition toolkit engine based on Tesseract OCR v3 that allows to develop applications using Microsoft .NET framework
   * [https://github.com/jflesch/paperwork Paperwork] - using OCR to grep dead trees the easy way (requires pyocr)
   * [http://www.primaresearch.org/tools.php Aletheia] - An Advanced Document Layout and Text Ground-Truthing System for Production Environments
