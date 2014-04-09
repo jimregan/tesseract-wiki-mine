@@ -47,3 +47,4 @@ plus description of [http://tesseract-ocr.googlecode.com/svn-history/r719/trunk/
   * [http://research.ijcaonline.org/volume39/number6/pxc3877076.pdf Shirorekha Chopping Integrated Tesseract OCR Engine for Enhanced Hindi Language Recognition] by Nitin Mishra, C. Patvardhan, C. Vasantha Lakshmi, Sarika Singh
   * [http://lib.psnc.pl/dlibra/docmetadata?id=358&from=publication&showContent=true Report on the comparison of Tesseract and ABBYY FineReader OCR engines] by Heliński, Kmieciak, and Parkoła
   * [https://docs.google.com/document/d/1QQnIQtvdAC_8n92-LhwPcjtAUFwBlzE8EWnKAxlgVf0/edit The hOCR Embedded OCR Workflow and Output Format] (hOCR specification)
+  * [https://drive.google.com/file/d/0B7l10Bj_LprhbUlIUFlCdGtDYkE/edit?usp=sharing Slides from Tutorial on Tesseract presented at DAS2014]
