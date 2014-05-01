@@ -197,6 +197,15 @@ tesseract imagename outputbase digits
 
 There not possible to add just one character or font. You need to retrain from scratch. See the TrainingTesseract wiki.
 
+= How do I produce searchable PDF output? =
+
+Searchable PDF output is a standard feature as of Tesseract
+version 3.0.3. 
+
+{{{
+tesseract phototest.tif phototest pdf
+}}}
+
 
 = Is there a Minimum Text Size? (It won't read screen text!) =
 
