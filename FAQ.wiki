@@ -199,8 +199,7 @@ There not possible to add just one character or font. You need to retrain from s
 
 = How do I produce searchable PDF output? =
 
-Searchable PDF output is a standard feature as of Tesseract
-version 3.0.3. 
+Searchable PDF output is a standard feature as of Tesseract version 3.03. 
 
 {{{
 tesseract phototest.tif phototest pdf
