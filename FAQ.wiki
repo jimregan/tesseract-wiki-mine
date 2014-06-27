@@ -392,6 +392,10 @@ See suggestions how to improve input image in [http://code.google.com/p/tesserac
 
 This means that font name is not in font_properties or font_properties does not meet [http://code.google.com/p/tesseract-ocr/wiki/TrainingTesseract3#Requirements_for_text_input_files requirements]
 
+= Can I use Tesseract for handwriting recognition? =
+
+You can, but it won't work very well, as Tesseract is designed for printed text. Take a look at the [http://lipitk.sourceforge.net/ Lipi Toolkit] project instead.
+
 = My question isn't in here! =
 
 Try searching the forum: http://groups.google.com/group/tesseract-ocr as your question may have come up before even if it is not listed here.
