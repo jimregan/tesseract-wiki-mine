@@ -2,9 +2,11 @@
 
 This wiki provide simple example how to use tesseract-ocr API (v3.02.02) in C++.
 It is expected that tesseract-ocr is correctly installed including all dependecies.
-It is expected that user is familiar with C++, compiling and linking program on his platform.
+It is expected that user is familiar with C++, compiling and linking program on his platform, [#Compiling_C++_API_programs_on_Linux though basic compilation examples are included for beginners with Linux].
 
 More details about tesseract-ocr API can found at [https://code.google.com/p/tesseract-ocr/source/browse/trunk/api/baseapi.h?r=850 baseapi.h]
+
+<wiki:toc max_depth="1" />
 
 = Basic example =
 
@@ -157,6 +159,20 @@ Explanation for result codes are in [https://code.google.com/p/tesseract-ocr/sou
           delete[] symbol;
       } while((ri->Next(level)));
   }
+}}}
+
+= Compiling C++ API programs on Linux =
+
+Including and linking to Tesseract's API is done in a standard Linux way. To compile a basic program against the API, you can use a command like this:
+
+{{{
+g++ -o myprogram myprogram.cpp -llept -ltesseract
+}}}
+
+If Tesseract is installed in an unusual place, you can specify the include and lib directories explicitly with g++'s -I and -L flags, like this:
+
+{{{
+g++ -o myprogram myprogram.cpp -I/home/nick/local/include/tesseract -L/home/nick/local/lib -llept -ltesseract
 }}}
 
 = C-API in python =
