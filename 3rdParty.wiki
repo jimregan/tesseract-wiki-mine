@@ -42,6 +42,7 @@
     * [http://www.scanbizcards.com ScanBizCards]: Mobile solution for business card scanning. _Requirements:_ iPhone 4/iPhone 3/Android 2.0
   
 == Others ==
+  * [https://github.com/arturaugusto/display_ocr Display OCR] is OpenCV-Python + python-tesseract real-time image preprocess and OCR of 7 segments font.
   * [https://github.com/tleyden/open-ocr OpenOCR] makes it simple to host your own OCR REST API.
   * https://github.com/guitarmind/tesseract-web-service is An implementation of RESTful web service for tesseract-OCR using tornado
   * [http://www.rasteredge.com/dotnet-imaging/addon-ocr-sdk/ RasterEdge .NET Image SDK - OCR Recognition] is robust, high-performance recognition application of royalty-free distribution for desktop or server applications.
