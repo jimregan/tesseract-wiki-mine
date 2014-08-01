@@ -158,7 +158,7 @@ On Unix-like systems, the configure script can be instructed to disable graphics
 configure --disable-graphics
 }}}
 
-= Training tools for Ubuntu ==
+= Where are the training tools for Ubuntu 14.04 ? =
 
 Due to an oversight, training tools do not ship with Ubuntu 14.04.
 Either wait for the next Ubuntu release, or use these commands.
