@@ -161,7 +161,7 @@ configure --disable-graphics
 = Training tools for Ubuntu ==
 
 Due to an oversight, training tools do not ship with Ubuntu 14.04.
-Either wait for the next release, or use these commands.
+Either wait for the next Ubuntu release, or use these commands.
 
 {{{
 sudo apt-get build-dep tesseract-ocr
