@@ -158,6 +158,23 @@ On Unix-like systems, the configure script can be instructed to disable graphics
 configure --disable-graphics
 }}}
 
+= Training tools for Ubuntu ==
+
+Due to an oversight, training tools do not ship with Ubuntu 14.04.
+Either wait for the next release, or use these commands.
+
+{{{
+sudo apt-get build-dep tesseract-ocr
+sudo apt-get install devscripts
+dget http://http.debian.net/debian/pool/main/t/tesseract/tesseract_3.03.03-1.dsc
+tar xvzf tesseract_3.03.03.orig.tar.gz
+cd tesseract-3.03
+zcat ../tesseract_3.03.03-1.diff.gz | patch -p1
+debuild -us -uc
+cd ..
+sudo dpkg -i *.deb
+}}}
+
 = How do I Edit Box files used in training? =
 
 There are a variety of programs to help with this, see [http://code.google.com/p/tesseract-ocr/wiki/AddOns#Tesseract_box_editors_and_traning_tools the AddOns page].
